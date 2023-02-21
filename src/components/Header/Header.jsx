@@ -4,7 +4,7 @@ import cn from "classnames";
 
 // import api from "../../utils/api";
 
-export function Header({user}) {
+const Header = ({user}) => {
 
         // const emoe1 = api.getUserInfo().then(result => {return result.name});            
         // const NAME = async () => {
@@ -70,4 +70,7 @@ export function Header({user}) {
       </div>
     </header>
   );
-}
+};
+
+export default Header
+
