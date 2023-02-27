@@ -4,6 +4,8 @@ import {Header} from '../Header/Header';
 
 import api from '../../utils/api';
 
+
+
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
@@ -25,8 +27,6 @@ function App() {
   }
 
 
-
-
   return (
     <>
     {/* <div className={styles.container}> */}
@@ -39,7 +39,7 @@ function App() {
       </Header>
       {/* <Header user={currentUser} onUpdateUser={handleUpdateUser}>
       </Header> */}
-
+      
 
     {/* </div> */}
     </>
