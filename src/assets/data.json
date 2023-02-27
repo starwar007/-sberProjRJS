@@ -1,195 +1,567 @@
 [
 	{
-		"name": "Желудки утиные сушено-вяленые",
-		"price": 550,
-		"discount": 15,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/1.jpg",
-		"tags": ["new", "sale"]
-	},
-	{
-		"name": "Куриные желудочки для собак",
-		"price": 450,
-		"discount": 10,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/2.jpg"
-	},
-	{
-		"name": "Крупная говяжья сушено-вяленая жилка",
-		"price": 360,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/3.jpg"
-	},
-	{
-		"name": "Мелкая говяжья сушено-вяленая жилка",
-		"price": 300,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/4.jpg"
-	},
-	{
-		"name": "Калтык говяжий для собак",
-		"price": 290,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/5.jpg"
-	},
-	{
-		"name": "Бублик из бычьего корня",
-		"price": 340,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/6.jpg"
-	},
-	{
-		"name": "Копыто оленье",
-		"price": 490,
-		"discount": 0,
-		"wight": "1 шт",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/7.jpg"
-	},
-	{
-		"name": "Бараний рубец сушенный",
-		"price": 330,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/8.jpg"
-	},
-	{
-		"name": "Рубец говяжий для собак",
-		"price": 290,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/9.jpg"
-	},
-	{
-		"name": "Свиные уши для собак",
-		"price": 330,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/10.jpg"
-	},
-	{
-		"name": "Уши говяжьи для собак",
-		"price": 330,
-		"discount": 0,
-		"wight": "100 г",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/11.jpg"
-	},
-	{
-		"name": "Печенья с яблоком (печень говяжья, сердце)",
-		"price": 340,
-		"discount": 0,
-		"wight": "14 шт",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/12.jpg"
-	},
-	{
-		"name": "Рога оленя для собак весом до 3кг. Размер XS",
-		"price": 350,
-		"discount": 14,
-		"wight": "1 шт",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/13.jpg"
-	},
-	{
-		"name": "Рога оленя для собак весом от 3 до 5 кг. Размер S",
-		"price": 400,
-		"discount": 0,
-		"wight": "1 шт",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/14.jpg"
-	},
-	{
-		"name": "Рога оленя для собак весом от 5 до 10 кг. Размер M",
-		"price": 600,
-		"discount": 0,
-		"wight": "1 шт",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/15.jpg"
-	},
-	{
-		"name": "Рога оленя для собак весом от 10 до 30 кг. Размер L",
-		"price": 800,
-		"discount": 0,
-		"wight": "1 шт",
-		"description": "Описание demo",
-		"isFavorite": false,
-		"isCart": false,
-		"available": true,
-		"stock": 10,
-		"picture": "https://react-learning.ru/image-compressed/16.jpg"
-	}
+        "image": "http://dummyimage.com/400x200.png/5fa2dd/ffffff",
+        "likes": [],
+        "comments": [],
+        "tags": [
+            "legendary",
+            "peace",
+            "kaif"
+        ],
+        "isPublished": true,
+        "_id": "63e4fde859b98b038f77b47b",
+        "title": "Welcome to school in our Group-10",
+        "author": {
+            "name": "Алексей",
+            "about": "Developer",
+            "avatar": "https://react-learning.ru/image-compressed/default-image.jpg",
+            "_id": "63e12a4559b98b038f77b221",
+            "group": "group-10"
+        },
+        "text": "This is where it started",
+        "created_at": "2023-02-09T14:06:32.701Z",
+        "updated_at": "2023-02-17T10:31:57.362Z",
+        "__v": 0
+    },
+    {
+        "image": "https://picsum.photos/200",
+        "likes": [
+            "622bd81b06c7d323b8ae4614",
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "pic",
+            "photo",
+            "size"
+        ],
+        "isPublished": true,
+        "_id": "63e52a0559b98b038f77b4c5",
+        "title": "Рандомная картинка",
+        "author": {
+            "name": "Алексей",
+            "about": "Developer",
+            "avatar": "https://react-learning.ru/image-compressed/default-image.jpg",
+            "_id": "63e12a4559b98b038f77b221",
+            "group": "group-10"
+        },
+        "text": "Просто рандомная картинка с удобного сервиса. Каждый раз должна меняться.",
+        "created_at": "2023-02-09T17:14:45.662Z",
+        "updated_at": "2023-02-20T11:43:39.072Z",
+        "__v": 0
+    },
+    {
+        "image": "https://img.myloview.com.br/quadros/lecanto-light-manha-de-fevereiro-fora-de-lecanto-florida-o-orvalho-que-havia-acumulado-na-grama-da-noite-anterior-criou-uma-nevoa-surreal-como-os-raios-do-sol-aqueceu-o-ar-400-71254643.jpg",
+        "likes": [
+            "63e2181759b98b038f77b27c",
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "tag",
+            "спорт",
+            "кнопка",
+            "каланча"
+        ],
+        "isPublished": true,
+        "_id": "63eb3d2c59b98b038f77b5e8",
+        "title": "Собрание сочинений",
+        "author": {
+            "name": "Каван Кванович",
+            "about": "Практикант",
+            "avatar": "https://baback.club/uploads/posts/2022-11/thumbs/1668071227_baback-club-p-legkie-risunki-simpsoni-krasivo-68.jpg",
+            "_id": "63e2181759b98b038f77b27c",
+            "group": "group-10"
+        },
+        "text": "Чтоб судить о нравственной силе народа и о том, к чему он способен в будущем, надо брать в соображение не ту степень безобразия, до которого он временно и даже хотя бы и в большинстве своём может унизиться, а надо брать в соображение лишь ту высоту духа, на которую он может подняться, когда придёт тому срок.",
+        "created_at": "2023-02-14T07:50:04.818Z",
+        "updated_at": "2023-02-20T10:40:52.398Z",
+        "__v": 0
+    },
+    {
+        "image": "https://u.kanobu.ru/articles/pics/7e6dc974-43f4-4ad0-9a55-2465566e9662.jpg",
+        "likes": [
+            "622bd81b06c7d323b8ae4614",
+            "63e127e659b98b038f77b217"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary",
+            "peace",
+            "kaif"
+        ],
+        "isPublished": true,
+        "_id": "63eb582d59b98b038f77b5f8",
+        "title": "Welcome to school. Again.",
+        "author": {
+            "name": "Alexander S.",
+            "about": "Разработчик",
+            "avatar": "https://i.pinimg.com/originals/10/c1/5e/10c15eb3f61e4a65821a448d659645bb.jpg",
+            "_id": "63e127e659b98b038f77b217",
+            "group": "group-10"
+        },
+        "text": "This is where it started",
+        "created_at": "2023-02-14T09:45:18.007Z",
+        "updated_at": "2023-02-20T11:42:36.426Z",
+        "__v": 0
+    },
+    {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Infobox_info_icon.svg/1200px-Infobox_info_icon.svg.png",
+        "likes": [
+            "63e2181759b98b038f77b27c",
+            "622bd81b06c7d323b8ae4614"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f10b933aa285034f78ac10",
+        "title": "Заметка",
+        "author": {
+            "name": "Каван Кванович",
+            "about": "Практикант",
+            "avatar": "https://baback.club/uploads/posts/2022-11/thumbs/1668071227_baback-club-p-legkie-risunki-simpsoni-krasivo-68.jpg",
+            "_id": "63e2181759b98b038f77b27c",
+            "group": "group-10"
+        },
+        "text": "В Центральном Доме кинематографистов 14 февраля состоялся мастер-класс ведущего российского эксперта в области авторского права, кандидата юридических наук, доцента кафедры продюсерского мастерства ВГИК Екатерины Александровны Звегинцевой на тему «Авторский договор: формальность или панацея».",
+        "created_at": "2023-02-18T17:32:03.010Z",
+        "updated_at": "2023-02-19T17:59:42.899Z",
+        "__v": 0
+    },
+    {
+        "image": "https://cs10.pikabu.ru/post_img/big/2019/08/28/11/1567017193122712086.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary",
+            "peace"
+        ],
+        "isPublished": true,
+        "_id": "63f283dc3aa285034f78aca3",
+        "title": "Бендер Сгибальщик Родригес",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Комический антигерой, сквернослов, алкоголик, заядлый курильщик сигар, почитатель порнографии для роботов (в виде электрических схем), клептоман, повар (его еда в большинстве случаев по меньшей мере несъедобна, часто опасна для жизни). В критической ситуации зачастую единственный, кто впадает в панику. ",
+        "created_at": "2023-02-19T20:17:32.099Z",
+        "updated_at": "2023-02-19T22:55:44.998Z",
+        "__v": 0
+    },
+    {
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8JKMaeSm8nWpCPKoeb-gqrk7ANjR_fOtgvg&usqp=CAU",
+        "likes": [
+            "622bd81b06c7d323b8ae4614"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f284763aa285034f78aca4",
+        "title": "Гомер Джей Симпсон",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Гомер и его жена Мардж имеют трёх детей: Барта, Лизу и Мэгги. Как кормилец семьи Гомер работает на Спрингфилдской атомной электростанции. Гомер воплощает в себе несколько американских стереотипов рабочего класса: он является неопрятным, некомпетентным, неуклюжим, ленивым, сильно пьющим и невежественным, страдает избыточным весом, однако по сути он также порядочный человек, сильно преданный своей семье. Несмотря на пригородную рутинную жизнь синих воротничков в сериале он имеет ряд замечательных переживаний. Обычно носит белое поло, синие джинсы и серые ботинки. Ездит на розовом седане. Крёстный отец Гомера — младшего. Гомер является одним из самых влиятельных вымышленных персонажей на телевидении, будучи описанным в британской газете The Sunday Times как «величайший комический персонаж [современного] времени».",
+        "created_at": "2023-02-19T20:20:06.821Z",
+        "updated_at": "2023-02-21T08:09:29.204Z",
+        "__v": 0
+    },
+    {
+        "image": "https://topspiski.com/wp-content/uploads/2018/01/futurama-turanga-leela.jpg",
+        "likes": [
+            "63e127e659b98b038f77b217",
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f2863b3aa285034f78aca6",
+        "title": "Туранга Лила",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Основной женский персонаж мультсериала «Футурама», капитан корабля фирмы Planet Express (Межпланетный экспресс) и, вместе с тем, наиболее ответственный и дисциплинированный член команды.",
+        "created_at": "2023-02-19T20:27:39.858Z",
+        "updated_at": "2023-02-20T10:16:52.703Z",
+        "__v": 0
+    },
+    {
+        "image": "https://topspiski.com/wp-content/uploads/2018/01/Zoidberg.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f286ae3aa285034f78aca8",
+        "title": "Доктор Зойдберг",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Джон Зойдберг — старый друг профессора Хьюберта Фарнсворта, ракообразный инопланетянин, прилетевший с планеты Декапод-10. В компании «Межпланетный экспресс» он вот уже на протяжении 10 лет работает доктором, хотя оказываемую им медицинскую помощь сложно назвать компетентной, так как этот самопровозглашенный эксперт по человеческим особям совершенно не разбирается в анатомии людей и может пришить оторванную часть тела не туда, где она должна была бы находиться. Несмотря на это, он превосходный хирург, который может сшить любые ткани.",
+        "created_at": "2023-02-19T20:29:34.522Z",
+        "updated_at": "2023-02-19T23:02:52.531Z",
+        "__v": 0
+    },
+    {
+        "image": "https://topspiski.com/wp-content/uploads/2018/01/23a0c1b0-ae8f-4ec1-afb6-478833c2e1de.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f286f73aa285034f78aca9",
+        "title": "Профессор Хьюберт Фарнсворт",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Профессор Фарнсворт является тридцатикратным внучатым племянником Фрая и самым близким оставшимся в живых его родственником. Для финансирования своих загадочных (а порой и совершенно сомнительных) экспериментов профессор основал небольшую фирму, которая занимается доставкой грузов по всей Галактике, и называется Planet Express – «Межпланетный экспресс».",
+        "created_at": "2023-02-19T20:30:47.902Z",
+        "updated_at": "2023-02-20T11:04:34.131Z",
+        "__v": 0
+    },
+    {
+        "image": "https://streetbags.ru/upload/iblock/65c/09ef2ba8_c1c2_11e5_b28f_902b34a22cea_88ceb161_c99f_11e5_b28f_902b34a22cea.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f",
+            "63e2181759b98b038f77b27c"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f35ab83aa285034f78acfc",
+        "title": "Барт Симпсон",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Герой мультипликационного сериала «Симпсоны». Наряду с Гомером, один из наиболее известных персонажей шоу. В списке пятидесяти лучших мультипликационных героев в истории по версии журнала TV Guide занимает 11-ю строчку совместно со своей сестрой Лизой. ",
+        "created_at": "2023-02-20T11:34:16.844Z",
+        "updated_at": "2023-02-20T22:16:27.862Z",
+        "__v": 0
+    },
+    {
+        "image": "https://topspiski.com/wp-content/uploads/2018/01/259323.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f35b2e3aa285034f78acfd",
+        "title": "Филипп Джей Фрай",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Главный герой мультсериала «Футурама». Фрай – обычный парень из 20-го века, который случайно попал в камеру криогенной заморозки, установленную на 1000 лет вперед, и после пробуждения оказался в далеком 3000-ном году. До этого рокового происшествия Фрай работал курьером и развозил пиццу.",
+        "created_at": "2023-02-20T11:36:14.379Z",
+        "updated_at": "2023-02-20T13:00:11.091Z",
+        "__v": 0
+    },
+    {
+        "image": "https://topspiski.com/wp-content/uploads/2018/01/Zapp_promo_2.jpg",
+        "likes": [
+            "63e127e659b98b038f77b217"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f35b643aa285034f78acfe",
+        "title": "Уэбело Зепп Бранниган",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Зепп Бранниган является 25-ти звездным генералом, а также главнокомандующим DOOP — флота Демократического Объединения Планет, а также капитаном военного космического корабля «Нимбус». Несмотря на обилие громких званий, Зепп никакими полководческими и стратегическими талантами не обладает. Все победы Зеппа Браннигана одержаны за счет нападения огромного количества военных на небольшое количество слабых противников, не способных оказать значительное сопротивление.",
+        "created_at": "2023-02-20T11:37:08.076Z",
+        "updated_at": "2023-02-20T11:43:34.522Z",
+        "__v": 0
+    },
+    {
+        "image": "https://2x2tv.ru/upload/iblock/7a9/7a92f8c19ad7eb0554aa4758e03ead64.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f35c0c3aa285034f78acff",
+        "title": "Лиза Мари Симпсон",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Героиня анимационного сериала «Симпсоны». Средний ребёнок в семье, восьмилетняя девочка, выделяющаяся среди остальных Симпсонов прежде всего своим умом и рассудительностью.",
+        "created_at": "2023-02-20T11:39:56.657Z",
+        "updated_at": "2023-02-20T11:40:07.340Z",
+        "__v": 0
+    },
+    {
+        "image": "https://247tempo.com/wp-content/uploads/2021/04/bugs-bunny-1068x600.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f37c403aa285034f78ad12",
+        "title": "Багз Банни",
+        "author": {
+            "name": "Лена Фархутдинова",
+            "about": "Я только учусь.",
+            "avatar": "https://s1.1zoom.ru/b5232/469/Painting_Art_The_Memorandum_of_Kyoko_Okitegami_534110_2048x2732.jpg",
+            "_id": "63ee62853aa285034f78ab18",
+            "group": "group-10"
+        },
+        "text": "Багз Банни предстает перед глазами зрителей как персонаж, который не боится трудностей и привык мыслить в оптимистическом ключе. «Рехнувшийся кролик» (именно так переводится словосочетание «Bugs Bunny» с английского языка) знаменит приключениями,в которых побеждает любого недоброжелателя. Помимо прочего, имидж этого героя приправлен бруклинским акцентом.",
+        "created_at": "2023-02-20T13:57:20.490Z",
+        "updated_at": "2023-02-20T18:20:33.967Z",
+        "__v": 0
+    },
+    {
+        "image": "https://disney-planet.fr/wp-content/uploads/2020/07/image-pluto-envies-01.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f37d423aa285034f78ad13",
+        "title": "Плуто",
+        "author": {
+            "name": "Лена Фархутдинова",
+            "about": "Я только учусь.",
+            "avatar": "https://s1.1zoom.ru/b5232/469/Painting_Art_The_Memorandum_of_Kyoko_Okitegami_534110_2048x2732.jpg",
+            "_id": "63ee62853aa285034f78ab18",
+            "group": "group-10"
+        },
+        "text": "Плуто действительно хорошо обученная собака. У него достаточно соображения, чтобы выпутаться из сложной ситуации.  Он действует как помощник Микки, лучший друг, а иногда даже как его совесть в некоторых случаях. Плуто чрезвычайно предан, но иногда он может спорить даже с хозяином.",
+        "created_at": "2023-02-20T14:01:38.804Z",
+        "updated_at": "2023-02-20T18:20:31.166Z",
+        "__v": 0
+    },
+    {
+        "image": "https://catherineasquithgallery.com/uploads/posts/2021-03/1614786427_122-p-spanch-bob-fon-144.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f37ec13aa285034f78ad14",
+        "title": "Губка Боб",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Жёлтая антропоморфная морская губка, которая обычно носит коричневые короткие штаны,белую рубашку с воротником и красный галстук.Живёт в ананасовом доме и работает поваром в ресторане быстрого питания под названием «Красти Краб». Он прилежно посещает лодочную школу миссис Пафф, но никогда не сдавал её; на протяжении всей серии он изо всех сил пытается сдать экзамены, но остаётся непреднамеренно безрассудным водителем лодки. Он безумно оптимистичен и полон энтузиазма по отношению к своей работе и своим друзьям. Интересы – ловля медуз, пускание мыльных пузырей, игры со своим лучшим другом Патриком и непреднамеренное раздражение своего соседа Сквидварда.",
+        "created_at": "2023-02-20T14:08:01.385Z",
+        "updated_at": "2023-02-20T14:08:27.125Z",
+        "__v": 0
+    },
+    {
+        "image": "http://kunstkam.ru/anime-magazin/products/detailed/10/talespin-02.jpg",
+        "likes": [],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f37fe63aa285034f78ad15",
+        "title": "Балу",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "В меру упитанный серый медведь, носящий красную пилотскую фуражку и форменную жёлтую рубашку. Балу превосходный лётчик-ас, способный на самые невероятные манёвры в воздухе. Пилотирует гидросамолёт Conwing L-16 с двигателями Superflight 100, который он ласково назвал «Нырок» Живёт в Кейп-Сюзет в деревянном доме, расположенном на берегу. Ранее владел компанией «Авиаперевозки Балу», но позже лишился права собственности из-за неуплаты долгов. Компания, а также его самолёт перешли во владение бизнес-леди Ребекки Каннингем, а ему самому пришлось устроиться на работу в её компанию «Заплати и лети». Балу по характеру весёлый и общительный, обожает всевозможные развлечения и вкусную еду. Очень ленив, поэтому как следствие работать не любит, часто опаздывает с доставкой груза, а также имеет привычку засыпать в рабочее время. Кроме того, достаточно малообразован и неряшлив. Но, несмотря на все недостатки, Балу очень добр и порядочен, всегда приходит на помощь своим друзьям, в некоторых случаях рискуя собственной жизнью. Способен обхитрить практически любого врага. Имеет фактического приёмного сына по имени Кит Ветрогон.",
+        "created_at": "2023-02-20T14:12:54.771Z",
+        "updated_at": "2023-02-20T14:12:54.771Z",
+        "__v": 0
+    },
+    {
+        "image": "https://www.peremena-perm.ru/assets/images/stati/foto_2.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f381543aa285034f78ad16",
+        "title": "Арнольд",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Арнольд – забавный девятилетний мальчик, родители которого когда-то давно пропали во время таинственного путешествия, вследствие чего он теперь живет с бабушкой и дедушкой в пансионате «Сансет-Армс», который они содержат. Арнольд учится в школе и часто попадает в необычные ситуации вместе со своими друзьями. В Арнольда влюблена девочка по имени Хельга, но на протяжении долгого времени она не может признаться ему в своих чувствах, а чтобы он ничего не подозревал, делает вид, что его ненавидит.",
+        "created_at": "2023-02-20T14:19:00.644Z",
+        "updated_at": "2023-02-20T20:11:33.826Z",
+        "__v": 0
+    },
+    {
+        "image": "http://www.ochevidets.ru/userfiles/2017/01/11/2f57e15363_large.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f3820e3aa285034f78ad17",
+        "title": "По кунг фу панда",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Большая панда по имени По живёт в китайской Долине Мира со своим приёмным отцом гусем Мистером Пингом, помогая ему по работе в лапшичном ресторане. Жизнь панды размеренна и монотонна, а ведь По мечтает стать мастером кунг-фу! Однажды ему приснился сон, в котором он был легендарным воином и сражался с врагами бок о бок со своими кумирами — Неистовой Пятёркой: Тигрицей, Гадюкой, Журавлём, Обезьяной и Богомолом. По хочет бросить лапшичное дело, но не решается поговорить об этом с отцом.",
+        "created_at": "2023-02-20T14:22:06.575Z",
+        "updated_at": "2023-02-20T20:11:35.391Z",
+        "__v": 0
+    },
+    {
+        "image": "https://ampravda.ru/files/articles-2/75707/3tbhevziw5j9.jpg",
+        "likes": [],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f383ea3aa285034f78ad18",
+        "title": "Грю Фелониус Мексон",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Грю Фелониус Мексон — настоящий суперзлодей, имеющий собственный дом, реактивный транспорт и армию миньонов, но на самом деле у него есть и добрая сторона. Длинноносый и на вид нескладный человек, примерно 40 лет.Хитёр, смел, строг и суров.",
+        "created_at": "2023-02-20T14:30:02.819Z",
+        "updated_at": "2023-02-20T14:30:02.819Z",
+        "__v": 0
+    },
+    {
+        "image": "https://i.ytimg.com/vi/tRE52ZUJ0gc/maxresdefault.jpg",
+        "likes": [
+            "63ed527759b98b038f77b67f",
+            "622bd81b06c7d323b8ae4614"
+        ],
+        "comments": [],
+        "tags": [],
+        "isPublished": true,
+        "_id": "63f3864c3aa285034f78ad19",
+        "title": "Таз",
+        "author": {
+            "name": "Алексей Мартыненко",
+            "about": "Developer",
+            "avatar": "https://pic.rutubelist.ru/user/e0/ab/e0abe02dffe09ae33fe59f5a563cc1ba.jpg",
+            "_id": "63ed527759b98b038f77b67f",
+            "group": "group-10"
+        },
+        "text": "Самого дикого подростка к югу от Экватора зовут Таз. И он – тасманский дьявол! А это значит, что он готов съесть все, до чего дотянется, и тусоваться столько, насколько хватит сил. Он собирает крышечки от бутылок и журналы комиксов, дружит с собакой динго, шакалом, любознательными крокодилами и птичкой киви, которая еще более тупая, чем он сам.",
+        "created_at": "2023-02-20T14:40:12.220Z",
+        "updated_at": "2023-02-21T06:38:50.811Z",
+        "__v": 0
+    },
+    {
+        "image": "https://domopravitelnitsa.com/wp-content/uploads/2021/09/word-image-12.jpeg",
+        "likes": [],
+        "comments": [],
+        "tags": [
+            "legendary"
+        ],
+        "isPublished": true,
+        "_id": "63f4b4bd3aa285034f78ad6b",
+        "title": "Астра",
+        "author": {
+            "name": "Елена",
+            "about": "Фронтенд-разработчик",
+            "avatar": "https://react-learning.ru/image-compressed/default-image.jpg",
+            "_id": "63e8ec3459b98b038f77b533",
+            "group": "group-10"
+        },
+        "text": "Яркие «звезды» цветочного мира. Их яркие красивые корзиночки собраны из остроконечных, напоминающих язычки или лучи лепестков и правда,похожи на звезды. Чем дальше от центра цветка, тем длиннее лепестки. Цветовая палитра астр разнообразна: от нежно-белых до бордовых и фиолетовых. Древние греки были уверены, что астры – слезы Афродиты, которые богиня обронила на землю.",
+        "created_at": "2023-02-21T12:10:37.453Z",
+        "updated_at": "2023-02-21T12:10:37.453Z",
+        "__v": 0
+    },
+    {
+        "image": "https://domopravitelnitsa.com/wp-content/uploads/2021/09/word-image-30.jpeg",
+        "likes": [],
+        "comments": [],
+        "tags": [
+            "peace"
+        ],
+        "isPublished": true,
+        "_id": "63f4b6f83aa285034f78ad6c",
+        "title": "Белый лотос",
+        "author": {
+            "name": "Елена",
+            "about": "Фронтенд-разработчик",
+            "avatar": "https://react-learning.ru/image-compressed/default-image.jpg",
+            "_id": "63e8ec3459b98b038f77b533",
+            "group": "group-10"
+        },
+        "text": "Белый лотос или египетская белая лилия – священный цветок Египта, символ чистоты и безмятежности. Размер удивительно красивого цветка, возвышающегося над круглыми листьями, плавающими на поверхности воды – 20-30 см. Его лепестки в форме вытянутого овала, покрытые восковым налетом, каждое утро раскрываются навстречу солнцу и закрываются на закате.",
+        "created_at": "2023-02-21T12:20:08.885Z",
+        "updated_at": "2023-02-21T12:20:08.885Z",
+        "__v": 0
+    }
 ]
