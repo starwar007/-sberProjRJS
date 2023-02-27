@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from './app.module.css';
-import Header from '../components/Header/Header';
+import {Header} from '../Header/Header';
 
-import api from '../utils/api'
+import api from '../../utils/api';
 
 
 
