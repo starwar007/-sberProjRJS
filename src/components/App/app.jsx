@@ -1,7 +1,10 @@
+/* eslint-disable no-unused-vars */
+import Footer from '../Footer/footer';
 import { useState, useEffect } from 'react';
 import styles from './app.module.css';
 import api from '../../utils/api';
 import cn from "classnames";
+
 
 
 
@@ -193,6 +196,7 @@ function App() {
             </div>
           </div>
         </header>
+        <Footer />
       </>
     )
   }
@@ -233,6 +237,7 @@ function App() {
             </div>
           </div>
         </header>
+        <Footer />
       </>
     )
   }
@@ -261,6 +266,7 @@ function App() {
           </div>
         </div>
       </header>
+      
     )
   }
 
@@ -358,19 +364,9 @@ function App() {
             </div>
           </div>
         </header>
-
-
-
-
-
-
-
-
-
-
+        <Footer />
 
         {/* <div className={styles.container}> */}
-
 
         {/* <Header/> */}
 
@@ -383,7 +379,9 @@ function App() {
 
         {/* </div> */}
       </>
+      
     )
+ 
   }
 }
 
