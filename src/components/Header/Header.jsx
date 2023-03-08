@@ -1,11 +1,12 @@
+import React from "react";
 import styles from "./header.module.css";
 import cn from "classnames";
 import api from "../../utils/api";
 import { useState, useEffect } from 'react';
-
 import './Search.css';
 import { ReactComponent as SearchIcon } from './ic-search.svg';
 import { ReactComponent as CloseIcon } from './ic-close-input.svg';
+import Button from "../Button/Button";
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
@@ -32,22 +33,22 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
       <>
         <header className={cn(styles.header)}>
           <div className={styles.container}>
-            <div className={styles.flex} style={{ flexDirection: 'column', marginBottom: '20px' }}>
+            <div className={styles.flex}>
               <a className={styles.logo}>
-                <img style={{ width: '100px', marginTop: '20px' }}
+                <img 
+                  style={{ width: '100px', marginTop: '20px' }}
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
-                {/* <img style={{ width: '100px', marginTop: '20px'}}
-                  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgNjAgNjAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYwIDYwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTM3LjMsMTQuMUgzMmMtMC42LDAtMSwwLjQtMSwxdjEyYzAsMC42LDAuNCwxLDEsMWgxLjhjMC4yLDAsMC4zLDAsMC40LTAuMWgzLjFjMS41LDAsMi44LTEuMywyLjgtMi44di04LjMKCQkJQzQwLjEsMTUuNCwzOC44LDE0LjEsMzcuMywxNC4xeiBNMzguMSwyNS4yYzAsMC40LTAuNCwwLjgtMC44LDAuOGgtMy41Yy0wLjEsMC0wLjMsMC0wLjQsMC4xSDMzdi0xMGwwLDBoNC4zCgkJCWMwLjQsMCwwLjgsMC40LDAuOCwwLjhWMjUuMnoiLz4KCQk8cGF0aCBkPSJNNTAsMjZoLTZ2LTRoNnYtMmgtNnYtNGg2di0yaC03Yy0wLjYsMC0xLDAuNC0xLDF2MTJjMCwwLjYsMC40LDEsMSwxaDdWMjZ6Ii8+CgkJPHBhdGggZD0iTTI5LDE2YzAtMS4yLTAuOC0yLTItMmgtNWMtMS4yLDAtMiwwLjgtMiwydjEwYzAsMS4yLDAuOCwyLDIsMmg1YzEuMiwwLDItMC44LDItMlYxNnogTTI3LDI2aC01VjE2aDVWMjZ6Ii8+CgkJPHBhdGggZD0iTTE4LDI1aC0yYzAsMC42LTAuNCwxLTEsMWgtM2MtMC42LDAtMS0wLjQtMS0xdi04YzAtMC42LDAuNC0xLDEtMWgzYzAuNiwwLDEsMC40LDEsMWgyYzAtMS43LTEuMy0zLTMtM2gtMwoJCQljLTEuNywwLTMsMS4zLTMsM3Y4YzAsMS43LDEuMywzLDMsM2gzQzE2LjcsMjgsMTgsMjYuNywxOCwyNXoiLz4KCQk8cGF0aCBkPSJNNTksMEgxQzAuNCwwLDAsMC40LDAsMXY0NmMwLDAuNiwwLjQsMSwxLDFoMjJ2MTBoLTN2Mmg0aDEyaDR2LTJoLTNWNDhoMjJjMC42LDAsMS0wLjQsMS0xVjFDNjAsMC40LDU5LjYsMCw1OSwweiBNMzUsNTgKCQkJSDI1VjQ4aDEwVjU4eiBNNTgsNDZIMzZIMjRIMnYtOGgzaDUwaDNWNDZ6IE02LDM2VjZoNDh2MzBINnogTTU4LDM2aC0yVjVjMC0wLjYtMC40LTEtMS0xSDVDNC40LDQsNCw0LjQsNCw1djMxSDJWMmg1NlYzNnoiLz4KCQk8cmVjdCB4PSI5IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjEzIiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjE3IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjIxIiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjI1IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjI5IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjMzIiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjM3IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjQxIiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjQ1IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjQ5IiB5PSIzMiIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz4KCQk8cmVjdCB4PSIxMyIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjE3IiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+CgkJPHJlY3QgeD0iMjEiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz4KCQk8cmVjdCB4PSIyNSIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjI5IiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+CgkJPHJlY3QgeD0iMzMiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz4KCQk8cmVjdCB4PSIzNyIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJCTxyZWN0IHg9IjQxIiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+CgkJPHJlY3QgeD0iNDUiIHk9IjgiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz4KCQk8cmVjdCB4PSI0OSIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="
-                  alt="logo" /> */}
                 <div style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</div>
               </a>
+              <Button title="Меню Авторизации" setPage={setPage0}/>
               <div className={styles.Iam}>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <button className={styles.buttonLong} style={{ marginTop: '30px' }}
+                  
+                {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  {/* <button className={styles.buttonLong} style={{ marginTop: '30px' }}
                     onClick={() => {
                       setPage0(1);
-                    }}>Меню авторизации</button>
-                </div>
+                    }}>Меню авторизации</button> }
+                </div> */}
               </div>
             </div>
           </div>
@@ -104,26 +105,6 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
                             console.log(response.token); setUserTokenGen(response.token)
                           }
                         });
-
-                      // let body = {
-                      //   'email': `${document.querySelector('#email1').value}`,
-                      //   'password': `${document.querySelector('#password1').value}`
-                      // }
-                      // fetch(`https://api.react-learning.ru/signin`, {
-                      //   method: "POST",
-                      //   headers: {
-                      //     // "Accept": "application/json",
-                      //     "Content-Type": "application/json"
-                      //   },
-                      //   body: JSON.stringify(body)
-                      // }).then(response => response.json()).then((response) => {
-                      //     console.log(response);
-                      //     if (response.token === undefined) { alert('Неверная эл. почта или пароль') }
-                      //     else {
-                      //       alert(`Ваш токен, ${document.querySelector('#email1').value}, сгенерирован (скопировать Вы его можете из поля на следующей странице или консоли F12): ${response.token}`);
-                      //       console.log(response.token); setUserTokenGen(response.token)
-                      //     }
-                      //   });
                     }}>Сгенерировать токен</button>
                   </div>
                 </div>
@@ -150,27 +131,6 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
                               console.log(response)
                             }
                           });
-
-                        // let body = {
-                        //   'email': `${document.querySelector('#email2').value}`,
-                        //   'group': "group-10",
-                        //   'password': `${document.querySelector('#password2').value}`
-                        // }
-                        // fetch(`https://api.react-learning.ru/signup`, {
-                        //   method: "POST",
-                        //   headers: {
-                        //     // "Accept": "application/json",
-                        //     "Content-Type": "application/json"
-                        //   },
-                        //   body: JSON.stringify(body)
-                        // })
-                        //   .then(response => response.json()).then((response) => {
-                        //     if (response.name === undefined) { alert('Некорректные данные эл. почты или пароля') }
-                        //     else {
-                        //       alert(`Вы зарегистированы с именем по умолчанию ${response.name}. Теперь Вы сможете по зарегистрированным данным, сгенерировать токен`);
-                        //       console.log(response)
-                        //     }
-                        //   });
                       }}>Зарегистрироваться</button>
                   </div>
                 </div>
@@ -185,7 +145,6 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
   if (page0 && userTokenGen && !userToken) {
     console.log(userTokenGen);
-    // {document.querySelector('#token').value=userTokenGen;}
     return (
       <>
         <header className={cn(styles.header)}>

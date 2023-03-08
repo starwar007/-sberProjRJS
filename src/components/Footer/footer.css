@@ -6,16 +6,16 @@
 	max-width: 180px;
 }
 .footer {
-		width: 100%;
-		background-color: cyan;
-		padding-top: 40px;
-		padding-bottom: 30px;
-
-		display: flex;
-		justify-content: center;
-		align-items: flex-start;
-		gap: 50px;
-	}
+	bottom: 0;
+	width: 100%;
+	background-color: cyan;
+	padding-top: 40px;
+	padding-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 50px;
+}
 
 	.footer1 {
 		display: flex;

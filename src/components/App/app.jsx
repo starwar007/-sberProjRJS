@@ -1,10 +1,12 @@
-//import styles from './app.module.css';
-//import cn from "classnames";
-import {Header} from '../Header/Header';
-// import Search from '../Search/search';
+import React from 'react';
+import { useState, useEffect } from 'react';
+
+import api from '../../utils/api';
+import cn from "classnames";
+import Search from '../Search/search';
 import Footer from '../Footer/footer';
-
-
+import Header from '../Header/Header';
+import Main from '../Main/Main';
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Header>
       {/* <Header onSubmit={handleFormSubmit} onInput={handleInputChange}> */}
       </Header>
+      <Main></Main>
       <Footer />
     </>
   )
