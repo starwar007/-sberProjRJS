@@ -1,0 +1,78 @@
+
+
+
+.post-card {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    display: grid;
+    grid-template-rows: minmax(0px, max-content) 10fr minmax(0px, max-content);
+    grid-template-columns: minmax(50px, max-content);
+}
+
+img {
+	width: 100%; 
+}
+
+.post-header{
+	padding: 24px 24px 10px 24px;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.post-header-autor {
+	display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.post-header-autor img {
+	object-fit: cover;
+    border-radius:50%;
+  width: 35px;
+  height: 35px;
+
+}
+
+.post-body-content {
+	overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+.post-main-descripshion{
+	padding: 0px 24px;
+}
+
+.post-footer {
+	padding: 0px 24px 24px 24px;
+}
+.post-footer-content {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-favorite{
+    cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+	display: flex;	
+}
+
+.post-favorite  svg{
+    fill: #FFFFFF;
+	stroke-width: 1px;
+	stroke: #7b8e98;
+}
