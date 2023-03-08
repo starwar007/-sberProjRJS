@@ -1,20 +1,19 @@
 .header {
     width: 100%;
-    background-color: var(--main-panel);
+    background-image: url('../../assets/img/Fon\ header.jpg');
     padding: 12px 0;
-    min-height: 68px;
+    height: 100px;
 }
 
+
 .container {
-    max-width: 992px;
-    width: 95%;
-    margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 8px;
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
+    /* justify-content: start; */
     align-items: center;
 }
 
@@ -72,3 +71,30 @@
 
     font-size: 18px; 
 }
+
+.MenuAutorization {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    border: solid #23a030 5px;
+    background-color: yellow;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+}
+
+.Iam {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+
+
+
+
+
+
+
+
