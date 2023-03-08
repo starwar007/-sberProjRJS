@@ -6,10 +6,6 @@ class Api {
     constructor({baseUrl, headers}) {
         this._baseUrl = baseUrl;
         this._headers = headers;
-class Api { 
-    constructor({baseUrl, headers}) {
-        this._baseUrl = baseUrl;
-        this._headers = headers;
     }
 
     getPosts() {
