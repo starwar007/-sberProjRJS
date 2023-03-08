@@ -20,7 +20,8 @@ class Api {
         }).then(onResponce)
     }
 
-    getUserInfo() {
+    getUserInfo() { 
+        //console.log(this.headers);
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         }).then(onResponce)
@@ -98,7 +99,6 @@ const config = {
     }
 }
 
-const api = new Api(config);
 
 export default api;
 
@@ -295,4 +295,5 @@ export default api;
 // EMAIL();
 
 
+// export default api;
 // export default api;
