@@ -1,4 +1,4 @@
-import styles from "./Header.module.css";
+import styles from "./header.module.css";
 import cn from "classnames";
 import api from "../../utils/api";
 import { useState, useEffect } from 'react';
