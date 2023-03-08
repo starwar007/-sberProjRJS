@@ -33,7 +33,7 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
       <>
         <header className={cn(styles.header)}>
           <div className={styles.container}>
-            <div className={styles.flex} style={{ flexDirection: 'column', marginBottom: '20px' }}>
+            <div className={styles.flex}>
               <a className={styles.logo}>
                 <img 
                   style={{ width: '100px', marginTop: '20px' }}

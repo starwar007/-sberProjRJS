@@ -12,14 +12,9 @@ class Api {
         return fetch(`${this._baseUrl}/posts`, {
             headers: this._headers
         }).then(onResponce)
-    getPosts() {
-        return fetch(`${this._baseUrl}/posts`, {
-            headers: this._headers
-        }).then(onResponce)
     }
 
-    getPost(postID) {
-        return fetch(`${this._baseUrl}/posts/${postID}`, {
+ 
     getPost(postID) {
         return fetch(`${this._baseUrl}/posts/${postID}`, {
             headers: this._headers
@@ -37,16 +32,9 @@ class Api {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify(postData)
-    createNewPost(postData) {
-        return fetch (`${this._baseUrl}/posts`, {
-            method: 'POST',
-            headers: this._headers,
-            body: JSON.stringify(postData)
         }).then(onResponce)
     }
 
-    editPost(editData, idPost) {
-        return fetch (`${this._baseUrl}/posts/${idPost}`, {
     editPost(editData, idPost) {
         return fetch (`${this._baseUrl}/posts/${idPost}`, {
             method: 'PATCH',
@@ -59,26 +47,16 @@ class Api {
         return fetch (`${this._baseUrl}/posts/${idPost}`, {
             method: 'DELETE',
             headers: this._headers,
-            body: JSON.stringify(editData)
         }).then(onResponce)
     }
 
-    deletePost(idPost) {
-        return fetch (`${this._baseUrl}/posts/${idPost}`, {
-            method: 'DELETE',
-            headers: this._headers,
-        }).then(onResponce)
-    }
 
     search(searchQuery) {
-        return fetch(`${this._baseUrl}/posts/search?query=${searchQuery}`, {
         return fetch(`${this._baseUrl}/posts/search?query=${searchQuery}`, {
             headers: this._headers
         }).then(onResponce)
     }
 
-    changeLikePost(postID, isLike) {
-        return fetch(`${this._baseUrl}/posts/likes/${postID}`, {
     changeLikePost(postID, isLike) {
         return fetch(`${this._baseUrl}/posts/likes/${postID}`, {
             method: isLike ? "DELETE" : "PUT",
