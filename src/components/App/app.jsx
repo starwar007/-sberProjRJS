@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 import api from '../../utils/api';
 import cn from "classnames";
-import Search from '../Search/search';
 import Footer from '../Footer/footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';

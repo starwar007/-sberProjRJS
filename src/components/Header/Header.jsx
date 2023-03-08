@@ -7,6 +7,7 @@ import './Search.css';
 import { ReactComponent as SearchIcon } from './ic-search.svg';
 import { ReactComponent as CloseIcon } from './ic-close-input.svg';
 import Button from "../Button/Button";
+import Search from "../Search/Search";
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
@@ -14,10 +15,14 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
     onInput(e.target.value)
   }
 
+
   const [page0, setPage0] = useState('');
   const [userToken, setUserToken] = useState('');
   const [userTokenGen, setUserTokenGen] = useState('');
   const [currentUser, setCurrentUser] = useState('');
+
+
+
 
   useEffect(() => {
     Promise.all([api.getUserInfo()])
@@ -30,30 +35,18 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
   if (!page0) {
     return (
-      <>
         <header className={cn(styles.header)}>
-          <div className={styles.container}>
             <div className={styles.flex}>
               <a className={styles.logo}>
                 <img 
-                  style={{ width: '100px', marginTop: '20px' }}
+                  style={{ width: '100px' }}
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
-                <div style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</div>
+                <h1 className={styles.title} style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</h1>
               </a>
+              <Search/>
               <Button title="Меню Авторизации" setPage={setPage0}/>
-              <div className={styles.Iam}>
-                  
-                {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  {/* <button className={styles.buttonLong} style={{ marginTop: '30px' }}
-                    onClick={() => {
-                      setPage0(1);
-                    }}>Меню авторизации</button> }
-                </div> */}
-              </div>
             </div>
-          </div>
         </header>
-      </>
     )
   }
 
