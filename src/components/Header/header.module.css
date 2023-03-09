@@ -1,20 +1,20 @@
 .header {
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
-    padding: 12px 0;
-    height: 750px;
-}
-
-
-.container {
-    padding: 0 8px;
+    height: 160px;
 }
 
 .flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     /* justify-content: start; */
     align-items: center;
+    padding: 20px 40px;
+}
+
+.title {
+    margin: 0;
+    margin-right: 70px;
 }
 
 .logo {
@@ -24,10 +24,7 @@
     align-items: center;
     font-size: large;
     font-weight: 100;
-}
-
-.title {
-    font-size: large;
+    cursor: pointer;
 }
 
 .currentUser {
@@ -72,23 +69,6 @@
     font-size: 18px; 
 }
 
-.MenuAutorization {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: flex-end;
-    border: solid #23a030 5px;
-    background-color: yellow;
-    padding: 5px 5px 5px 5px;
-    margin: 5px 5px 5px 5px;
-}
-
-.Iam {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: flex-end;
-}
 
 
 

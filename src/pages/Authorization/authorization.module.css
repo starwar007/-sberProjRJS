@@ -1,0 +1,11 @@
+
+.autorization {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid #23a030 5px;
+    background-color: yellow;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+}
