@@ -1,7 +1,7 @@
 import { ReactComponent as Like } from "./like.svg"
 import './style.css';
 
-export const Post = ({image,text,title,created_at,author}) => {
+const Post = ({image,text,title,created_at,author}) => {
 
     function formatDate(str) {
         return (str.slice(8, 10) + '.' + str.slice(5, 7) + '.' + str.slice(0, 4))
@@ -41,3 +41,5 @@ export const Post = ({image,text,title,created_at,author}) => {
         </div>
     )
 }
+
+export default Post
