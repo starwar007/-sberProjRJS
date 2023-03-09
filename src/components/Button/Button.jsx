@@ -1,16 +1,21 @@
 
 import React from "react";
 import styles from './button.module.css'
+import { Link } from "react-router-dom";
 
 
-const Button = ({title, setPage}) => {
+const Button = ({title, route, fn = Function.prototype}) => {
     return (
-        <button
-            className={styles.buttonLong} 
-            style={{ marginTop: '30px' }}
-            onClick={() => {setPage(1)}}>
+        <Link to={route}>
+            <button
+                className={styles.buttonLong} 
+                style={{ marginTop: '30px' }}
+                onClick={fn}
+            >
             {title}
         </button>
+        </Link>
+        
     )
     
 }

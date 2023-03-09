@@ -26,10 +26,6 @@
     font-weight: 100;
 }
 
-.title {
-    font-size: large;
-}
-
 .currentUser {
     display: flex;
     align-items: center;

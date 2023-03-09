@@ -7,16 +7,30 @@ import cn from "classnames";
 import Footer from '../Footer/footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
+import PostList from '../../pages/PostList/post-list';
+import Auth from '../../pages/Authorization/Authorization';
 
 
 function App() {
   return (
     <>
-      <Header>
-      {/* <Header onSubmit={handleFormSubmit} onInput={handleInputChange}> */}
-      </Header>
-      <Main></Main>
+      <Header />
+      <div className="main">
+        <Routes>
+          <Route
+          element={
+            <Main />
+            }
+            exact
+            path="/"
+          />
+          <Route exact path='/postlist' element={<PostList/>}></Route>
+          <Route exact path='/authorization' element={<Auth/>}></Route>
+          <Route exact path ='/postCard'></Route>
+        </Routes>
+      </div>
       <Footer />
+      
     </>
   )
 }
