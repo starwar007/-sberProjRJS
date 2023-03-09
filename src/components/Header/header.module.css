@@ -24,6 +24,7 @@
     align-items: center;
     font-size: large;
     font-weight: 100;
+    cursor: pointer;
 }
 
 .currentUser {
@@ -68,23 +69,6 @@
     font-size: 18px; 
 }
 
-.MenuAutorization {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: flex-end;
-    border: solid #23a030 5px;
-    background-color: yellow;
-    padding: 5px 5px 5px 5px;
-    margin: 5px 5px 5px 5px;
-}
-
-.Iam {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: flex-end;
-}
 
 
 

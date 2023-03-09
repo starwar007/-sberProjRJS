@@ -9,7 +9,6 @@ const Button = ({title, route, fn = Function.prototype}) => {
         <Link to={route}>
             <button
                 className={styles.buttonLong} 
-                style={{ marginTop: '30px' }}
                 onClick={fn}
             >
             {title}

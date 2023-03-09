@@ -6,9 +6,9 @@ import PostList from "../../pages/PostList/post-list";
 const Main = () => {
     api.getPosts().then(res => console.log(res))
     return (
-       <main className={style.main}>
+       <section className={style.catalog}>
             <PostList/>
-       </main> 
+       </section> 
     )
  
 }

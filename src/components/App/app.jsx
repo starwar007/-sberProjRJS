@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './app.module.css'
 import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="main">
+      <main className={styles.main}>
         <Routes>
           <Route
           element={
@@ -28,7 +29,7 @@ function App() {
           <Route exact path='/authorization' element={<Auth/>}></Route>
           <Route exact path ='/postCard'></Route>
         </Routes>
-      </div>
+      </ main>
       <Footer />
       
     </>

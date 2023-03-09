@@ -9,7 +9,6 @@ const Auth = ({ onSubmit: propsOnSubmit, onInput }) => {
         onInput(e.target.value)
       }
     
-    
       const [page0, setPage0] = useState('');
       const [userToken, setUserToken] = useState('');
       const [userTokenGen, setUserTokenGen] = useState('');
@@ -27,7 +26,7 @@ const Auth = ({ onSubmit: propsOnSubmit, onInput }) => {
       }, [userToken])
 
     return (
-        <div className={styles.MenuAutorization}>
+        <section className={styles.autorization}>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto' }}>
                     <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
@@ -91,7 +90,7 @@ const Auth = ({ onSubmit: propsOnSubmit, onInput }) => {
                   </div>
                 </div>
                 <button className={styles.buttonLong} style={{ marginTop: '30px' }} onClick={() => { setUserToken(''); setUserTokenGen(''); setCurrentUser(''); api.setToken(''); setPage0(''); }}>Выйти</button>
-              </div>
+              </section>
     )
 }
 
