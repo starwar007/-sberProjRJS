@@ -58,6 +58,7 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
   }
 
   if (page0 && !userToken && !userTokenGen) {
+    
     return (
       <>
         <header className={cn(styles.header)}>
