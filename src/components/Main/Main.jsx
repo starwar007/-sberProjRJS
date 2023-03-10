@@ -1,13 +1,14 @@
 import React from "react";
 import api from "../../utils/api";
-import PostList from '../PostList/post-list';
+import style from './main.module.css';
+import PostList from "../../pages/PostList/post-list";
 
 const Main = () => {
     api.getPosts().then(res => console.log(res))
     return (
-       <main className="main">Hello posts
-        <PostList/>
-       </main> 
+       <section className={style.catalog}>
+            <PostList/>
+       </section> 
     )
  
 }
