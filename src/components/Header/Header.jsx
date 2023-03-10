@@ -4,8 +4,6 @@ import cn from "classnames";
 import api from "../../utils/api";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as SearchIcon } from './ic-search.svg';
-import { ReactComponent as CloseIcon } from './ic-close-input.svg';
 import Button from "../Button/Button";
 import Search from "../Search/Search";
 

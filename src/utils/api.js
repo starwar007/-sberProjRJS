@@ -3,9 +3,22 @@ const onResponce = (res) => {
 }
 
 class Api { 
-    constructor({baseUrl, headers}) {
-        this._baseUrl = baseUrl;
-        this._headers = headers;
+    constructor() {
+        this._baseUrl = 'https://api.react-learning.ru/v2/group-10';
+        this._headers = {
+          'content-type': 'application/json',
+        }
+    }
+
+    setToken(token) {
+        this._headers = {
+            'content-type': 'application/json',
+            Authorization: token       
+        }
+    }
+
+    getToken() {
+        return this._headers.Authorization
     }
 
     getPosts() {
@@ -100,6 +113,6 @@ const config = {
     }
 }
 
-const api = new Api(config);
+const api = new Api();
 
 export default api;
