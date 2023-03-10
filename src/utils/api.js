@@ -98,8 +98,7 @@ const config = {
         Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2UxMjY2ZTU5Yjk4YjAzOGY3N2IyMTAiLCJncm91cCI6Imdyb3VwLTEwIiwiaWF0IjoxNjc1NzAwMDM1LCJleHAiOjE3MDcyMzYwMzV9.gw6DkXAc71WKR2SVfEIut01efqnndnQ2LzIZ4CGHT4Y'
     }
 }
-
-
+const api = new Api(config);
 export default api;
 
 
