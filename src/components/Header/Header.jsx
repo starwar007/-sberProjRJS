@@ -7,9 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { ReactComponent as SearchIcon } from './ic-search.svg';
 import { ReactComponent as CloseIcon } from './ic-close-input.svg';
 import Button from "../Button/Button";
-import Search from "../Search/Search";
+import Search from "../Search/search";
+import PostForm from "../postForm/PostForm";
+import ModalPost from "../modalPost/ModalPost";
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
+
+  const [modalActive, setModalActive] = useState(true)
 
   const handleInput = (e) => {
     onInput(e.target.value)
@@ -40,6 +44,13 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
               </div>
               <Search/>
               <Button title="Меню Авторизации" route="/authorization" />
+
+              <ModalPost active={modalActive} setActive={setModalActive}>
+        <PostForm />
+      </ModalPost>
+
+      <button onClick={() => setModalActive(true)}>Создать пост</button>
+
             </div>
         </header>
     )
