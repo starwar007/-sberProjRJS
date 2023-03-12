@@ -76,3 +76,31 @@ img {
 	stroke-width: 1px;
 	stroke: #7b8e98;
 }
+
+.post__favorite-active svg {
+	fill: #F44336;
+    border: none;
+    stroke-opacity: 0;
+    stroke: none;
+    border-width: 0px;
+	
+}
+
+.background-text {
+    background-color:green;
+    color: white;
+    padding-top: 1px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+.like-contener {
+    display: flex;
+}
+
+.post-tags {
+    margin-bottom: 10px;
+}
