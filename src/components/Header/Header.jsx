@@ -5,20 +5,20 @@ import api from "../../utils/api";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import Search from "../Search/search";
+import Search from "../Search/Search";
 import PostForm from "../postForm/PostForm";
 import ModalPost from "../modalPost/ModalPost";
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
-  const [modalActive, setModalActive] = useState(true)
+  const navigate = useNavigate();
+  const [modalActive, setModalActive] = useState(false);
+  const [userToken, setUserToken] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
 
   const handleInput = (e) => {
     onInput(e.target.value)
   }
-  const [userToken, setUserToken] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     Promise.all([api.getUserInfo()])
@@ -41,7 +41,7 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
                 <h1 className={styles.title} style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</h1>
               </div>
               <Search/>
-              <Button title="Меню Авторизации" route="/authorization" />
+              <Button title="Меню Авторизации" route="/authorization"/>
 
               <ModalPost active={modalActive} setActive={setModalActive}>
         <PostForm />
