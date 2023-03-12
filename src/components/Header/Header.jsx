@@ -11,7 +11,7 @@ import ModalPost from "../modalPost/ModalPost";
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
-  const [modalActive, setModalActive] = useState(true)
+  const [modalActive, setModalActive] = useState(false)
 
   const handleInput = (e) => {
     onInput(e.target.value)
