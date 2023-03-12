@@ -1,7 +1,7 @@
 
 import './style.css';
 import data from '../../assets/data.json'
-import Post from '../../components/Post/Post'
+import {Post} from '../../components/Post/Post'
 console.log('PostList');
 
 const PostList = () => {
