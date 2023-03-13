@@ -1,8 +1,18 @@
 
-input {
+form {
+    display: block;
+    margin-top: 0em;
+}
+    
+    input {
     padding: 5px;
     margin: 5px 0;
     display: block;
+    
 }
-
-
+.modal-body {
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5715;
+    word-wrap: break-word;
+}

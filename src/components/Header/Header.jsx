@@ -5,7 +5,7 @@ import api from "../../utils/api";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import Search from "../Search/Search";
+import Search from "../Search/search";
 import PostForm from "../postForm/PostForm";
 import ModalPost from "../modalPost/ModalPost";
 
