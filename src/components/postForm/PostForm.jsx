@@ -1,5 +1,6 @@
 import './postForm.module.css'
 
+
 function PostForm() {
 
  
@@ -12,8 +13,10 @@ function PostForm() {
                 type="text"
                 placeholder="url картинки поста"
             />
+            <div>
+                 <img src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" width="100%"/>
+            </div>
 
-            <img>src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" class="mb-2" width="100%"</img> 
             <input
              
                 type="text"

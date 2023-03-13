@@ -1,16 +1,19 @@
 
 form {
+    font-family: "Source Sans Pro";
     display: block;
     margin-top: 0em;
 }
     
     input {
+    font-family: "Source Sans Pro";
     padding: 5px;
     margin: 5px 0;
     display: block;
     
 }
 .modal-body {
+    font-family: "Source Sans Pro";
     padding: 24px;
     font-size: 14px;
     line-height: 1.5715;

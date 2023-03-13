@@ -8,8 +8,9 @@ import cn from "classnames";
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import PostList from '../../pages/PostList/Post-list';
+import PostList from '../../pages/PostList/PostList';
 import Auth from '../../pages/Authorization/Authorization';
+import '@fontsource/source-sans-pro';
 
 
 function App() {
