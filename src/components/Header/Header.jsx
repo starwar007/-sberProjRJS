@@ -5,7 +5,9 @@ import api from "../../utils/api";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import Search from "../Search/search";
+import Search from "../Search/Search";
+import ModalPost from "../modalPost/ModalPost"
+import PostForm from "../PostForm/PostForm"
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
