@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { CardContext } from "../../context/cardContext";
-import "./index.css";
+import styles from './index.module.css';
 
 const SeachInfo = ({searchText}) => {
 	const {cards} = useContext(CardContext);
 	const searchCount = cards.length;
 
 	return (
-		searchText && <section className="search-title">
+		searchText && <section className={styles.searchTitle}>
 			По запросу <span>{searchText}</span> найдено {searchCount} товаров
 		</section>
 	);
