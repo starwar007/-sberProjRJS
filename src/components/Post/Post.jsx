@@ -90,7 +90,7 @@ export const Post = ({image,text,title,created_at,author,tags,likes}) => {
               <div className="post-footer-content">  
                 <div className="like-contener">  
                 <button className={(conterlike % 2) ? "post__favorite-active" : "post-favorite"} onClick={() => (conterlike % 2)? setcounter(conterlike - 1) : setcounter(conterlike + 1)}>
-                    {console.log(conterlike)}
+                    {/* {console.log(conterlike)} */}
                     <Like/>
                 </button>
                 <span>&nbsp;</span>
