@@ -1,17 +1,21 @@
-import styles from './postForm.module.css'
+import './postForm.module.css'
 
 
 function PostForm() {
 
  
-
     return (
+
         <form>
+          <div className="modal-body">
             <h3>Создать пост</h3>
-            <input
+            <input 
                 type="text"
                 placeholder="url картинки поста"
             />
+            <div>
+                 <img src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" width="100%"/>
+            </div>
 
             <input
              
@@ -30,6 +34,8 @@ function PostForm() {
           
           
             <button>Создать</button>
+
+         </div>
         </form>
     );
 };

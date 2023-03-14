@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ReactComponent as Like } from "./like.svg"
-import './style.css';
+import styles from './post.module.css';
 
 export const Post = ({image,text,title,created_at,author,tags,likes}) => {
 
@@ -56,9 +56,9 @@ export const Post = ({image,text,title,created_at,author,tags,likes}) => {
     }
     
     return (
-        <div className="post-card">
-           <div className="post-header">
-              <div className="post-header-autor">
+        <div className={styles.post_card}>
+           <div className={styles.post_header}>
+              <div className={styles.post_header_autor}>
                 {/* header поста */}
                 <img src = {author.avatar} alt="аватар пользователя"/> 
                 {author.name}
@@ -66,31 +66,31 @@ export const Post = ({image,text,title,created_at,author,tags,likes}) => {
                 {author.about}
               </div>
            </div> 
-           <div className="post-body">
-                <div className="post-body-content">
+           <div className={styles.post_body}>
+                <div className={styles.post_body_content}>
                     {/* тело */}
                     <div className="">
                     <img src={image} alt="картинка"/> 
                     </div>
-                    <div className="post-main-descripshion">
+                    <div className={styles.post_main_descripshion}>
                         <p><strong>{title}</strong></p>
                         <p>{text}</p>
-                        <div className="post-tags">
+                        <div className={styles.post_tags}>
                             
                             {tags.map((tag) => {
                                     
-                                return  <span className="background-text">{tag}</span>
+                                return  <span className={styles.background_text}>{tag}</span>
                             })}   
                         </div>
                     </div>
                     
                 </div>
            </div>
-           <div className="post-footer">
-              <div className="post-footer-content">  
-                <div className="like-contener">  
-                <button className={(conterlike % 2) ? "post__favorite-active" : "post-favorite"} onClick={() => (conterlike % 2)? setcounter(conterlike - 1) : setcounter(conterlike + 1)}>
-                    {console.log(conterlike)}
+           <div className={styles.post_footer}>
+              <div className={styles.post_footer_content}>  
+                <div className={styles.like_contener}>  
+                <button className={(conterlike % 2) ? styles.post_favorite_active : styles.post_favorite} onClick={() => (conterlike % 2)? setcounter(conterlike - 1) : setcounter(conterlike + 1)}>
+                    {/* {console.log(conterlike)} */}
                     <Like/>
                 </button>
                 <span>&nbsp;</span>

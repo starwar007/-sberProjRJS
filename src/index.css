@@ -1,11 +1,15 @@
 body {
     margin: 0 auto;
+    font-family: "Source Sans Pro";
+
 }
 
 ul {
     list-style: none;
+    font-family: "Source Sans Pro";
 }
 
 button {
-    cursor: pointer
+    cursor: pointer;
+    font-family: "Source Sans Pro";
 }
