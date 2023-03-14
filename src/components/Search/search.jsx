@@ -1,4 +1,4 @@
-import './index.css';
+import styles from './search.module.css';
 import {ReactComponent as SearchIcon} from './ic-search.svg';
 import {ReactComponent as CloseIcon} from './ic-close-input.svg';
 import { useState } from 'react';
@@ -24,11 +24,11 @@ function Search({onSubmit: propsOnSubmit, onInput}) {
   }
 
   return (
-   <form className="search" onSubmit={handleFormSubmit}>
-        <input type="text" value={inputText} className='search__input' placeholder='Поиск' onInput={handleInput}/>
-        <button type='button' className='search__btn'>
-          {inputText && <CloseIcon onClick={handleClearInput} className='search__icon-clear'/>}
-          {inputText && <SearchIcon onClick={handleFormSubmit} className='search__icon'/>}
+   <form className={styles.search} onSubmit={handleFormSubmit}>
+        <input type="text" value={inputText} className={styles.search__input} placeholder='Поиск' onInput={handleInput}/>
+        <button type='button' className={styles.search__btn}>
+          {inputText && <CloseIcon onClick={handleClearInput} className={styles.search__icon_clear}/>}
+          {inputText && <SearchIcon onClick={handleFormSubmit} className={styles.search__icon}/>}
         </button>
    </form>
   )

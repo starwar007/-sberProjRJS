@@ -1,5 +1,6 @@
 .buttonIn {
     /* font-family: 'Raleway', sans-serif; */
+    font-family: "Source Sans Pro";
     margin: auto;
     font-size: 15px;
     color: #fff;
@@ -11,7 +12,6 @@
     padding: 10px;
     /* padding: '0px 8px 0px 8px';  */
     width:150px;
-    z-index: 50;
   } 
 
     button:hover {

@@ -4,19 +4,21 @@ import cn from "classnames";
 import api from "../../utils/api";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as SearchIcon } from './ic-search.svg';
-import { ReactComponent as CloseIcon } from './ic-close-input.svg';
 import Button from "../Button/Button";
 import Search from "../Search/search";
+// import ModalPost from "../ModalPost/ModalPost"
+import PostForm from "../PostForm/PostForm"
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
+
+  const navigate = useNavigate();
+  const [modalActive, setModalActive] = useState(false);
+  const [userToken, setUserToken] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
 
   const handleInput = (e) => {
     onInput(e.target.value)
   }
-  const [userToken, setUserToken] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     Promise.all([api.getUserInfo()])
@@ -44,6 +46,12 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
               <Search/>
               <Button title="Меню Авторизации" route="/authorization" className={styles.buttonLong}/>
+
+              {/* <ModalPost active={modalActive} setActive={setModalActive}>
+        <PostForm />
+      </ModalPost>
+
+      <button onClick={() => setModalActive(true)}>Создать пост</button> */}
             </div>
         </header>
     )
