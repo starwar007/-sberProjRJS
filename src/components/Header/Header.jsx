@@ -42,13 +42,10 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
               </div>
               <Search/>
               <Button title="Меню Авторизации" route="/authorization"/>
-
+              <Button title="Добавить пост" setActive={setModalActive}/>
               <ModalPost active={modalActive} setActive={setModalActive}>
-        <PostForm />
-      </ModalPost>
-
-      <button onClick={() => setModalActive(true)}>Создать пост</button>
-
+                  <PostForm />
+              </ModalPost>
             </div>
         </header>
     )
