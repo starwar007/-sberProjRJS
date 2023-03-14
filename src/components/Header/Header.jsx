@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactComponent as SearchIcon } from './ic-search.svg';
 import { ReactComponent as CloseIcon } from './ic-close-input.svg';
 import Button from "../Button/Button";
-import Search from "../Search/Search";
+import Search from "../Search/search";
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
@@ -38,8 +38,12 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
                 <h1 className={styles.title} style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</h1>
               </div>
+
+              {/* <Route exact path={authorizationIn} element={<Search/>}></Route> */}
+              {/* <Route exact path='/authorizationIn' element={<Search/>}></Route> */}
+
               <Search/>
-              <Button title="Меню Авторизации" route="/authorization" />
+              <Button title="Меню Авторизации" route="/authorization" className={styles.buttonLong}/>
             </div>
         </header>
     )
