@@ -4,12 +4,12 @@ import styles from './button.module.css'
 import { Link } from "react-router-dom";
 
 
-const Button = ({title, route, fn = Function.prototype}) => {
+const Button = ({title, route, setActive}) => {
     return (
         <Link to={route}>
             <button
                 className={styles.buttonLong} 
-                onClick={fn}
+                onClick={() => setActive('true')}
             >
             {title}
         </button>
