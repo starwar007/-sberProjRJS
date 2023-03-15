@@ -13,20 +13,20 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
-  const [userToken, setUserToken] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
+  // const [userToken, setUserToken] = useState('');
+  // const [currentUser, setCurrentUser] = useState('');
 
   const handleInput = (e) => {
     onInput(e.target.value)
   }
 
-  useEffect(() => {
-    Promise.all([api.getUserInfo()])
-      .then(([userData]) => {
-        setCurrentUser(userData)
-      })
-      .catch(err => console.log(err))
-  }, [userToken])
+  // useEffect(() => {
+  //   Promise.all([api.getUserInfo()])
+  //     .then(([userData]) => {
+  //       setCurrentUser(userData)
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [userToken])
 
     return (
         <header className={cn(styles.header)}>
@@ -45,8 +45,11 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
               {/* <Route exact path='/authorizationIn' element={<Search/>}></Route> */}
 
               <Search/>
-              <Button title="Меню Авторизации" route="/authorization" className={styles.buttonLong}/>
               <Button title="Добавить пост" setActive={setModalActive}/>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
+              <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/>
+              </div>
               <ModalPost active={modalActive} setActive={setModalActive}>
                   <PostForm />
               </ModalPost>

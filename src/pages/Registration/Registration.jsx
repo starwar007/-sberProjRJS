@@ -1,72 +1,52 @@
 import React from "react";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import api from "../../utils/api";
-import styles from './authorization.module.css'
+import styles from './registration.module.css'
 import Button from "../../components/Button/Button";
 // import cn from "classnames";
-// import { UserContext } from "../../context/ContextUser";
-// import { Link } from 'react-router-dom';
 
-const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
+const Registration = ({ onSubmit: propsOnSubmit, onInput }) => {
 
   const handleInput = (e) => {
     onInput(e.target.value)
   }
 
-  const [userToken, setUserToken] = useState('');
+  // const [userToken, setUserToken] = useState('');
   // const [userTokenGen, setUserTokenGen] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
-  // const [usercontext, setusercontext] = useContext(UserContext);
+  // const [currentUser, setCurrentUser] = useState('');
 
   function Exit() {
-    setUserToken('');
-    setCurrentUser('');
-    api.setToken('');
-    // setusercontext(false);
+    // setUserToken('');
+    // setUserTokenGen('');
+    // setCurrentUser('');
+    // api.setToken('');
   }
 
 
-  function LogIn() {
-    // console.log(document.querySelector('#password1').value);
-    api.signIn(document.querySelector('#email1').value, document.querySelector('#password1').value)
-      .then(response => response.json()).then((response) => {
-        console.log(response);
-        if (response.token === undefined) { alert('Неверная эл. почта или пароль') }
-        else {
-          //   alert(`Ваш токен, ${document.querySelector('#email1').value}, сгенерирован (скопировать Вы его можете из поля на следующей странице или консоли F12): ${response.token}`);
-          console.log(response.token); api.setToken(response.token); setUserToken(response.token);
-        }
-      });
+  function LogReg() {
   }
 
-  useEffect(() => {
-    Promise.all([api.getUserInfo()])
-      .then(([userData]) => {
-        setCurrentUser(userData)
-      })
-      .catch(err => console.log(err))
-  }, [userToken])
 
-  console.log(currentUser.name);
+
+
+
+
+
+
+
+
+
+  // useEffect(() => {
+  //   Promise.all([api.getUserInfo()])
+  //     .then(([userData]) => {
+  //       setCurrentUser(userData)
+  //     })
+  //     .catch(err => console.log(err))
+  // }, [userToken])
 
 
   // if (!userToken && !userTokenGen) {
   // if (!userToken && !userTokenGen) {
-
-
-
-
-  // console.log(usercontext);
-
-    //     onClick={() => navigate(-1)} 
-    // setusercontext(true); console.log(usercontext) 
-
-  // if(currentUser) { console.log(currentUser.name);
-  //   return(
-  //   <>
-  //     <Link to={'/'}></Link>
-  //   </>
-  //  )}
 
   return (
     <section className={styles.autorization}>
@@ -99,13 +79,13 @@ const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
 
       <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '20px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto' }}>
-          <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
+          <h2 style={{ color: '#23a030' }}><u>МЕНЮ РЕГИСТРАЦИИ</u></h2>
         </div>
         {/* <span style={{ fontWeight: 'bold' }}>Нет токена? Cгенерируйте его! Введите регистрационные данные</span>
           <span style={{ fontSize: '15px' }}>ВЫПОЛНЯТЬ В ТОМ СЛУЧАЕ, ЕСЛИ ТОКЕНА ДЛЯ ВАШЕЙ УЧЕТНОЙ<br /> ЗАПИСИ НЕ БЫЛО, УТЕРЯН ИЛИ ИСТЕК СРОК ДЕЙСТВИЯ!</span> */}
         <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
-          <input type="password1" name="password1" id="password1" required placeholder="Пароль" size="19" autoComplete="off" />
-          <input type="email" name="email1" id="email1" required placeholder="Эл. почта" size="19" />
+          <input type="password2" name="password2" id="password2" required placeholder="Пароль" size="19" autoComplete="off" />
+          <input type="email" name="email2" id="email2" required placeholder="Эл. почта" size="19" />
 
           {/* <button onClick={() => {
               api.signIn(document.querySelector('#email1').value, document.querySelector('#password1').value)
@@ -119,9 +99,7 @@ const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
                 });
             }}>Сгенерировать токен</button> */}
 
-          <Button title="Авторизоваться"
-          // route="/"
-           fn={LogIn} className={styles.button} />
+          <Button title="Зарегистрироваться" route="/" fn={LogReg} className={styles.button} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto', marginTop: '30px' }}>
           <Button title="Выход" route="/" fn={Exit} className={styles.button} />
@@ -157,7 +135,7 @@ const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
           </div>
         </div>
         <Button title="Выход" route="/" fn={Exit} /> */}
-    </section> 
+    </section>
   )
 
 
@@ -231,4 +209,4 @@ const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
 
 }
 
-export default Authorization;
+export default Registration;
