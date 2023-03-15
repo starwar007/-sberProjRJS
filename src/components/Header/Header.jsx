@@ -5,7 +5,7 @@ import api from "../../utils/api";
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import Search from "../Search/search";
+import Search from "../Search/Search";
 import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 
@@ -35,7 +35,7 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
               {/* <Route exact path='/authorizationIn' element={<Search/>}></Route> */}
 
               <Search/>
-              <Button title="Добавить пост" setActive={setModalActive}/>
+              <Button title="Добавить пост"  fn ={()=>setModalActive(true)}/>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
               <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/>

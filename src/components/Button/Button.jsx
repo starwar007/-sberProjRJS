@@ -16,7 +16,7 @@ const Button = ({title, route, fn, className }) => {
                 className={className}
 
                 onClick={fn}
-                // onClick={() => setActive('true')}
+                //onClick={() => setActive('true')}
             >
             {title}
         </button>
