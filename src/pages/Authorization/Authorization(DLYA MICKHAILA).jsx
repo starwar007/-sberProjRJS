@@ -43,6 +43,7 @@ const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
           <Button title="Выход" route="/" fn={Exit} className={styles.button} />
         </div>
       </div>
+
     </section> 
   )
 

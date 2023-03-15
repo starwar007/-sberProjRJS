@@ -2,7 +2,7 @@
 form {
     font-family: "Source Sans Pro";
     display: block;
-    margin-top: 0em;
+    /* margin-top: 0em; */
 }
     
     input {
@@ -14,8 +14,8 @@ form {
 }
 .modal-body {
     font-family: "Source Sans Pro";
-    padding: 24px;
-    font-size: 14px;
+    padding: 5px;
+    font-size: 30px;
     line-height: 1.5715;
     word-wrap: break-word;
 }

@@ -2,7 +2,7 @@
     font-family: "Source Sans Pro";
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
-    height: 160px;
+    height: 130px;
 }
 
 .flex {
@@ -75,6 +75,18 @@
     font-size: 18px; 
 }
 
+.buttonLong {
+    margin: auto;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #23a030;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
+    padding: 10px;
+    width:200px;
+}
 
 
 

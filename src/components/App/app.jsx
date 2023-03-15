@@ -1,21 +1,25 @@
 import React from 'react';
 import styles from './app.module.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import api from '../../utils/api';
 import cn from "classnames";
-import Footer from '../Footer/footer';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import PostList from '../../pages/PostList/PostList';
-import Auth from '../../pages/Authorization/Authorization';
+import Authorization from '../../pages/Authorization/Authorization';
 import '@fontsource/source-sans-pro';
+import Registration from '../../pages/Registration/Registration';
+import {UserContext} from "../../context/ContextUser";
 
 
 function App() {
+  const [usercontext, setusercontext] = useState(false);
   return (
     <>
+      <UserContext.Provider value={[usercontext, setusercontext]}>
       <Header />
       <main className={styles.main}>
         <Routes>
@@ -27,12 +31,13 @@ function App() {
             path="/"
           />
           <Route exact path='/postlist' element={<PostList/>}></Route>
-          <Route exact path='/authorization' element={<Auth/>}></Route>
+          <Route exact path='/authorization' element={<Authorization/>}></Route>
+          <Route exact path='/registration' element={<Registration/>}></Route>
           <Route exact path ='/postCard'></Route>
         </Routes>
       </ main>
       <Footer />
-      
+      </UserContext.Provider>
     </>
   )
 }
