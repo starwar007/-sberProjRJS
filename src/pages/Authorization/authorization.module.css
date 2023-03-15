@@ -1,4 +1,3 @@
-
 .autorization {
     font-family: "Source Sans Pro";
     display: flex;
@@ -11,7 +10,7 @@
     margin: 5px 5px 5px 5px;
 }
 
-/* .avatarIcon {
+.avatarIcon {
     box-sizing: border-box;
 
     margin: 0;
@@ -23,8 +22,8 @@
     list-style: none;
     font-feature-settings: 'tnum';
     position: relative;
-    display: inline-block; 
-    
+    display: inline-block;
+
     overflow: hidden;
 
     color: #fff;
@@ -33,7 +32,7 @@
     vertical-align: middle;
     background: #ccc;
 
-    
+
 
     width: 50px;
     height: 50px;
@@ -42,11 +41,11 @@
 
     border-radius: 50%;
 
-    font-size: 18px; 
-} */
+    font-size: 18px;
+}
 
 .button {
     margin-top: 5px;
     height: 30px;
-    width:160px;
+    width: 160px;
 }

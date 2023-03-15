@@ -1,66 +1,66 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import api from "../../utils/api";
-import styles from './registration.module.css'
+import styles from './authorization.module.css'
 import Button from "../../components/Button/Button";
 // import cn from "classnames";
+import { UserContext } from "../../context/ContextUser";
+import { Link } from 'react-router-dom';
 
-const Registration = ({ onSubmit: propsOnSubmit, onInput }) => {
+const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
 
   const handleInput = (e) => {
     onInput(e.target.value)
   }
 
-  // const [userToken, setUserToken] = useState('');
+  const [userToken, setUserToken] = useState('');
   // const [userTokenGen, setUserTokenGen] = useState('');
-  // const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
+  const [usercontext, setusercontext] = useContext(UserContext);
 
   function Exit() {
-    // setUserToken('');
-    // setUserTokenGen('');
-    // setCurrentUser('');
-    // api.setToken('');
+    setUserToken('');
+    setCurrentUser('');
+    api.setToken('');
+    setusercontext(false);
   }
 
 
-  function LogReg() {
-    let body = {
-      'email': `${document.querySelector('#email2').value}`,
-      'group': "group-10",
-      'password': `${document.querySelector('#password2').value}`
-    }
-    api.signUp(body)
+  function LogIn() {
+    api.signIn(document.querySelector('#email1').value, document.querySelector('#password1').value)
       .then(response => response.json()).then((response) => {
-        if (response.name === undefined) { alert('Некорректные данные эл. почты или пароля') }
+        console.log(response);
+        if (response.token === undefined) { alert('Неверная эл. почта или пароль') }
         else {
-          alert(`Вы зарегистированы с именем по умолчанию ${response.name}. Теперь Вы сможете по зарегистрированным данным, сгенерировать токен`);
-          console.log(response)
+          console.log(response.token); api.setToken(response.token); setUserToken(response.token);
         }
       });
   }
 
+  useEffect(() => {
+    Promise.all([api.getUserInfo()])
+      .then(([userData]) => {
+        setCurrentUser(userData)
+      })
+      .catch(err => console.log(err))
+  }, [userToken])
+
+  console.log(currentUser.name);
 
 
+  console.log(usercontext);
+
+    //     onClick={() => navigate(-1)} 
+    // setusercontext(true); console.log(usercontext) 
+  // if(currentUser) { console.log(currentUser.name);
+  //   return(
+  //   <>
+  //     <Link to={'/'}></Link>
+  //   </>
+  //  )}
 
 
-
-
-
-
-
-
-  // useEffect(() => {
-  //   Promise.all([api.getUserInfo()])
-  //     .then(([userData]) => {
-  //       setCurrentUser(userData)
-  //     })
-  //     .catch(err => console.log(err))
-  // }, [userToken])
-
-
-  // if (!userToken && !userTokenGen) {
-  // if (!userToken && !userTokenGen) {
-
+  if(!currentUser){
   return (
     <section className={styles.autorization}>
       {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -92,13 +92,13 @@ const Registration = ({ onSubmit: propsOnSubmit, onInput }) => {
 
       <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '20px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto' }}>
-          <h2 style={{ color: '#23a030' }}><u>МЕНЮ РЕГИСТРАЦИИ</u></h2>
+          <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
         </div>
         {/* <span style={{ fontWeight: 'bold' }}>Нет токена? Cгенерируйте его! Введите регистрационные данные</span>
           <span style={{ fontSize: '15px' }}>ВЫПОЛНЯТЬ В ТОМ СЛУЧАЕ, ЕСЛИ ТОКЕНА ДЛЯ ВАШЕЙ УЧЕТНОЙ<br /> ЗАПИСИ НЕ БЫЛО, УТЕРЯН ИЛИ ИСТЕК СРОК ДЕЙСТВИЯ!</span> */}
         <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
-          <input type="password2" name="password2" id="password2" required placeholder="Пароль" size="19" autoComplete="off" />
-          <input type="email" name="email2" id="email2" required placeholder="Эл. почта" size="19" />
+          <input type="password1" name="password1" id="password1" required placeholder="Пароль" size="19" autoComplete="off" />
+          <input type="email" name="email1" id="email1" required placeholder="Эл. почта" size="19" />
 
           {/* <button onClick={() => {
               api.signIn(document.querySelector('#email1').value, document.querySelector('#password1').value)
@@ -112,7 +112,9 @@ const Registration = ({ onSubmit: propsOnSubmit, onInput }) => {
                 });
             }}>Сгенерировать токен</button> */}
 
-          <Button title="Зарегистрироваться" route="/" fn={LogReg} className={styles.button} />
+          <Button title="Авторизоваться"
+          // route="/"
+           fn={LogIn} className={styles.button} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto', marginTop: '30px' }}>
           <Button title="Выход" route="/" fn={Exit} className={styles.button} />
@@ -148,8 +150,9 @@ const Registration = ({ onSubmit: propsOnSubmit, onInput }) => {
           </div>
         </div>
         <Button title="Выход" route="/" fn={Exit} /> */}
-    </section>
+    </section> 
   )
+  }
 
 
 
@@ -195,31 +198,32 @@ const Registration = ({ onSubmit: propsOnSubmit, onInput }) => {
   //   )
   // }
 
-  // if (currentUser) {
-  // if (currentUser) {
-  //   //alert(`Добро пожаловать ${currentUser.name}`);
-  //   return (
-  //     <>
-  //       <section className={styles.autorization}>
-  //         <div style={{ display: 'flex', flexDirection: 'column' }}>
-  //                 <span>
-  //                   <img className={styles.avatarIcon} src="https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/a4e5138f-f147-436a-ba06-3e55ecb8099c/3840x" />
-  //                 </span>
-  //                 <div>
-  //                   {currentUser?.email && <div>{currentUser?.email}</div>}
-  //                   {currentUser?.name && <div>{currentUser?.name}</div>}
-  //                   {/* <button className={styles.buttonIn} onClick={() => { setUserToken(''); setUserTokenGen(''); setCurrentUser(''); api.setToken('') }}>Выйти</button> */}
-  //                   {/* <ButtonExit title="Выход" route="/" fnExit={Exit} /> */}
-  //                   <Button title="Выход" route="/" fn={Exit} />
-  //                 </div>
-  //         </div>
-  //       </section>
-  //     </>
-  //   )
-  // }
+
+  if (currentUser) {
+    //alert(`Добро пожаловать ${currentUser.name}`);
+    console.log(currentUser.email);
+    return (
+      <>
+        <section className={styles.autorization}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span>
+                    <img className={styles.avatarIcon} src="https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/a4e5138f-f147-436a-ba06-3e55ecb8099c/3840x" />
+                  </span>
+                  <div>
+                    {currentUser?.email && <div>{currentUser?.email}</div>}
+                    {currentUser?.name && <div>{currentUser?.name}</div>}
+                    {/* <button className={styles.buttonIn} onClick={() => { setUserToken(''); setUserTokenGen(''); setCurrentUser(''); api.setToken('') }}>Выйти</button> */}
+                    {/* <ButtonExit title="Выход" route="/" fnExit={Exit} /> */}
+                    <Button title="Выход" route="/" fn={Exit} />
+                  </div>
+          </div>
+        </section>
+      </>
+    )
+  }
 
 
 
 }
 
-export default Registration;
+export default Authorization;

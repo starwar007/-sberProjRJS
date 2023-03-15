@@ -12,14 +12,14 @@ import PostList from '../../pages/PostList/PostList';
 import Authorization from '../../pages/Authorization/Authorization';
 import '@fontsource/source-sans-pro';
 import Registration from '../../pages/Registration/Registration';
-// import {UserContext} from "../../context/ContextUser";
+import {UserContext} from "../../context/ContextUser";
 
 
 function App() {
-  // const [usercontext, setusercontext] = useState(false);
+  const [usercontext, setusercontext] = useState(false);
   return (
     <>
-      {/* <UserContext.Provider value={[usercontext, setusercontext]}> */}
+      <UserContext.Provider value={[usercontext, setusercontext]}>
       <Header />
       <main className={styles.main}>
         <Routes>
@@ -31,13 +31,13 @@ function App() {
             path="/"
           />
           <Route exact path='/postlist' element={<PostList/>}></Route>
-          {/* <Route exact path='/authorization' element={<Authorization/>}></Route> */}
+          <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
           <Route exact path ='/postCard'></Route>
         </Routes>
       </ main>
       <Footer />
-      {/* </UserContext.Provider> */}
+      </UserContext.Provider>
     </>
   )
 }

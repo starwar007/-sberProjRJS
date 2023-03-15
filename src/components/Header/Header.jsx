@@ -13,20 +13,10 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
-  // const [userToken, setUserToken] = useState('');
-  // const [currentUser, setCurrentUser] = useState('');
 
   const handleInput = (e) => {
     onInput(e.target.value)
   }
-
-  // useEffect(() => {
-  //   Promise.all([api.getUserInfo()])
-  //     .then(([userData]) => {
-  //       setCurrentUser(userData)
-  //     })
-  //     .catch(err => console.log(err))
-  // }, [userToken])
 
     return (
         <header className={cn(styles.header)}>
