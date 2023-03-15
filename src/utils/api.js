@@ -182,7 +182,6 @@ class Api {
         }).then(onResponce)
     }
 
-
     search(searchQuery) {
         return fetch(`${this._baseUrl}/posts/search?query=${searchQuery}`, {
             headers: this._headers

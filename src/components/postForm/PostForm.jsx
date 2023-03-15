@@ -14,7 +14,7 @@ function PostForm() {
                 placeholder="url картинки поста"
             />
             <div>
-                 <img src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" width="100%"/>
+                 <img src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" width="90%"/>
             </div>
 
             <input

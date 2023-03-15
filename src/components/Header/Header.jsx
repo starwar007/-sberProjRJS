@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Search from "../Search/search";
-// import ModalPost from "../ModalPost/ModalPost"
+import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 
 export function Header({ onSubmit: propsOnSubmit, onInput }) {
@@ -46,12 +46,11 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
 
               <Search/>
               <Button title="Меню Авторизации" route="/authorization" className={styles.buttonLong}/>
-
-              {/* <ModalPost active={modalActive} setActive={setModalActive}>
-        <PostForm />
-      </ModalPost>
-
-      <button onClick={() => setModalActive(true)}>Создать пост</button> */}
+              <Button title="Добавить пост" setActive={setModalActive}/>
+              <ModalPost active={modalActive} setActive={setModalActive}>
+                  <PostForm />
+              </ModalPost>
+            {/* <button onClick={() => setModalActive(true)}>Создать пост</button> */}
             </div>
         </header>
     )
