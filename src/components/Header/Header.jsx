@@ -10,28 +10,10 @@ import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 import { UserContext } from "../../context/ContextUser";
 
-export function Header() {
+export function Header({user}) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
-  const [token, setToken] = useState(null);
-  const [currentUser, setCurrentUser] = useState(null);
-
-   useEffect(() => {
-     const tokenFromLS = localStorage.getItem('token');
-      if (tokenFromLS) {
-        api.setToken(tokenFromLS)
-        api.getUserInfo()
-        .then(res => {
-          setCurrentUser(res.name)
-          UserContext.displayName = res.name
-        })
-        setToken(tokenFromLS)
-      }
-   }, [currentUser])
-  
-   console.log(token, currentUser, UserContext.displayName)
-
     return (
         <header className={cn(styles.header)}>
             <div className={styles.flex}>
@@ -47,7 +29,7 @@ export function Header() {
               <Search/>
               <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                { currentUser ? <span>{UserContext.displayName}</span> : <> 
+                { user ? <span>{UserContext.displayName}</span> : <> 
                   <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
                   <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
                 </>  
