@@ -36,7 +36,7 @@ const Authorization = () => {
         navigate('/');
         console.log(obj);
         api.setToken(obj.token);
-        setToken(obj.token);
+        // setToken(obj.token);
         localStorage.setItem('token', obj.token);
       })
     }, []);
