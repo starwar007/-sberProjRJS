@@ -2,9 +2,9 @@ import styles from './formField.module.css';
 
 const FormField = ({title, name, pattern, register, errors, type}) => {
     return (
-        <div>
+        <div className={styles.input_wrapper}>
             <label>{title}</label>
-            <input
+            <input className={styles.input}
                 {
                     ...register(name, {
                         required: "Обязательное поле",

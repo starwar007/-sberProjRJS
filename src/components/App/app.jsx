@@ -17,19 +17,28 @@ import {UserContext} from "../../context/ContextUser";
 
 function App() {
   const [usercontext, setusercontext] = useState(false);
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+
+   useEffect(() => {
+     const tokenFromLS = localStorage.getItem('token');
+      if (tokenFromLS) {
+        api.setToken(tokenFromLS)
+        api.getUserInfo()
+        .then(res => {
+          setCurrentUser(res.name)
+          UserContext.displayName = res.name
+        })
+        setToken(tokenFromLS)
+      }
+   }, [currentUser])
   return (
     <>
       <UserContext.Provider value={[usercontext, setusercontext]}>
-      <Header />
+      <Header user = { currentUser }  />
       <main className={styles.main}>
         <Routes>
-          <Route
-          element={
-            <Main />
-            }
-            exact
-            path="/"
-          />
+          <Route element={ <Main />} exact path="/"/>
           <Route exact path='/postlist' element={<PostList/>}></Route>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>

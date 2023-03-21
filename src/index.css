@@ -13,3 +13,8 @@ button {
     cursor: pointer;
     font-family: "Source Sans Pro";
 }
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

@@ -33,41 +33,41 @@ const Authorization = () => {
     const {email, password} = data
     api.signIn(email, password)
       .then(obj => {
-        navigate('/');
-        console.log(obj);
-        api.setToken(obj.token);
-        // setToken(obj.token);
+        navigate('/')
+        console.log(obj)
+        api.setToken(obj.token)
+        // setToken(obj.token)
         localStorage.setItem('token', obj.token);
       })
     }, []);
 
+
     return (
       <section className={styles.autorization}>
         <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
-          <form className={styles.form}>
-            <FormField
-              title ="E-mail"
-              name='email'
-              pattern={emailPattern}
-              register={register}
-              errors={errors} 
-            />
+        <form className={styles.form}>
           <FormField
-              title ="Пароль"
-              name='password'
-              type='password'
-              pattern={passPattern}
-              register={register}
-              errors={errors} 
-            />
-
-            <Button 
-              title="Авторизоваться" 
-              className={styles.button} 
-              fn={handleSubmit(onSubmit)}
-            />
-          </form>
-            <Button title="Выход" route="/" className={styles.button} />
+            title ="E-mail"
+            name='email'
+            pattern={emailPattern}
+            register={register}
+            errors={errors} 
+          />
+          <FormField
+            title ="Пароль"
+            name='password'
+            type='password'
+            pattern={passPattern}
+            register={register}
+            errors={errors} 
+          />
+          <Button 
+            title="Авторизоваться" 
+            className={styles.auth_button} 
+            fn={handleSubmit(onSubmit)}
+          />
+        </form>
+          <Button title="Выход" route="/" className={styles.button} />
       </section> 
     )
   };
