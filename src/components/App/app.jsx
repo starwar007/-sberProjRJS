@@ -23,13 +23,7 @@ function App() {
       <Header />
       <main className={styles.main}>
         <Routes>
-          <Route
-          element={
-            <Main />
-            }
-            exact
-            path="/"
-          />
+          <Route element={ <Main />} exact path="/"/>
           <Route exact path='/postlist' element={<PostList/>}></Route>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>

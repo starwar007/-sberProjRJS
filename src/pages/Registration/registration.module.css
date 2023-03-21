@@ -1,52 +1,33 @@
-
 .autorization {
     font-family: "Source Sans Pro";
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid #23a030 5px;
-    background-color: yellow;
-    padding: 5px 5px 5px 5px;
-    margin: 5px 5px 5px 5px;
+    background-color: rgba(152, 251, 152, 0.5);
+    height: calc(100vh - 300px);
 }
 
-/* .avatarIcon {
-    box-sizing: border-box;
+.form {
+    width: 80%;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+    align-items: center; 
+}
 
-    margin: 0;
-    padding: 0;
-    color: rgba(0, 0, 0, 0.85);
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
-    position: relative;
-    display: inline-block; 
-    
-    overflow: hidden;
+input {
+    width: 100%;
+}
 
-    color: #fff;
-    white-space: nowrap;
-    text-align: center;
-    vertical-align: middle;
-    background: #ccc;
+a {
+    display: block;
+    text-decoration: none;
+}
 
-    
-
-    width: 50px;
-    height: 50px;
-
-    line-height: 32px;
-
-    border-radius: 50%;
-
-    font-size: 18px; 
-} */
-
-.button {
-    margin-top: 5px;
-    height: 30px;
-    width:160px;
+.reg_button {
+    display: block;
+    margin: auto;
+    border: none;
+    padding: 20px;
 }

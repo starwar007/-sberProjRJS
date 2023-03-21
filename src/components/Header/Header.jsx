@@ -18,17 +18,17 @@ export function Header() {
   const [currentUser, setCurrentUser] = useState(null);
 
    useEffect(() => {
-     const tokenFromLS = localStorage.getItem('token')
-     if (tokenFromLS) {
-       api.setToken(tokenFromLS)
-       api.getUserInfo()
-       .then(res => {
-        setCurrentUser(res.name)
-        UserContext.displayName = res.name
-       })
-       setToken(tokenFromLS)
-     }
-   }, [])
+     const tokenFromLS = localStorage.getItem('token');
+      if (tokenFromLS) {
+        api.setToken(tokenFromLS)
+        api.getUserInfo()
+        .then(res => {
+          setCurrentUser(res.name)
+          UserContext.displayName = res.name
+        })
+        setToken(tokenFromLS)
+      }
+   }, [currentUser])
   
    console.log(token, currentUser, UserContext.displayName)
 
@@ -42,7 +42,7 @@ export function Header() {
                   alt="Реактивные посты"
                   style={{ width: '100px' }}
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
-                <h1 className={styles.title} style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</h1>
+                <h1 className={styles.title}>Реактивные посты</h1>
               </div>
               <Search/>
               <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>

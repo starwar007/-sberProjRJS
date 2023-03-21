@@ -70,7 +70,7 @@ const onSubmit = useCallback((data) => {
           />
           <Button 
             title="Зарегестрироваться" 
-            className={styles.button} 
+            className={styles.reg_button} 
             fn={handleSubmit(onSubmit)}
           />
         </form>
