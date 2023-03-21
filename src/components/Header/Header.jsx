@@ -35,7 +35,7 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
               {/* <Route exact path='/authorizationIn' element={<Search/>}></Route> */}
 
               <Search/>
-              <Button title="Добавить пост"  fn ={()=>setModalActive(true)}/>
+              <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
               <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/>
