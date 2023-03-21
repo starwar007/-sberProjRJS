@@ -23,7 +23,7 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
             <div className={styles.flex}>
               <div
                 className={styles.logo} 
-                onClick={()=>navigate('/')}>
+                onClick={() => navigate('/')}>
                 <img 
                   alt="Реактивные посты"
                   style={{ width: '100px' }}
