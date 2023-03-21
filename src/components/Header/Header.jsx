@@ -2,21 +2,35 @@ import React from "react";
 import styles from "./header.module.css";
 import cn from "classnames";
 import api from "../../utils/api";
-import { useState, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Search from "../Search/Search";
 import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
+import { UserContext } from "../../context/ContextUser";
 
-export function Header({ onSubmit: propsOnSubmit, onInput }) {
+export function Header() {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
+  const [token, setToken] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-  const handleInput = (e) => {
-    onInput(e.target.value)
-  }
+   useEffect(() => {
+     const tokenFromLS = localStorage.getItem('token')
+     if (tokenFromLS) {
+       api.setToken(tokenFromLS)
+       api.getUserInfo()
+       .then(res => {
+        setCurrentUser(res.name)
+        UserContext.displayName = res.name
+       })
+       setToken(tokenFromLS)
+     }
+   }, [])
+  
+   console.log(token, currentUser, UserContext.displayName)
 
     return (
         <header className={cn(styles.header)}>
@@ -30,20 +44,18 @@ export function Header({ onSubmit: propsOnSubmit, onInput }) {
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
                 <h1 className={styles.title} style={{ color: 'red', fontSize: '50px' }}>Реактивные посты</h1>
               </div>
-
-              {/* <Route exact path={authorizationIn} element={<Search/>}></Route> */}
-              {/* <Route exact path='/authorizationIn' element={<Search/>}></Route> */}
-
               <Search/>
               <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
-              <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/>
+                { currentUser ? <span>{UserContext.displayName}</span> : <> 
+                  <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
+                  <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
+                </>  
+                }
               </div>
               <ModalPost active={modalActive} setActive={setModalActive}>
                   <PostForm />
               </ModalPost>
-            {/* <button onClick={() => setModalActive(true)}>Создать пост</button> */}
             </div>
         </header>
     )

@@ -33,14 +33,16 @@ const Authorization = () => {
     const {email, password} = data
     api.signIn(email, password)
       .then(obj => {
-        navigate('/');
-        console.log(obj);
-        api.setToken(obj.token);
-        setToken(obj.token);
+        navigate('/')
+        console.log(obj)
+        api.setToken(obj.token)
+        // setToken(obj.token)
         localStorage.setItem('token', obj.token);
       })
+      .then (api.getUserInfo()
+        .then(res => UserContext.displayName = res.name))
     }, []);
-
+     console.log()
     return (
       <section className={styles.autorization}>
         <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
