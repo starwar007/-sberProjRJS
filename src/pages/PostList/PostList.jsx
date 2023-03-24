@@ -33,7 +33,7 @@ const PostList = () => {
 	// console.log(posts);
 	// const token = localStorage.getItem('token');
 	if (!token)
-	    return
+	    return <h1 className = {styles.textAttention}>Авторизируйтесь</h1>
 	return (
 		
 		<div className={styles.cards}>
