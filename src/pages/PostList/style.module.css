@@ -1,3 +1,9 @@
+.textAttention {
+	color: red ;
+	text-align: center;
+	font-size: 50px;
+}
+
 .cards {
 	font-family: "Source Sans Pro";
 	display: grid;
