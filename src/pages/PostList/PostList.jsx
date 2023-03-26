@@ -24,7 +24,7 @@ const PostList = () => {
     .then(([postsData, userData])=> {
       setCurrentUser(userData)
       setPosts(postsData)
-      console.log(postsData);
+      // console.log(postsData);
     })
     .catch( err => console.log(err))
     
