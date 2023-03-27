@@ -81,9 +81,9 @@ export const Post = ({image,text,title,created_at,author,tags,likes,_id}) => {
                         <p>{text}</p>
                         <div className={styles.post_tags}>
                             
-                            {tags.map((tag) => {
+                            {tags.map((tag,index) => {
                                     
-                                return  <span className={styles.background_text}>{tag}</span>
+                                return  <span key= {index} className={styles.background_text}>{tag}</span>
                             })}   
                         </div>
                     </div>

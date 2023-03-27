@@ -48,9 +48,9 @@ export const PostPage = () => {
                                 {/* count_like  */}
                                 <div className={styles.post_tags}>
                             
-                            {post.tags.map((tag) => {
+                            {post.tags.map((tag,index) => {
                                     
-                                return  <span className={styles.background_text}>{tag}</span>
+                                return  <span key= {index} className={styles.background_text}>{tag}</span>
                             })}   
                         </div>
                             </div>
