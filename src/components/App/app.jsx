@@ -33,8 +33,7 @@ function App() {
       }
    }, [currentUser])
   return (
-    <>
-      <UserContext.Provider value={[usercontext, setusercontext]}>
+    <UserContext.Provider value={{usercontext, setusercontext}}>
       <Header user = { currentUser }  />
       <main className={styles.main}>
         <Routes>
@@ -46,8 +45,8 @@ function App() {
         </Routes>
       </ main>
       <Footer />
-      </UserContext.Provider>
-    </>
+    </UserContext.Provider>
+
   )
 }
 
