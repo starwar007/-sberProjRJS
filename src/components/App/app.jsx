@@ -13,6 +13,7 @@ import Authorization from '../../pages/Authorization/Authorization';
 import '@fontsource/source-sans-pro';
 import Registration from '../../pages/Registration/Registration';
 import {UserContext} from "../../context/ContextUser";
+import { PostPage } from '../../pages/PostPage/PostPage';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
           <Route exact path='/postlist' element={<PostList/>}></Route>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
-          <Route exact path ='/postCard'></Route>
+          <Route exact path ='/Post/:PostId' element={<PostPage/>}></Route>
         </Routes>
       </ main>
       <Footer />

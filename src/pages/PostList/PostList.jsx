@@ -24,7 +24,7 @@ const PostList = () => {
     .then(([postsData, userData])=> {
       setCurrentUser(userData)
       setPosts(postsData)
-      console.log(postsData);
+      // console.log(postsData);
     })
     .catch( err => console.log(err))
     
@@ -33,7 +33,7 @@ const PostList = () => {
 	// console.log(posts);
 	// const token = localStorage.getItem('token');
 	if (!token)
-	    return
+	    return <h1 className = {styles.textAttention}>Авторизируйтесь</h1>
 	return (
 		
 		<div className={styles.cards}>
