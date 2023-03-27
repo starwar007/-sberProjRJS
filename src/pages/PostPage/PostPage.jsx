@@ -6,7 +6,7 @@ import api from '../../utils/api'
 import { formatDate } from '../../components/Post/formatDate'
 import { useParams,useNavigate } from 'react-router-dom'
 
-const post_id = '641ec16eaa397121839a12ac'
+// const post_id = '641ec16eaa397121839a12ac'
 
 export const PostPage = () => {
 
