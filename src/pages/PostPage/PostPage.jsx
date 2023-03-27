@@ -4,7 +4,7 @@ import { ReactComponent as Like } from "../../components/Post/like.svg"
 import { useEffect, useState } from 'react'
 import api from '../../utils/api'
 import { formatDate } from '../../components/Post/formatDate'
-import { useParams } from 'react-router-dom'
+import { useParams,useNavigate } from 'react-router-dom'
 
 const post_id = '641ec16eaa397121839a12ac'
 
@@ -12,7 +12,8 @@ export const PostPage = () => {
 
     const [post,setPost] = useState(null)
     const id = useParams()
-
+    const navigate = useNavigate()
+    
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
         api.setToken(tokenLS)
@@ -26,7 +27,7 @@ export const PostPage = () => {
         <>
                        
             <div className = {styles.postContener}>
-                <Button>Назад</Button>
+            <Button onClick={() => navigate(-1)}>Назад</Button>
                 <div className = {styles.postCard}>
                     <div className = {styles.postContent}>
                         <div>
