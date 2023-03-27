@@ -21,6 +21,7 @@
 
 .post_card:hover {
     box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04), 0 8px 16px rgba(96, 97, 112, 0.16);
+    cursor: pointer;
 }
 
 img {
@@ -98,6 +99,7 @@ img {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 3px;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 
@@ -107,4 +109,11 @@ img {
 
 .post_tags {
     margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post__link {
+	text-decoration: none;
+	color: currentColor;
 }

@@ -79,7 +79,6 @@
          }).then(onResponce)
      }
 
-
      search(searchQuery) {
          return fetch(`${this._baseUrl}v2/group-10/posts/search?query=${searchQuery}`, {
              headers: this._headers
