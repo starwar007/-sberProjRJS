@@ -38,10 +38,13 @@ const Authorization = () => {
         api.setToken(obj.token)
         // setToken(obj.token)
         localStorage.setItem('token', obj.token);
+
+        window.location.reload();
+
       })
     }, []);
 
-
+    
     return (
       <section className={styles.autorization}>
         <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>

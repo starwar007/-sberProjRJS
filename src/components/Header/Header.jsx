@@ -14,6 +14,13 @@ export function Header({user}) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
+
+  function Exit () {
+    localStorage.clear();
+    window.location.reload();
+  }
+
+
     return (
         <header className={cn(styles.header)}>
             <div className={styles.flex}>
@@ -26,10 +33,13 @@ export function Header({user}) {
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
                 <h1 className={styles.title}>Реактивные посты</h1>
               </div>
-              <Search/>
-              <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
+
+
+              {/* <Search/> */}
+              { user ? <><Search/> <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/></>: <></>}
+
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                { user ? <span>{UserContext.displayName}</span> : <> 
+                { user ? <><span>{UserContext.displayName}</span> <Button title="Выход" fn={Exit} route="/" className={styles.buttonLong}/></>: <> 
                   <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
                   <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
                 </>  
