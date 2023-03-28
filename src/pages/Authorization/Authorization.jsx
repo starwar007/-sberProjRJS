@@ -17,7 +17,7 @@ const emailPattern = {
 
 const passPattern = {
   value: passworgRegExp,
-  message: "Пароль должен содержать минимум восемь символов, одну букву латинского алфавита и одну цифру"
+  message: "Пароль должен содержать минимум восемь символов, минимум одну цифру и латинские символы"
 };
 
 const Authorization = () => {
