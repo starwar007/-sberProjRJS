@@ -4,48 +4,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid #23a030 5px;
-    background-color: yellow;
-    padding: 5px 5px 5px 5px;
-    margin: 5px 5px 5px 5px;
+    background-color: rgba(152, 251, 152, 0.5);
+    height: calc(100vh - 300px);
 }
 
-.avatarIcon {
-    box-sizing: border-box;
-
-    margin: 0;
-    padding: 0;
-    color: rgba(0, 0, 0, 0.85);
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
-    position: relative;
-    display: inline-block;
-
-    overflow: hidden;
-
-    color: #fff;
-    white-space: nowrap;
-    text-align: center;
-    vertical-align: middle;
-    background: #ccc;
-
-
-
-    width: 50px;
-    height: 50px;
-
-    line-height: 32px;
-
-    border-radius: 50%;
-
-    font-size: 18px;
+.form {
+    width: 80%;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+    align-items: center; 
 }
 
-.button {
-    margin-top: 5px;
-    height: 30px;
-    width: 160px;
+input {
+    width: 100%;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.auth_button {
+    display: block;
+    margin: auto;
+    border: none;
+    padding: 20px;
 }

@@ -1,11 +1,12 @@
 
 form {
     font-family: "Source Sans Pro";
-    display: block;
+    display: 'flex';
+    flex-direction: 'column';
     /* margin-top: 0em; */
 }
     
-    input {
+input {
     font-family: "Source Sans Pro";
     padding: 5px;
     margin: 5px 0;

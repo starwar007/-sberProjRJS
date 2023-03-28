@@ -1,51 +1,75 @@
 import React from "react";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useCallback } from 'react';
 import api from "../../utils/api";
 import styles from './authorization.module.css'
-import Button from "../../components/Button/Button";
-// import cn from "classnames";
 import { UserContext } from "../../context/ContextUser";
-// import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useForm } from 'react-hook-form'
+import FormField from "../../components/FormField/FormField";
+import { emailRegExp } from "../../utils/regExp";
+import { passworgRegExp } from "../../utils/regExp";
+import Button from "../../components/Button/Button";
 
-const Authorization = ({ onSubmit: propsOnSubmit, onInput }) => {
+const emailPattern = {
+  value: emailRegExp,
+  message: "Email должен содержать буквы латинского алфавита, цифры и символ @"
+};
 
-  const handleInput = (e) => {
-    onInput(e.target.value)
-  }
+const passPattern = {
+  value: passworgRegExp,
+  message: "Пароль должен содержать минимум восемь символов, одну букву латинского алфавита и одну цифру"
+};
 
-  const [userToken, setUserToken] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
-  const [usercontext, setusercontext] = useContext(UserContext);
+const Authorization = () => {
 
-  function Exit() {
-    setUserToken('');
-    setCurrentUser('');
-    api.setToken('');
-    setusercontext(false);
-  }
+  const { setToken } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const {register, handleSubmit, formState: {errors}} = useForm({
+      mode: 'onChange'
+    });
+
+  const onSubmit = useCallback((data) => {
+    const {email, password} = data
+    api.signIn(email, password)
+      .then(obj => {
+        navigate('/')
+        console.log(obj)
+        api.setToken(obj.token)
+        // setToken(obj.token)
+        localStorage.setItem('token', obj.token);
+      })
+    }, []);
 
 
-  function LogIn() {
-  }
-
-  return (
-    <section className={styles.autorization}>
-      <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto' }}>
-          <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
-          <input type="password1" name="password1" id="password1" required placeholder="Пароль" size="19" autoComplete="off" />
-          <input type="email" name="email1" id="email1" required placeholder="Эл. почта" size="19" />
-          <Button title="Авторизоваться" route="/" fn={LogIn} className={styles.button} />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 'auto', marginTop: '30px' }}>
-          <Button title="Выход" route="/" fn={Exit} className={styles.button} />
-        </div>
-      </div>
-    </section> 
-  )
-
-}
+    return (
+      <section className={styles.autorization}>
+        <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
+        <form className={styles.form}>
+          <FormField
+            title ="E-mail"
+            name='email'
+            pattern={emailPattern}
+            register={register}
+            errors={errors} 
+          />
+          <FormField
+            title ="Пароль"
+            name='password'
+            type='password'
+            pattern={passPattern}
+            register={register}
+            errors={errors} 
+          />
+          <Button 
+            title="Авторизоваться" 
+            className={styles.auth_button} 
+            fn={handleSubmit(onSubmit)}
+          />
+        </form>
+          <Button title="Выход" route="/" className={styles.button} />
+      </section> 
+    )
+  };
 
 export default Authorization;

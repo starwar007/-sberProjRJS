@@ -1,44 +1,46 @@
 import { useState } from "react";
 import { ReactComponent as Like } from "./like.svg"
 import styles from './post.module.css';
+import { Link } from "react-router-dom";
+import { formatDate } from "./formatDate";
 
-export const Post = ({image,text,title,created_at,author,tags,likes}) => {
+export const Post = ({image,text,title,created_at,author,tags,likes,_id}) => {
 
     const [conterlike,setcounter] = useState(0);
 
     let count_likes = likes.length;
-    function formatDate(str) { 
-        const month = str.slice(5, 7);
-        let datemonth = '';
-        switch (month) {
-            case '01' : datemonth ='января';
-            break;
-            case '02' : datemonth ='февраля';
-            break;
-            case '03' : datemonth ='марта';
-            break;
-            case '04' : datemonth ='апреля';
-            break;
-            case '05' : datemonth ='мая';
-            break;
-            case '06' : datemonth ='июня';
-            break;
-            case '07' : datemonth ='июля';
-            break;
-            case '08' : datemonth ='августа';
-            break;
-            case '09' : datemonth ='сентября';
-            break;
-            case '10' : datemonth ='октября';
-            break;
-            case '11' : datemonth ='ноября';
-            break;
-            case '12' : datemonth ='декабря';
-            break;
-        } 
-        let string = (str.slice(8, 10) + ' ' + datemonth + ' ' + str.slice(0, 4));
-        return string.startsWith('0') ? string.slice(1) : string;
-    }
+    // function formatDate(str) { 
+    //     const month = str.slice(5, 7);
+    //     let datemonth = '';
+    //     switch (month) {
+    //         case '01' : datemonth ='января';
+    //         break;
+    //         case '02' : datemonth ='февраля';
+    //         break;
+    //         case '03' : datemonth ='марта';
+    //         break;
+    //         case '04' : datemonth ='апреля';
+    //         break;
+    //         case '05' : datemonth ='мая';
+    //         break;
+    //         case '06' : datemonth ='июня';
+    //         break;
+    //         case '07' : datemonth ='июля';
+    //         break;
+    //         case '08' : datemonth ='августа';
+    //         break;
+    //         case '09' : datemonth ='сентября';
+    //         break;
+    //         case '10' : datemonth ='октября';
+    //         break;
+    //         case '11' : datemonth ='ноября';
+    //         break;
+    //         case '12' : datemonth ='декабря';
+    //         break;
+    //     } 
+    //     let string = (str.slice(8, 10) + ' ' + datemonth + ' ' + str.slice(0, 4));
+    //     return string.startsWith('0') ? string.slice(1) : string;
+    // }
     
     function tagslist(arraytags) {
         let str ='';
@@ -67,7 +69,9 @@ export const Post = ({image,text,title,created_at,author,tags,likes}) => {
               </div>
            </div> 
            <div className={styles.post_body}>
+              <Link to={`/post/${_id}`}  className={styles.post__link}>
                 <div className={styles.post_body_content}>
+                    
                     {/* тело */}
                     <div className="">
                     <img src={image} alt="картинка"/> 
@@ -77,14 +81,15 @@ export const Post = ({image,text,title,created_at,author,tags,likes}) => {
                         <p>{text}</p>
                         <div className={styles.post_tags}>
                             
-                            {tags.map((tag) => {
+                            {tags.map((tag,index) => {
                                     
-                                return  <span className={styles.background_text}>{tag}</span>
+                                return  <span key= {index} className={styles.background_text}>{tag}</span>
                             })}   
                         </div>
                     </div>
                     
                 </div>
+              </Link>
            </div>
            <div className={styles.post_footer}>
               <div className={styles.post_footer_content}>  
