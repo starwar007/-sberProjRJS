@@ -14,7 +14,7 @@ export function Header() {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
-  const {currentUser } = useContext(UserContext)
+  const {currentUser, setCurrentUser } = useContext(UserContext)
 
   useEffect(() => {
     console.log(currentUser)
@@ -22,7 +22,7 @@ export function Header() {
 
     return (
         <header className={cn(styles.header)}>
-            <div className={styles.flex}>
+          
               <div
                 className={styles.logo} 
                 onClick={() => navigate('/')}>
@@ -39,7 +39,11 @@ export function Header() {
                   <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
                   <div className={styles.userdata_wrapper}> 
                     <span className={styles.username}>{currentUser}</span>  
-                    <Button title="Выйти"  fn = {()=> localStorage.removeItem('token')} className={styles.buttonLong}/>
+                    <Button title="Выйти" fn = {()=> {
+                        localStorage.removeItem('token')
+                        setCurrentUser(null)
+                      } 
+                    } className={styles.buttonLong}/>
                   </div> 
                 </>: 
                   <div> 
@@ -51,7 +55,7 @@ export function Header() {
               <ModalPost active={modalActive} setActive={setModalActive}>
                   <PostForm />
               </ModalPost>
-            </div>
+  
         </header>
     )
   }

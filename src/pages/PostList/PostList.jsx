@@ -4,6 +4,7 @@ import {Post} from '../../components/Post/Post';
 import styles from './style.module.css';
 import { useState, useEffect, useContext } from 'react';
 import api from '../../utils/api';
+import { UserContext } from '../../context/ContextUser';
   
 
 // console.log(localStorage.getItem('token'));
@@ -14,21 +15,21 @@ const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-
   useEffect(() => {
     const tokenLS = localStorage.getItem('token')
     api.setToken(tokenLS)
     setToken(tokenLS)
-
-    Promise.all([api.getPosts(), api.getUserInfo()])
-    .then(([postsData, userData])=> {
-      setCurrentUser(userData)
-      setPosts(postsData)
-      // console.log(postsData);
-    })
-    .catch( err => console.log(err))
-    
-    }, [])
+    if (tokenLS) {
+      Promise.all([api.getPosts(), api.getUserInfo()])
+      .then(([postsData, userData])=> {
+        setCurrentUser(userData)
+        setPosts(postsData)
+        // console.log(postsData);
+      })
+      .catch( err => console.log(err))
+    }
+      
+  }, [])
 	// console.log('render PostList');
 	// console.log(posts);
 	// const token = localStorage.getItem('token');
