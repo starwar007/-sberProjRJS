@@ -31,7 +31,7 @@ const onSubmit = useCallback((data) => {
   api.signUp(email, group, password)
       .then((obj) => {
         console.log(obj)
-           if (obj.ok) {
+           if (!obj.err) {
             navigate('/authorization')
            } else {
             console.log(obj.message)
