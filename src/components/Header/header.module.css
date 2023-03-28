@@ -5,6 +5,13 @@
     height: 130px;
 }
 
+.header_user {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+}
+
 .flex {
     font-family: "Source Sans Pro";
     display: flex;
@@ -14,13 +21,20 @@
     padding: 20px 40px;
 }
 
+.username {
+    font-size: 28px;
+    color:  #4B0082;
+    font-weight: 700; 
+}
+
 .title {
     font-family: "Source Sans Pro";
     margin: 0;
-    color: 	#4B0082	;
+    color: 	#4B0082;
     margin-right: 70px;
     font-size: 50px;
-    font-style: bold;
+    font-weight: 700; 
+    min-width: 450px;
 }
 
 .logo {
@@ -89,6 +103,12 @@
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 10px;
     width:200px;
+}
+
+.userdata_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
