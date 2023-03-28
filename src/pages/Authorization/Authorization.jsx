@@ -22,7 +22,8 @@ const passPattern = {
 
 const Authorization = () => {
 
-  const { setToken } = useContext(UserContext);
+ 
+  const { setToken, currentUser, setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const {register, handleSubmit, formState: {errors}} = useForm({
@@ -36,7 +37,8 @@ const Authorization = () => {
         navigate('/')
         console.log(obj)
         api.setToken(obj.token)
-        // setToken(obj.token)
+        setToken(obj.token)
+        setCurrentUser(obj.data.name)
         localStorage.setItem('token', obj.token);
       })
     }, []);

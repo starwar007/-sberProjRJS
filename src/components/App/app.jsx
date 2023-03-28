@@ -17,7 +17,7 @@ import { PostPage } from '../../pages/PostPage/PostPage';
 
 
 function App() {
-  const [usercontext, setusercontext] = useState(false);
+
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -28,14 +28,19 @@ function App() {
         api.getUserInfo()
         .then(res => {
           setCurrentUser(res.name)
-          UserContext.displayName = res.name
         })
         setToken(tokenFromLS)
       }
    }, [currentUser])
+
+   console.log(currentUser)
   return (
-    <UserContext.Provider value={{usercontext, setusercontext}}>
-      <Header user = { currentUser }  />
+    <UserContext.Provider value={{
+      currentUser, 
+      setCurrentUser,
+      setToken
+    }}>
+      <Header />
       <main className={styles.main}>
         <Routes>
           <Route element={ <Main />} exact path="/"/>

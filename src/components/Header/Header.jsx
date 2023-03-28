@@ -10,10 +10,16 @@ import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 import { UserContext } from "../../context/ContextUser";
 
-export function Header({user}) {
+export function Header() {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
+  const {currentUser } = useContext(UserContext)
+
+  useEffect(() => {
+    console.log(currentUser)
+  })
+
     return (
         <header className={cn(styles.header)}>
             <div className={styles.flex}>
@@ -29,7 +35,7 @@ export function Header({user}) {
               <Search/>
               <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                { user ? <span>{UserContext.displayName}</span> : <> 
+                { (currentUser) ? <span>{currentUser} </span> : <> 
                   <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
                   <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
                 </>  
