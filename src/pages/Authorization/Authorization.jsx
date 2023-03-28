@@ -40,9 +40,6 @@ const Authorization = () => {
         setToken(obj.token)
         setCurrentUser(obj.data.name)
         localStorage.setItem('token', obj.token);
-
-        window.location.reload();
-
       })
     }, []);
 
