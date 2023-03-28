@@ -1,12 +1,17 @@
+
+
 .header {
     display: flex;
     font-family: "Source Sans Pro";
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
     height: 130px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .header_user {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -17,7 +22,6 @@
     font-family: "Source Sans Pro";
     display: flex;
     justify-content: space-around;
-    /* justify-content: start; */
     align-items: center;
     padding: 20px 40px;
 }
@@ -112,6 +116,10 @@
     align-items: center;
 }
 
+.login_wrapper {
+    position: absolute;
+    right: 100px;
+}
 
 
 

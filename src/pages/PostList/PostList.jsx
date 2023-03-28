@@ -5,7 +5,6 @@ import styles from './style.module.css';
 import { useState, useEffect, useContext } from 'react';
 import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';
-  
 
 // console.log(localStorage.getItem('token'));
 
@@ -13,7 +12,7 @@ const PostList = () => {
 
   const [token, setToken] = useState(null);
   const [posts, setPosts] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
+  const {currentUser, setCurrentUser } = useContext(UserContext)
 
   useEffect(() => {
     const tokenLS = localStorage.getItem('token')
@@ -22,9 +21,8 @@ const PostList = () => {
     if (tokenLS) {
       Promise.all([api.getPosts(), api.getUserInfo()])
       .then(([postsData, userData])=> {
-        setCurrentUser(userData)
+        setCurrentUser(userData.name)
         setPosts(postsData)
-        // console.log(postsData);
       })
       .catch( err => console.log(err))
     }
@@ -33,7 +31,7 @@ const PostList = () => {
 	// console.log('render PostList');
 	// console.log(posts);
 	// const token = localStorage.getItem('token');
-	if (!token)
+	if (!currentUser)
 	    return <h1 className = {styles.textAttention}>Авторизируйтесь</h1>
 	return (
 		

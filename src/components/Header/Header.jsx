@@ -46,7 +46,7 @@ export function Header() {
                     } className={styles.buttonLong}/>
                   </div> 
                 </>: 
-                  <div> 
+                  <div className={styles.login_wrapper}> 
                     <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
                     <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
                   </div>  
