@@ -1,0 +1,24 @@
+.comentPost {
+    display: flex;
+}
+
+.comenAutor {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden;
+    /* margin-bottom: 5px; */
+}
+
+.comenAutor img {
+    object-fit: cover;
+    border-radius:50%;
+    width: 35px;
+    height: 35px;
+    padding-top: 3px;
+}
+
+.ComentContent {
+    margin-left: 50px;
+}

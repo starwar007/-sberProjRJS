@@ -5,27 +5,32 @@ import { useEffect, useState } from 'react'
 import api from '../../utils/api'
 import { formatDate } from '../../components/Post/formatDate'
 import { useParams,useNavigate } from 'react-router-dom'
+import { Coment } from './Coments/Coment'
 
-// const post_id = '641ec16eaa397121839a12ac'
 
 export const PostPage = () => {
 
     const [post,setPost] = useState(null)
+    const [coments,setComents] = useState([])
     const id = useParams()
     const navigate = useNavigate()
     
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
         api.setToken(tokenLS)
-        api.getPost(id.PostId).then((data) => setPost(data))
-    },[])
+        Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId)])
+            .then(([postData, coments]) => {
+                setPost(postData);
+                setComents(coments)
+            })
+    }, [])
    
     
     if (!post) return
 
      return (
         <>
-                       
+          <div className={styles.mainContener}>             
             <div className = {styles.postContener}>
             <Button onClick={() => navigate(-1)}>Назад</Button>
                 <div className = {styles.postCard}>
@@ -63,7 +68,11 @@ export const PostPage = () => {
                             </div> 
                             <div className={styles.coment}>
                               <hr/>
-                                     coment
+                                     {coments.length ?
+                                         coments.map((item, i) => {
+                                             return <Coment key={item._id} {...item} />
+                                         })
+                                         : 'No coments'}
                            </div>    
                         </div> 
                           
@@ -71,6 +80,7 @@ export const PostPage = () => {
                     
                 </div>
             </div>
+        </div>  
         </>
     )
 }
