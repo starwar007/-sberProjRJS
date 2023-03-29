@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext, useCallback  } from 'react';
+import { useCallback  } from 'react';
 import api from "../../utils/api";
 import styles from './registration.module.css'
 import Button from "../../components/Button/Button";
@@ -74,8 +74,6 @@ const onSubmit = useCallback((data) => {
         <Button title="Выход" route="/" className={styles.button} />
     </section>
   )
-
-
 }
 
 export default Registration;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext, useCallback } from 'react';
+import { useContext, useCallback } from 'react';
 import api from "../../utils/api";
 import styles from './authorization.module.css'
 import { UserContext } from "../../context/ContextUser";
@@ -43,10 +43,9 @@ const Authorization = () => {
       })
     }, []);
 
-    
-    return (
-      <section className={styles.autorization}>
-        <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
+  return (
+    <section className={styles.autorization}>
+      <h2 style={{ color: '#23a030' }}><u>МЕНЮ АВТОРИЗАЦИИ</u></h2>
         <form className={styles.form}>
           <FormField
             title ="E-mail"
