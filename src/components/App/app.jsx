@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './app.module.css'
 import { useState, useEffect, useContext } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-
 import api from '../../utils/api';
 import cn from "classnames";
 import Footer from '../Footer/Footer';
@@ -33,7 +32,6 @@ function App() {
       }
    }, [currentUser])
 
-   console.log(currentUser)
   return (
     <UserContext.Provider value={{
       currentUser, 

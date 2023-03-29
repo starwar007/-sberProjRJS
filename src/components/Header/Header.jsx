@@ -16,10 +16,6 @@ export function Header() {
   const [modalActive, setModalActive] = useState(false);
   const {currentUser, setCurrentUser } = useContext(UserContext)
 
-  useEffect(() => {
-    console.log(currentUser)
-  })
-
     return (
         <header className={cn(styles.header)}>
           
@@ -53,7 +49,7 @@ export function Header() {
                 }
               </div>
               <ModalPost active={modalActive} setActive={setModalActive}>
-                  <PostForm />
+                  <PostForm setActive={setModalActive} />
               </ModalPost>
   
         </header>
