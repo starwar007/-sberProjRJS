@@ -10,20 +10,19 @@ import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 import { UserContext } from "../../context/ContextUser";
 
-export function Header({user}) {
+export function Header({onSubmit, onInput}) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
+  const {currentUser, setCurrentUser } = useContext(UserContext)
 
-  function Exit () {
-    localStorage.clear();
-    window.location.reload();
-  }
-
+  useEffect(() => {
+    console.log(currentUser)
+  })
 
     return (
         <header className={cn(styles.header)}>
-            <div className={styles.flex}>
+          
               <div
                 className={styles.logo} 
                 onClick={() => navigate('/')}>
@@ -33,22 +32,30 @@ export function Header({user}) {
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
                 <h1 className={styles.title}>Реактивные посты</h1>
               </div>
-
-
-              {/* <Search/> */}
-              { user ? <><Search/> <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/></>: <></>}
-
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                { user ? <><span>{UserContext.displayName}</span> <Button title="Выход" fn={Exit} route="/" className={styles.buttonLong}/></>: <> 
-                  <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
-                  <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
-                </>  
+              <div className={styles.header_user}>
+                { (currentUser) ?
+                <>
+                  <Search  onSubmit={onSubmit} onInput={onInput}/>
+                  <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
+                  <div className={styles.userdata_wrapper}> 
+                    <span className={styles.username}>{currentUser}</span>  
+                    <Button title="Выйти" fn = {()=> {
+                        localStorage.removeItem('token')
+                        setCurrentUser(null)
+                      } 
+                    } className={styles.buttonLong}/>
+                  </div> 
+                </>: 
+                  <div className={styles.login_wrapper}> 
+                    <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
+                    <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
+                  </div>  
                 }
               </div>
               <ModalPost active={modalActive} setActive={setModalActive}>
                   <PostForm />
               </ModalPost>
-            </div>
+  
         </header>
     )
   }

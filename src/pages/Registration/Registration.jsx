@@ -30,13 +30,12 @@ const onSubmit = useCallback((data) => {
   const { email, group, password } = data
   api.signUp(email, group, password)
       .then((obj) => {
-        console.log(obj);
-          //  if (obj.ok) {
-          //   navigate('/authorization')
-          //  } else {
-          //   console.log(obj.message)
-          //  }
-          navigate('/authorization')
+        console.log(obj)
+           if (!obj.err) {
+            navigate('/authorization')
+           } else {
+            console.log(obj.message)
+           }
       })
       .catch((obj) => {
           console.log(obj)
@@ -47,31 +46,30 @@ const onSubmit = useCallback((data) => {
     <section className={styles.autorization}>
       <h2 style={{ color: '#23a030' }}><u>МЕНЮ РЕГИСТРАЦИИ</u></h2>
       <form className={styles.form}>
-      <FormField
-                    title="Email"
-                    name="email"
-                    pattern={emailPattern}
-                    register={register}
-                    errors={errors} />
+        <FormField
+          title="Email"
+          name="email"
+          pattern={emailPattern}
+          register={register}
+          errors={errors} />
+        <FormField
+          title="Группа"
+          name="group"
+          register={register}
+          errors={errors} />
 
-                <FormField
-                    title="Группа"
-                    name="group"
-                    register={register}
-                    errors={errors} />
-
-                <FormField
-                    title="Пароль"
-                    name="password"
-                    type="password"
-                    pattern={passPattern}
-                    register={register}
-                    errors={errors} />
-          <Button 
-            title="Зарегестрироваться" 
-            className={styles.reg_button} 
-            fn={handleSubmit(onSubmit)}
-          />
+        <FormField
+          title="Пароль"
+          name="password"
+          type="password"
+          pattern={passPattern}
+          register={register}
+          errors={errors} />
+        <Button 
+          title="Зарегестрироваться" 
+          className={styles.reg_button} 
+          fn={handleSubmit(onSubmit)}
+        />
         </form>
         <Button title="Выход" route="/" className={styles.button} />
     </section>

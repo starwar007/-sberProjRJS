@@ -1,26 +1,45 @@
+
+
 .header {
+    display: flex;
     font-family: "Source Sans Pro";
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
     height: 130px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.header_user {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
 }
 
 .flex {
     font-family: "Source Sans Pro";
     display: flex;
     justify-content: space-around;
-    /* justify-content: start; */
     align-items: center;
     padding: 20px 40px;
+}
+
+.username {
+    font-size: 28px;
+    color:  #4B0082;
+    font-weight: 700; 
 }
 
 .title {
     font-family: "Source Sans Pro";
     margin: 0;
-    color: 	#4B0082	;
+    color: 	#4B0082;
     margin-right: 70px;
     font-size: 50px;
-    font-style: bold;
+    font-weight: 700; 
+    min-width: 450px;
 }
 
 .logo {
@@ -91,6 +110,16 @@
     width:200px;
 }
 
+.userdata_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_wrapper {
+    position: absolute;
+    right: 100px;
+}
 
 
 
