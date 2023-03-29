@@ -3,23 +3,23 @@ import api from '../../utils/api';
 import { useCallback } from 'react';
 import { useForm } from "react-hook-form";
 
-function PostForm() {
+function PostForm({setActive}) {
     const { register, handleSubmit, formState: { errors}} = useForm({
             mode: "onChange",
         });
 
     const onSubmit = useCallback((data) => {
         const {title, text, image, tags} = data;
-        const registrationData = {
-            title: data.title,
-            text: data.text,
-            image: data.image,
-            tags: data.tags.split(',')
+        const dataPost = {
+            title: title,
+            text: text,
+            image: image,
+            tags: tags.split(',')
           } 
-
-        console.log(registrationData)
-           api.createNewPost(registrationData)
-             .then(obj => console.log(obj))
+        console.log(dataPost)
+        api.createNewPost(dataPost)
+            .then(obj => console.log(obj))
+        setActive(false)
     }, [])
     return (
         <form>
@@ -33,7 +33,7 @@ function PostForm() {
                 })}
             />
             <div>
-                 <img src="https:   b-n-c.ru/local/templates/.default/img/no-img.jpg" width="90%" alt=''/>
+                 <img src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" width="90%" alt=''/>
             </div>
 
             <input

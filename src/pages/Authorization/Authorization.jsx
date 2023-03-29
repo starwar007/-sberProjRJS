@@ -35,7 +35,6 @@ const Authorization = () => {
     api.signIn(email, password)
       .then(obj => {
         navigate('/')
-        console.log(obj)
         api.setToken(obj.token)
         setToken(obj.token)
         setCurrentUser(obj.data.name)
