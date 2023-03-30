@@ -2,10 +2,10 @@ import React from "react";
 import style from './main.module.css';
 import PostList from "../../pages/PostList/PostList";
 
-const Main = () => {
+const Main = ({searchQuery, searchCount}) => {
     return (
        <section className={style.catalog}>
-            <PostList/>
+            <PostList searchQuery={searchQuery} searchCount={searchCount}/>
        </section> 
     )
  

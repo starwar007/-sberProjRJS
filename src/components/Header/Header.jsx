@@ -10,7 +10,7 @@ import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 import { UserContext } from "../../context/ContextUser";
 
-export function Header() {
+export function Header({onSubmit, onInput}) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
@@ -30,7 +30,7 @@ export function Header() {
               <div className={styles.header_user}>
                 { (currentUser) ?
                 <>
-                  <Search/>
+                  <Search  onSubmit={onSubmit} onInput={onInput}/>
                   <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
                   <div className={styles.userdata_wrapper}> 
                     <span className={styles.username}>{currentUser}</span>  
