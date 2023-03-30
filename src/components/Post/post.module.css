@@ -85,7 +85,7 @@ img {
 .post_favorite_active svg {
 	fill: #F44336;
     border: none;
-    stroke-opacity: 0;
+    stroke-opacity: 0; 
     stroke: none;
     border-width: 0px;
 	

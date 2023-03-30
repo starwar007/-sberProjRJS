@@ -1,5 +1,7 @@
 body {
-    margin: 0 auto;
+    margin: 0, auto;
+    padding-left: 50px;
+    padding-right: 50px;
     font-family: "Source Sans Pro";
 
 }
