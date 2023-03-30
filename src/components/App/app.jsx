@@ -18,7 +18,7 @@ import { PostPage } from '../../pages/PostPage/PostPage';
 import SearchInfo from '../SearchInfo/SearchInfo';
 import {CardContext} from "../../context/cardContext";
 
-
+import { NotFound } from '../../pages/NotFound/NotFound';
 
 function App() {
 
@@ -84,6 +84,7 @@ function App() {
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
           <Route exact path ='/Post/:PostId' element={<PostPage/>}></Route>
+          <Route path='*' element={<NotFound/>}></Route>
         </Routes>
       </ main>
       <Footer />
