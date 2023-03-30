@@ -7,7 +7,6 @@ function ModalPost({ active, setActive, children }) {
 
             <div className={`${styles.modalPost_content} ${active && styles.modalPost_content_active}`}
                 onClick={e => e.stopPropagation()}>
-
                 {children}
             </div>
         </div>

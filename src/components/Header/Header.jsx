@@ -18,7 +18,6 @@ export function Header() {
 
     return (
         <header className={cn(styles.header)}>
-          
               <div
                 className={styles.logo} 
                 onClick={() => navigate('/')}>
@@ -51,7 +50,6 @@ export function Header() {
               <ModalPost active={modalActive} setActive={setModalActive}>
                   <PostForm setActive={setModalActive} />
               </ModalPost>
-  
         </header>
     )
   }
