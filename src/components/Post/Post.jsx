@@ -42,20 +42,20 @@ export const Post = ({image,text,title,created_at,author,tags,likes,_id}) => {
     //     return string.startsWith('0') ? string.slice(1) : string;
     // }
     
-    function tagslist(arraytags) {
-        let str ='';
-        let str1 = `<span className='background-text'> ${str}<span/>`;
-        let str2 = `<span className='background-null'>__</span>`;
-        let rez = '';
+    // function tagslist(arraytags) {
+    //     let str ='';
+    //     let str1 = `<span className='background-text'> ${str}<span/>`;
+    //     let str2 = `<span className='background-null'>__</span>`;
+    //     let rez = '';
         
-        for(let val = 0;val<arraytags.length;val++){
+    //     for(let val = 0;val<arraytags.length;val++){
             
-            str = arraytags[val];
-            rez = str1 + str2;
-        }
-        console.log(typeof rez,rez);
-        return rez
-    }
+    //         str = arraytags[val];
+    //         rez = str1 + str2;
+    //     }
+    //     console.log(typeof rez,rez);
+    //     return rez
+    // }
     
     return (
         <div className={styles.post_card}>

@@ -6,6 +6,7 @@ import api from '../../utils/api'
 import { formatDate } from '../../components/Post/formatDate'
 import { useParams,useNavigate } from 'react-router-dom'
 import { Coment } from './Coments/Coment'
+import {AddComent} from './Coments/AddComent/AddComent'
 
 
 export const PostPage = () => {
@@ -68,8 +69,9 @@ export const PostPage = () => {
                             </div> 
                             <div className={styles.coment}>
                               <hr/>
+                              <AddComent token = {localStorage.getItem('token')}/>
                                      {coments.length ?
-                                         coments.map((item, i) => {
+                                         coments.map((item) => {
                                              return <Coment key={item._id} {...item} />
                                          })
                                          : 'No coments'}
