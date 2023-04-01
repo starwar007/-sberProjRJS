@@ -69,7 +69,7 @@ export const PostPage = () => {
                             </div> 
                             <div className={styles.coment}>
                               <hr/>
-                              <AddComent token = {localStorage.getItem('token')}/>
+                              <AddComent token = {localStorage.getItem('token')} PostId = {id.PostId}/>
                                      {coments.length ?
                                          coments.map((item) => {
                                              return <Coment key={item._id} {...item} />
