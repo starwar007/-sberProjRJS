@@ -57,6 +57,11 @@ function App() {
   //     .catch(err => console.log(err))
   // }
 
+  const handleInputChangeErase = () => {
+    // navigate('/');
+    setSearchQuery('');
+    // handleRequest();
+  }
 
 
 
@@ -71,7 +76,7 @@ function App() {
 
     <CardContext.Provider value={{ cards, setCards }}>
 
-      <Header onSubmit={handleFormSubmit} 
+      <Header SearchErase={handleInputChangeErase} onSubmit={handleFormSubmit} 
       // onInput={handleInputChange}
       />
       <main className={styles.main}>
