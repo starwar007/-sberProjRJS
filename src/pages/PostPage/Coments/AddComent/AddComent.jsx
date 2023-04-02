@@ -16,7 +16,6 @@ export function AddComent({token,PostId}) {
         const formData = new FormData(form);    
 
         const formJson = Object.fromEntries(formData.entries());
-        const obg = JSON.stringify(formJson)
         const valueForm = formJson.text
     
         if ((valueForm !== '' && valueForm !== null) && (!!valueForm.trim())) {
@@ -24,8 +23,12 @@ export function AddComent({token,PostId}) {
             api.setToken(token)
             api.createComment(PostId, formJson)
                 .then(data => {
-                    console.log(data);
-                    setNewComment(data)
+                    api.getPostComments(PostId)
+                    .then(coments => {
+                        const showComent = coments[coments.length-1]
+                        setNewComment(showComent)
+                    })
+                                        
                 })
 
             e.target.reset();
@@ -44,13 +47,13 @@ export function AddComent({token,PostId}) {
                         name="text"
                         placeholder='Напишите комментарий'
                         rows={4}
-                        cols={40}
+                        cols={50}
                     />
                     <button  className={styles.buttonLong} onClick={() => {setModalActive(false)}}>Отправить комментарий</button>    
                 </form> 
         </ModalPost>
 
-        {!NewComment ? console.log(NewComment) : <Coment {...NewComment}/>}
+        {!NewComment ? '' : <Coment {...NewComment}/>}
         </>
     )
 }

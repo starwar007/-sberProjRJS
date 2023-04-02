@@ -113,7 +113,7 @@ export const PostPage = () => {
                                         coments.map((item) => {
                                             return <Coment key={item._id} {...item} />
                                         })
-                                        : 'No coments'}
+                                        : ''}
                                 </div>
 
                             </div>
