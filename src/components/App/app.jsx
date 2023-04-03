@@ -21,7 +21,6 @@ import {CardContext} from "../../context/cardContext";
 import { NotFound } from '../../pages/NotFound/NotFound';
 
 function App() {
-
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -44,7 +43,6 @@ function App() {
 
 
    const handleFormSubmit = (inputText) => {
-    // navigate('/');
     setSearchQuery(inputText);
     // handleRequest();
   }
@@ -57,11 +55,6 @@ function App() {
   //     .catch(err => console.log(err))
   // }
 
-
-
-
-
-
   return (
     <UserContext.Provider value={{
       currentUser, 
@@ -70,14 +63,11 @@ function App() {
     }}>
 
     <CardContext.Provider value={{ cards, setCards }}>
-
       <Header onSubmit={handleFormSubmit} 
       // onInput={handleInputChange}
       />
       <main className={styles.main}>
-
         <SearchInfo searchText={searchQuery} />
-
         <Routes>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
           <Route exact path='/postlist' element={<PostList/>}></Route>
