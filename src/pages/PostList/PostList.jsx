@@ -50,25 +50,6 @@ const PostList = ({searchQuery }) => {
     // }  
   }, [searchQuery])
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   console.log(searchQuery);
   // const handleRequest = async () => {
   //   if (!debounceValue) {
@@ -81,21 +62,6 @@ const PostList = ({searchQuery }) => {
   //     setCards(filterCards);
   //   }
   // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	if (!currentUser)
 	    return <h1 className = {styles.textAttention}>Авторизируйтесь</h1>
