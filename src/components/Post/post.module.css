@@ -65,7 +65,7 @@ img {
     justify-content: space-between;
     align-items: center;
 }
-.post_favorite{
+.post_favorite, .post_favorite_active{
     cursor: pointer;
 	background: none;
 	border: none;

@@ -4,8 +4,6 @@ import { useState, useEffect, useContext, useCallback } from 'react';
 import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';
 import { CardContext } from "../../context/cardContext";
-import { set } from 'react-hook-form';
-
 
 const PostList = ({searchQuery }) => {
 
