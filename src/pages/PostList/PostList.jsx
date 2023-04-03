@@ -4,6 +4,7 @@ import { useState, useEffect, useContext, useCallback } from 'react';
 import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';
 import { CardContext } from "../../context/cardContext";
+import { set } from 'react-hook-form';
 
 
 const PostList = ({searchQuery }) => {
@@ -32,17 +33,15 @@ const PostList = ({searchQuery }) => {
       })
       .catch(err => console.log(err))
     }  
-
-  }, [searchQuery])
- 
-
+  }, [searchQuery]);
+  
 	if (!currentUser)
 	    return <h1 className = {styles.textAttention}>Авторизируйтесь</h1>
 	return (
 		
-		<div className={styles.cards}>
-				{cards.map((item) => (
-					 <Post   key = {item._id} {...item} />
+		<div className={styles.posts}>
+				{ cards.map((item) => (
+					 <Post key = {item._id} {...item} />
 					 ))}
 						
 		</div>

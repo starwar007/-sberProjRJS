@@ -24,7 +24,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [cards, setCards] = useState('');
+  const [cards, setCards] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
    useEffect(() => {
@@ -51,7 +51,6 @@ function App() {
       const liked = isLiked(post.likes, currentUser._id)
         return api.changeLikePost(post._id, liked,)
          .then((updatePost) => {
-          console.log(updatePost)
            const newPosts = cards.map(cardState => {
              return cardState._id === updatePost._id ? updatePost : cardState
            })
