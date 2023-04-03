@@ -33,7 +33,7 @@ export function Header({onSubmit, onInput, SearchErase }) {
                   <Search  onSubmit={onSubmit} onInput={onInput} SearchErase={SearchErase}/>
                   <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
                   <div className={styles.userdata_wrapper}> 
-                    <span className={styles.username}>{currentUser}</span>  
+                    <span className={styles.username}>{currentUser.name}</span>  
                     <Button title="Выйти" fn = {()=> {
                         localStorage.removeItem('token')
                         setCurrentUser(null)
