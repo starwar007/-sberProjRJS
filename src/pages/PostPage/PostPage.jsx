@@ -37,7 +37,7 @@ export const PostPage = () => {
                 setUserPost(postData.author._id);
 
             })
-    }, [])
+    }, [id.PostId])
 
 
     function DeletePost() {

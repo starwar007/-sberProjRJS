@@ -17,7 +17,7 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
 		onPostLike({_id, likes})
 	}
 
-    console.log(likes, currentUser?._id)
+    // console.log(likes, currentUser?._id)
 
     return (
         <div className={styles.post_card}>
