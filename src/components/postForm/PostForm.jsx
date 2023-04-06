@@ -1,45 +1,50 @@
-import './postForm.module.css';
+import styles from './postForm.module.css';
 import api from '../../utils/api';
-import { useCallback, useContext } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { CardContext } from "../../context/cardContext";
 
 function PostForm({setActive}) {
     const { setCards } = useContext(CardContext);
-    const { register, handleSubmit, formState: { errors}} = useForm({
+    const { register, handleSubmit, formState: { errors},reset} = useForm({
             mode: "onChange",
         });
-
+    const [url,setUrl] = useState('')    
+        // useEffect(()=>{console.log(url)
+        // },[url])
     const onSubmit = useCallback((data) => {
         const {title, text, image, tags} = data;
         const dataPost = {
             title: title,
             text: text,
             image: image,
-            tags: tags.split(',')
+            tags:  tags.split(',') 
           } 
         console.log(dataPost)
         api.createNewPost(dataPost)
             .then(api.getPosts()
                 .then(res => {
-                    console.log(res)
+                    // console.log(res)
                     setCards(res)
                 }))
         setActive(false)
-    }, [])
+        reset()
+        setUrl('')
+    }, [setActive,setCards])
     return (
         <form>
             <h3>Создать пост</h3>
             <input
-                name ='image' 
+                // name ='image' 
                 type="text"
                 placeholder="url картинки поста"
                 {...register('image', {
-                    required: "обязательное поле"
+                    required: "обязательное поле"                
                 })}
+                onChange={(e) => { setUrl(e.target.value)}}
             />
-            <div>
-                 <img src="https://b-n-c.ru/local/templates/.default/img/no-img.jpg" width="90%" alt=''/>
+            <div className={styles.image}>
+                 <img src={url ? url : 'https://b-n-c.ru/local/templates/.default/img/no-img.jpg'} width="100%" alt=''/>
             </div>
 
             <input
