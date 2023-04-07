@@ -1,7 +1,6 @@
 body {
-    margin: 0, auto;
+    margin: 0;
     font-family: "Source Sans Pro";
-
 }
 
 ul {
@@ -13,7 +12,7 @@ button {
     cursor: pointer;
     font-family: "Source Sans Pro";
 }
-Я
+
 section {
     padding-top: 50px;
     padding-bottom: 50px;

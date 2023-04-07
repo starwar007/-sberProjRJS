@@ -3,24 +3,21 @@ form {
     font-family: "Source Sans Pro";
     display: 'flex';
     flex-direction: 'column';
-    /* margin-top: 0em; */
+    box-sizing:border-box;
 }
     
+form input {
+    width: calc(100% - 15px);
+}
+
 input {
     font-family: "Source Sans Pro";
     padding: 5px;
     margin: 5px 0;
     display: block;
-    
-}
-.modal-body {
-    font-family: "Source Sans Pro";
-    padding: 5px;
-    font-size: 30px;
-    line-height: 1.5715;
-    word-wrap: break-word;
 }
 
-form img {
-    width: 450px;
+.image {
+    /* background-image:url('https://b-n-c.ru/local/templates/.default/img/no-img.jpg') ; */
+    width: 460px;
 }
