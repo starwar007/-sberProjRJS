@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './app.module.css'
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, useCallback } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import api from '../../utils/api';
@@ -14,19 +14,18 @@ import '@fontsource/source-sans-pro';
 import Registration from '../../pages/Registration/Registration';
 import {UserContext} from "../../context/ContextUser";
 import { PostPage } from '../../pages/PostPage/PostPage';
-
 import SearchInfo from '../SearchInfo/SearchInfo';
 import {CardContext} from "../../context/cardContext";
-
 import { NotFound } from '../../pages/NotFound/NotFound';
+import { isLiked } from '../../utils/post';
 
 function App() {
 
   const [token, setToken] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-
   const [searchQuery, setSearchQuery] = useState('');
-  const [cards, setCards] = useState('');
+  const [cards, setCards] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
    useEffect(() => {
      const tokenFromLS = localStorage.getItem('token');
@@ -34,51 +33,40 @@ function App() {
         api.setToken(tokenFromLS)
         api.getUserInfo()
         .then(res => {
-          setCurrentUser(res.name)
+          setCurrentUser(res)
         })
         setToken(tokenFromLS)
       }
-   }, [currentUser])
-
-   console.log(currentUser)
-
+   },[])
 
    const handleFormSubmit = (inputText) => {
-    // navigate('/');
     setSearchQuery(inputText);
-    // handleRequest();
   }
 
-  // const handleRequest = () => {
-  //   api.search(searchQuery)
-  //     .then((searchResult) => {
-  //       setCards(searchResult)
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+  const handleInputChangeErase = () => {
+    setSearchQuery('');
+  }
 
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+
+
 
 
 
   return (
     <UserContext.Provider value={{
-      currentUser, 
+      currentUser,
       setCurrentUser,
       setToken
     }}>
 
     <CardContext.Provider value={{ cards, setCards }}>
 
-      <Header onSubmit={handleFormSubmit} 
-      // onInput={handleInputChange}
+      <Header 
+        SearchErase={handleInputChangeErase} 
+        onSubmit={handleFormSubmit}
       />
       <main className={styles.main}>
-
         <SearchInfo searchText={searchQuery} />
-
         <Routes>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
           <Route exact path='/postlist' element={<PostList/>}></Route>

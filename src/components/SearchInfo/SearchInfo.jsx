@@ -8,7 +8,7 @@ const SeachInfo = ({ searchText }) => {
 
 	return (
 		searchText && <section className={styles.searchTitle}>
-			По запросу <span>{searchText}</span> найдено {searchCount} поста
+			По запросу <span>{searchText}</span> найдено {searchCount} постов
 		</section>
 	);
 };

@@ -1,6 +1,6 @@
 // import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App/App';
+import App from './components/App/app';
 import './index.css'
 import { BrowserRouter } from 'react-router-dom';
 import '@fontsource/source-sans-pro';

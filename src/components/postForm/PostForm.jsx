@@ -1,9 +1,11 @@
 import './postForm.module.css';
 import api from '../../utils/api';
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import { useForm } from "react-hook-form";
+import { CardContext } from "../../context/cardContext";
 
 function PostForm({setActive}) {
+    const { setCards } = useContext(CardContext);
     const { register, handleSubmit, formState: { errors}} = useForm({
             mode: "onChange",
         });
@@ -18,7 +20,11 @@ function PostForm({setActive}) {
           } 
         console.log(dataPost)
         api.createNewPost(dataPost)
-            .then(obj => console.log(obj))
+            .then(api.getPosts()
+                .then(res => {
+                    console.log(res)
+                    setCards(res)
+                }))
         setActive(false)
     }, [])
     return (

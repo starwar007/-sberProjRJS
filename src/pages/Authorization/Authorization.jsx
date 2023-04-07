@@ -37,7 +37,7 @@ const Authorization = () => {
         navigate('/')
         api.setToken(obj.token)
         setToken(obj.token)
-        setCurrentUser(obj.data.name)
+        setCurrentUser(obj.data)
         localStorage.setItem('token', obj.token);
       })
     }, []);
