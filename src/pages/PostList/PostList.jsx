@@ -4,12 +4,14 @@ import { useState, useEffect, useContext, useCallback } from 'react';
 import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';
 import { CardContext } from "../../context/cardContext";
+import { useNavigate } from 'react-router-dom'
 
 const PostList = ({searchQuery }) => {
 
   const [token, setToken] = useState(null);
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const { cards, setCards } = useContext(CardContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const tokenLS = localStorage.getItem('token')
@@ -21,7 +23,7 @@ const PostList = ({searchQuery }) => {
         setCurrentUser(userData)
         setCards(postsData)
       })
-      .catch( err => console.log(err))
+      .catch( err => navigate('*'))
     }  
     else if (searchQuery) {
       api.search(searchQuery)
@@ -29,7 +31,7 @@ const PostList = ({searchQuery }) => {
         setCards(searchResult);
         console.log(searchResult);
       })
-      .catch(err => console.log(err))
+      .catch( err => navigate('*'))
     }  
   }, [searchQuery]);
   

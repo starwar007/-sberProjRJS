@@ -37,9 +37,13 @@ const onSubmit = useCallback((data) => {
             console.log(obj.message)
            }
       })
-      .catch((obj) => {
-          console.log(obj)
-      })
+
+      .catch( err => navigate('*'))
+
+      // .catch((obj) => {
+          
+      //     console.log(obj)
+      // })
 }, [])
 
   return (
