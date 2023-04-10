@@ -49,7 +49,7 @@ function App() {
 
   const handlePostLike = useCallback((post) => {
       const liked = isLiked(post.likes, currentUser._id)
-        return api.changeLikePost(post._id, liked,)
+        return api.changeLikePost(post._id, liked)
          .then((updatePost) => {
            const newPosts = cards.map(cardState => {
              return cardState._id === updatePost._id ? updatePost : cardState
@@ -83,7 +83,6 @@ function App() {
         <SearchInfo searchText={searchQuery} />
         <Routes>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
-          <Route exact path='/postlist' element={<PostList/>}></Route>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
           <Route exact path ='/Post/:PostId' element={<PostPage/>}></Route>
