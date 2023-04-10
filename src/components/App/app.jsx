@@ -34,7 +34,6 @@ function App() {
         api.getUserInfo()
         .then(res => {
           setCurrentUser(res)
-          .catch( err => navigate('*'))
         })
         setToken(tokenFromLS)
       }
@@ -49,12 +48,22 @@ function App() {
   }
 
   const handlePostLike = useCallback((post) => {
-      const liked = isLiked(post.likes, currentUser._id)
-        return api.changeLikePost(post._id, liked)
-         .then((updatePost) => {
-           const newPosts = cards.map(cardState => {
-             return cardState._id === updatePost._id ? updatePost : cardState
-           })
+       const liked = isLiked(post.likes, currentUser._id)
+         return api.changeLikePost(post._id, liked)
+          .then((updatePost) => {
+            const newPosts = cards.map(cardState => {
+              return cardState._id === updatePost._id ? updatePost : cardState
+            })
+  if (!liked) {
+    setFavorites(prevState => [...prevState, updatePost])
+  } else {
+    setFavorites(prevState => prevState.filter(card => card._id !== updatePost._id))
+  }
+
+  setCards(newPosts);
+  return updatePost;
+})
+}, [currentUser, cards])
 
 
 
@@ -65,7 +74,7 @@ function App() {
       setToken
     }}>
 
-    <CardContext.Provider value={{ cards, setCards }}>
+    <CardContext.Provider value={{ cards, setCards, handleLike: handlePostLike }}>
 
       <Header 
         SearchErase={handleInputChangeErase} 
