@@ -20,6 +20,8 @@ const passPattern = {
   message: "Пароль должен содержать минимум восемь символов состоящих из букв латинского алфавита(заглавных или маленьких) и цифр"
 };
 
+
+
 const Authorization = () => {
 
  
@@ -30,6 +32,7 @@ const Authorization = () => {
       mode: 'onChange'
     });
 
+    
   const onSubmit = useCallback((data) => {
     const {email, password} = data
     api.signIn(email, password)
@@ -39,7 +42,9 @@ const Authorization = () => {
         setToken(obj.token)
         setCurrentUser(obj.data)
         localStorage.setItem('token', obj.token);
+        
       })
+      .catch( err => navigate('*'))
     }, []);
 
   return (
