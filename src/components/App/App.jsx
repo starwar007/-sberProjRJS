@@ -35,7 +35,9 @@ function App() {
         .then(res => {
           setCurrentUser(res)
         })
+        
         setToken(tokenFromLS)
+
       }
    },[])
 
