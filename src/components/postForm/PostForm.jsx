@@ -3,10 +3,12 @@ import api from '../../utils/api';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { CardContext } from "../../context/cardContext";
+import { useNavigate } from 'react-router-dom';
 
 function PostForm({setActive}) {
+    const navigate = useNavigate()
     const { setCards } = useContext(CardContext);
-    const { register, handleSubmit, formState: { errors},reset} = useForm({
+    const { register, handleSubmit, formState: { errors}, reset} = useForm({
             mode: "onChange",
         });
     const [url,setUrl] = useState('')    
@@ -27,10 +29,11 @@ function PostForm({setActive}) {
                     // console.log(res)
                     setCards(res)
                 }))
+                .catch(() =>  navigate('*'))
         setActive(false)
         reset()
         setUrl('')
-    }, [setActive,setCards])
+    }, [setActive, setCards])
     return (
         <form>
             <h3>Создать пост</h3>
