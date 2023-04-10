@@ -3,7 +3,7 @@ import styles from './app.module.css'
 import { useState, useEffect, useContext, useCallback } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import api from '../../utils/api';
-import cn from "classnames";
+
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
