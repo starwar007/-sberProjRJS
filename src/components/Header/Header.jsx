@@ -10,7 +10,7 @@ import ModalPost from "../ModalPost/ModalPost"
 import PostForm from "../PostForm/PostForm"
 import { UserContext } from "../../context/ContextUser";
 
-export function Header({onSubmit, onInput, SearchErase }) {
+export function Header({ onSubmit, SearchErase }) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
@@ -30,15 +30,23 @@ export function Header({onSubmit, onInput, SearchErase }) {
               <div className={styles.header_user}>
                 { (currentUser) ?
                 <>
-                  <Search  onSubmit={onSubmit} onInput={onInput} SearchErase={SearchErase}/>
+                  <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>
                   <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
-                  <div className={styles.userdata_wrapper}> 
-                    <span className={styles.username}>{currentUser.name}</span>  
-                    <Button title="Выйти" fn = {()=> {
-                        localStorage.removeItem('token')
-                        setCurrentUser(null)
+                  <div className={styles.userdata_wrapper}>
+                    
+                    <div onClick={() => navigate('/editProfile')}>
+                      <span className={styles.username}>{currentUser.name}</span>
+                    </div>
+
+                    <Button title="Выйти" route="/" fn = {()=> {
+                        localStorage.removeItem('token');
+                        setCurrentUser(null);
+                        SearchErase();
                       } 
                     } className={styles.buttonLong}/>
+
+                    {/* <Button title="Редактирование профиля" route="/editProfile" className={styles.buttonLong}/> */}
+
                   </div> 
                 </>: 
                   <div className={styles.login_wrapper}> 

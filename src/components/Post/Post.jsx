@@ -11,7 +11,7 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
 
     const { currentUser } = useContext(UserContext);
     const {handleLike: onPostLike} = useContext(CardContext);
-    const liked = isLiked(likes, currentUser?._id)
+    const liked = isLiked(likes, currentUser?._id);
 
     function handleLikeClick(){
 		onPostLike({_id, likes})

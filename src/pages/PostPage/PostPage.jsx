@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button as ButtonMUI} from '@mui/material'
 import styles from './post_page.module.css'
 import { ReactComponent as Like } from "../../components/Post/like.svg"
 import { useEffect, useState } from 'react'
@@ -8,7 +8,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Coment } from './Coments/Coment'
 import { AddComent } from './Coments/AddComent/AddComent'
 
-import ButtonDelete from "../../components/Button/ButtonDelete";
+import Button from "../../components/Button/Button";
 import ModalPost from "../../components/ModalPost/ModalPost"
 
 
@@ -18,7 +18,6 @@ export const PostPage = () => {
     const [coments, setComents] = useState([]);
 
     const [userIam, setUserIam] = useState(null);
-    const [userPost, setUserPost] = useState(null);
     const [modalActive, setModalActive] = useState(false);
 
     const id = useParams();
@@ -32,28 +31,15 @@ export const PostPage = () => {
             .then(([postData, coments, userInfo]) => {
                 setPost(postData);
                 setComents(coments);
-
-                setUserIam(userInfo._id);
-                setUserPost(postData.author._id);
-
+                setUserIam(userInfo);
             })
     }, [id.PostId])
 
 
     function DeletePost() {
-        // alert('козлище');
         api.deletePost(id.PostId);
         navigate('*');
     }
-
-
-    // console.log(post);
-    // console.log(userPost);
-    // console.log(userIam);
-    // console.log(userInfo.name);
-    // console.log(post.author);
-
-
 
     if (!post) return
 
@@ -61,7 +47,7 @@ export const PostPage = () => {
         <>
             <div className={styles.mainContener}>
                 <div className={styles.postContener}>
-                    <Button onClick={() => navigate(-1)}>Назад</Button>
+                    <ButtonMUI onClick={() => navigate(-1)}>Назад</ButtonMUI>
                     <div className={styles.postCard}>
                         <div className={styles.postContent}>
                             <div>
@@ -99,7 +85,7 @@ export const PostPage = () => {
                                     <hr />
 
                                     {/* {(userIam === userPost) ? <><ButtonDelete title="Удалить пост" fn={DeletePost} route="*" className={styles.buttonLong} /> <hr /> </>:<></>} */}
-                                    {(userIam === userPost) ? <><ButtonDelete title="Удалить пост" fn ={()=>setModalActive(true)} className={styles.buttonLong} /> <hr /> </>:<></>}
+                                    {(userIam._id === post.author._id) ? <><Button title="Удалить пост" fn ={()=>setModalActive(true)} className={styles.buttonLong} /> <hr /> </>:<></>}
                                     <ModalPost active={modalActive} setActive={setModalActive}>Подтвердите удаление поста
                                     <div style={{display:'flex', justifyContent:'center'}}>
                                         <button style={{color:'red'}} onClick={DeletePost}>Да, удалить!</button>

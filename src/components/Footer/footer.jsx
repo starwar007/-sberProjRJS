@@ -8,7 +8,7 @@ const Footer = () => {
         <div>Авторы проекта: </div>
       </div>
       <div className={styles.footer1}>
-        <a href="https://github.com">Чернышев Юрий - GitHub</a>
+        <a href="https://github.com/chernyshevjuv">Чернышев Юрий - GitHub</a>
         <a href="https://github.com/MikeChe419">Лях Михаил - GitHub</a>
         <a href="https://github.com/starwar007">Васильев Алексей - GitHub</a>
         <a href="https://github.com/AndreyT-v">Тумбаев Андрей - GitHub</a>

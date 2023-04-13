@@ -29,7 +29,9 @@
 .username {
     font-size: 28px;
     color:  #4B0082;
-    font-weight: 700; 
+    font-weight: 700;
+    
+    cursor: pointer;
 }
 
 .title {
