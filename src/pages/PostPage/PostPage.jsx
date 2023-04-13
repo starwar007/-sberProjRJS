@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import styles from './post_page.module.css'
 import { ReactComponent as Like } from "../../components/Post/like.svg"
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import api from '../../utils/api'
 import { formatDate } from '../../components/Post/formatDate'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -11,11 +11,15 @@ import { AddComent } from './Coments/AddComent/AddComent'
 import ButtonDelete from "../../components/Button/ButtonDelete";
 import ModalPost from "../../components/ModalPost/ModalPost"
 
+import { isLiked } from "../../utils/post";
+import { UserContext } from "../../context/ContextUser";
+import { CardContext } from "../../context/cardContext";
 
 export const PostPage = () => {
 
     const [post, setPost] = useState(null);
     const [coments, setComents] = useState([]);
+    const [liked,setLiked] = useState(false)
 
     const [userIam, setUserIam] = useState(null);
     const [userPost, setUserPost] = useState(null);
@@ -23,6 +27,16 @@ export const PostPage = () => {
 
     const id = useParams();
     const navigate = useNavigate();
+
+    const { currentUser } = useContext(UserContext);
+    const {handleLike: onPostLike} = useContext(CardContext);
+
+    function handleLikeClick(){
+        setLiked(!liked);
+        const likes = post.likes;
+        const _id = post._id;
+		onPostLike({_id, likes});
+	}
 
 
     useEffect(() => {
@@ -32,7 +46,7 @@ export const PostPage = () => {
             .then(([postData, coments, userInfo]) => {
                 setPost(postData);
                 setComents(coments);
-
+                setLiked( isLiked(postData.likes, currentUser?._id))
                 setUserIam(userInfo._id);
                 setUserPost(postData.author._id);
 
@@ -41,19 +55,9 @@ export const PostPage = () => {
 
 
     function DeletePost() {
-        // alert('козлище');
         api.deletePost(id.PostId);
         navigate('*');
     }
-
-
-    // console.log(post);
-    // console.log(userPost);
-    // console.log(userIam);
-    // console.log(userInfo.name);
-    // console.log(post.author);
-
-
 
     if (!post) return
 
@@ -77,13 +81,17 @@ export const PostPage = () => {
                                     </span>
                                 </div>
                                 <div className={styles.likeTags}>
-                                    <button className={styles.button} >
-                                        <Like />
-                                    </button>
-                                    {/* count_like  */}
+                                    <div className={styles.like_contener}>
+                                        <button className={liked ? (styles.post_favorite_active) : (styles.post_favorite)} onClick={handleLikeClick}>
+                                            {/* {console.log(conterlike)} */}
+                                            <Like />
+                                        </button>
+                                        <span>&nbsp;</span>
+                                        {/* <span>{(post.likes.length !== 0) && post.likes.length}</span> */}
+                                    </div>
                                     <div className={styles.post_tags}>
 
-                                        {post.tags.map((tag, index) => {
+                                        {  (post.tags[0] !=='') && post.tags.map((tag, index) => {
 
                                             return <span key={index} className={styles.background_text}>{tag}</span>
                                         })}

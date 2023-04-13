@@ -88,7 +88,7 @@ function App() {
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
-          <Route exact path ='/Post/:PostId' element={<PostPage/>}></Route>
+          <Route exact path ='/post/:PostId' element={<PostPage/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>
       </ main>
