@@ -20,6 +20,8 @@ const passPattern = {
   message: "Пароль должен содержать минимум восемь символов состоящих из букв латинского алфавита(заглавных или маленьких) и цифр"
 };
 
+
+
 const Authorization = () => {
 
  
@@ -66,6 +68,7 @@ const Authorization = () => {
           }
           else {alert('Вы ввели неверный e-mail или пароль')}
         })
+        .catch( err => navigate('*'))
       };
 
   return (

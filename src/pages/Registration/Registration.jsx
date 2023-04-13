@@ -54,9 +54,12 @@ const onSubmit = (data) => {
             alert('Некорректный e-mail или пароль (пользьзователь с таким e-mail уже существует и др.) ');
            }
       })
-      .catch((obj) => {
-          console.log(obj)
-      })
+      .catch( err => navigate('*'))
+
+      // .catch((obj) => {
+          
+      //     console.log(obj)
+      // })
 }
 
   // const isReadonly = true;

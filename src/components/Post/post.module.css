@@ -91,11 +91,9 @@ img {
 .background_text {
     background-color:#23a030;
     color: white;
-    /* padding-top: 1px; */
     margin-right: 10px;
     padding-left: 5px;
     padding-right: 5px;
-    /* padding-bottom: 3px; */
     margin-bottom: 5px;
     cursor: pointer;
 }
