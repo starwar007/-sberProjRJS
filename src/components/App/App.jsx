@@ -17,6 +17,7 @@ import SearchInfo from '../SearchInfo/SearchInfo';
 import {CardContext} from "../../context/cardContext";
 import { NotFound } from '../../pages/NotFound/NotFound';
 import { isLiked } from '../../utils/post';
+import EditProfile from '../../pages/EditProfile/EditProfile';
 
 function App() {
 
@@ -88,6 +89,7 @@ function App() {
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
+          <Route exact path='/editProfile' element={<EditProfile/>}></Route>
           <Route exact path ='/post/:PostId' element={<PostPage/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
         </Routes>

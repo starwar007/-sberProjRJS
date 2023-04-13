@@ -54,15 +54,15 @@ const onSubmit = (data) => {
             alert('Некорректный e-mail или пароль (пользьзователь с таким e-mail уже существует и др.) ');
            }
       })
-      .catch( err => navigate('*'))
 
-      // .catch((obj) => {
-          
+      //дополнительно еще раз это посмотреть
+       .catch( err => navigate('*'))
+
+      // .catch((obj) => { 
       //     console.log(obj)
       // })
 }
 
-  // const isReadonly = true;
   return (
     <section className={styles.autorization}>
       <h2 style={{ color: '#23a030' }}><u>МЕНЮ РЕГИСТРАЦИИ</u></h2>
