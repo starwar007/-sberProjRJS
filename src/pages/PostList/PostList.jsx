@@ -1,6 +1,6 @@
 import {Post} from '../../components/Post/Post';
 import styles from './style.module.css';
-import { useState, useEffect, useContext, useCallback } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';
 import { CardContext } from "../../context/cardContext";
@@ -29,7 +29,6 @@ const PostList = ({searchQuery }) => {
       api.search(searchQuery)
       .then((searchResult) => {
         setCards(searchResult);
-        console.log(searchResult);
       })
       .catch( err => navigate('*'))
     }  

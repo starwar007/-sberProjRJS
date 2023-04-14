@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { ReactComponent as Like } from "./like.svg"
 import styles from './post.module.css';
 import { Link } from "react-router-dom";
@@ -11,13 +11,11 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
 
     const { currentUser } = useContext(UserContext);
     const {handleLike: onPostLike} = useContext(CardContext);
-    const liked = isLiked(likes, currentUser?._id)
+    const liked = isLiked(likes, currentUser?._id);
 
     function handleLikeClick(){
 		onPostLike({_id, likes})
 	}
-
-    // console.log(likes, currentUser?._id)
 
     return (
         <div className={styles.post_card}>
@@ -52,14 +50,13 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
            </div>
            <div className={styles.post_footer}>
               <div className={styles.post_footer_content}>  
-                <div className={styles.like_contener}>  
-                <button className={liked ? (styles.post_favorite_active) : (styles.post_favorite)} onClick={handleLikeClick}>
-                    {/* {console.log(conterlike)} */}
-                    <Like/>
-                </button>
-                <span>&nbsp;</span>
-                <span>{likes.length}</span>
-                </div>
+                    <div className={styles.like_contener}>
+                        <button  className={liked ? (styles.post_favorite_active) : (styles.post_favorite)} onClick={handleLikeClick}>
+                            <Like />
+                        </button>
+                        <span>&nbsp;</span>
+                        <span>{(likes.length !== 0) && likes.length}</span>
+                    </div>
                 { formatDate(created_at)}
                 </div>
            </div>     

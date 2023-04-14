@@ -1,10 +1,10 @@
 import React from "react";
-import { useCallback  } from 'react';
+// import { useCallback  } from 'react';
 import api from "../../utils/api";
-import styles from './registration.module.css'
+import styles from './registration.module.css';
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
 import FormField from "../../components/FormField/FormField";
 import { emailRegExp } from "../../utils/regExp";
 import { passworgRegExp } from "../../utils/regExp";
@@ -26,7 +26,23 @@ const Registration = () => {
     mode: "onChange",
 });
 
-const onSubmit = useCallback((data) => {
+// const onSubmit = useCallback((data) => {
+//   const { email, group, password } = data
+//   api.signUp(email, group, password)
+//       .then((obj) => {
+//         console.log(obj)
+//            if (!obj.err) {
+//             navigate('/authorization')
+//            } else {
+//             console.log(obj.message)
+//            }
+//       })
+//       .catch((obj) => {
+//           console.log(obj)
+//       })
+// }, [])
+
+const onSubmit = (data) => {
   const { email, group, password } = data
   api.signUp(email, group, password)
       .then((obj) => {
@@ -34,17 +50,18 @@ const onSubmit = useCallback((data) => {
            if (!obj.err) {
             navigate('/authorization')
            } else {
-            console.log(obj.message)
+            console.log(obj.message);
+            alert('Некорректный e-mail или пароль (пользьзователь с таким e-mail уже существует и др.) ');
            }
       })
 
-      .catch( err => navigate('*'))
+      //дополнительно еще раз это посмотреть
+       .catch( err => navigate('*'))
 
-      // .catch((obj) => {
-          
+      // .catch((obj) => { 
       //     console.log(obj)
       // })
-}, [])
+}
 
   return (
     <section className={styles.autorization}>
@@ -55,12 +72,16 @@ const onSubmit = useCallback((data) => {
           name="email"
           pattern={emailPattern}
           register={register}
-          errors={errors} />
+          errors={errors}
+          isAutoComplete={"new-email"} />
+
         <FormField
           title="Группа"
           name="group"
           register={register}
-          errors={errors} />
+          errors={errors}
+          value="group-10"
+          isReadonly={true} />  
 
         <FormField
           title="Пароль"
@@ -68,12 +89,14 @@ const onSubmit = useCallback((data) => {
           type="password"
           pattern={passPattern}
           register={register}
-          errors={errors} />
+          errors={errors}
+          isAutoComplete={"new-password"} />
+
         <Button 
           title="Зарегестрироваться" 
           className={styles.reg_button} 
-          fn={handleSubmit(onSubmit)}
-        />
+          fn={handleSubmit(onSubmit)} />
+
         </form>
         <Button title="Выход" route="/" className={styles.button} />
     </section>

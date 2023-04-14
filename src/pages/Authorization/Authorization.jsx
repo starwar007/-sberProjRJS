@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useCallback } from 'react';
+import { useContext } from 'react';
 import api from "../../utils/api";
 import styles from './authorization.module.css'
 import { UserContext } from "../../context/ContextUser";
@@ -25,27 +25,51 @@ const passPattern = {
 const Authorization = () => {
 
  
-  const { setToken, currentUser, setCurrentUser } = useContext(UserContext);
+  // const { setToken, currentUser, setCurrentUser } = useContext(UserContext);
+  const { setToken, setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const {register, handleSubmit, formState: {errors}} = useForm({
       mode: 'onChange'
     });
 
-    
-  const onSubmit = useCallback((data) => {
-    const {email, password} = data
-    api.signIn(email, password)
-      .then(obj => {
-        navigate('/')
-        api.setToken(obj.token)
-        setToken(obj.token)
-        setCurrentUser(obj.data)
-        localStorage.setItem('token', obj.token);
-        
-      })
-      .catch( err => navigate('*'))
-    }, []);
+  // const onSubmit = useCallback((data) => {
+  //   const {email, password} = data
+  //   api.signIn(email, password)
+  //     .then(obj => {
+
+  //       if (obj.token) {
+  //         api.setToken(obj.token);
+  //         setToken(obj.token);
+  //         setCurrentUser(obj.data);
+  //         localStorage.setItem('token', obj.token);
+  //         navigate('/');
+  //       }
+  //       else {alert('Вы ввели неверный e-mail или пароль')}
+  //       // navigate('/')
+  //       // api.setToken(obj.token)
+  //       // setToken(obj.token)
+  //       // setCurrentUser(obj.data)
+  //       // localStorage.setItem('token', obj.token);
+
+  //     })
+  //   }, []);
+
+    const onSubmit = (data) => {
+      const {email, password} = data
+      api.signIn(email, password)
+        .then(obj => {
+          if (obj.token) {
+            api.setToken(obj.token);
+            setToken(obj.token);
+            setCurrentUser(obj.data);
+            localStorage.setItem('token', obj.token);
+            navigate('/');
+          }
+          else {alert('Вы ввели неверный e-mail или пароль')}
+        })
+        .catch( err => navigate('*'))
+      };
 
   return (
     <section className={styles.autorization}>
@@ -56,21 +80,20 @@ const Authorization = () => {
             name='email'
             pattern={emailPattern}
             register={register}
-            errors={errors} 
-          />
+            errors={errors} />
+
           <FormField
             title ="Пароль"
             name='password'
             type='password'
             pattern={passPattern}
             register={register}
-            errors={errors} 
-          />
+            errors={errors} />
+
           <Button 
             title="Авторизоваться" 
             className={styles.auth_button} 
-            fn={handleSubmit(onSubmit)}
-          />
+            fn={handleSubmit(onSubmit)} />
         </form>
           <Button title="Выход" route="/" className={styles.button} />
       </section> 
