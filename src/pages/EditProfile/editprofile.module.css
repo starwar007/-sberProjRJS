@@ -1,15 +1,14 @@
-.autorization {
+.editprofile {
     font-family: "Source Sans Pro";
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(152, 251, 152, 0.5);
-
-    
+    /* background-color: rgba(152, 251, 152, 0.5);  */
+    background-color: rgba(6, 243, 243, 0.911); 
 }
 
-.form {
+.divform {
     width: 80%;
     padding-left: 40px;
     padding-right: 40px;
@@ -17,18 +16,39 @@
     align-items: center; 
 }
 
-input {
-    width: 100%;
-}
-
-a {
-    display: block;
-    text-decoration: none;
-}
-
 .reg_button {
     display: block;
     margin: auto;
-    border: none;
+    border: 1;
     padding: 20px;
+}
+
+.Avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.Avatar img {
+    object-fit: cover;
+    border-radius:50%;
+    width: 60px;
+    height: 60px;
+}
+
+.textAvatar {
+    display: flex;
+    justify-content: center;
+}
+
+.input_wrapper {
+    margin-bottom: 20px;
+}
+
+.input {
+    margin: 0;
+    padding: 12px;
+    font-size: 16px;
+    line-height: 140%;
+    border-radius: 10px;
 }

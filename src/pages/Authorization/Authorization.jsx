@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 import api from "../../utils/api";
 import styles from './authorization.module.css'
 import { UserContext } from "../../context/ContextUser";
@@ -33,29 +33,7 @@ const Authorization = () => {
       mode: 'onChange'
     });
 
-  // const onSubmit = useCallback((data) => {
-  //   const {email, password} = data
-  //   api.signIn(email, password)
-  //     .then(obj => {
-
-  //       if (obj.token) {
-  //         api.setToken(obj.token);
-  //         setToken(obj.token);
-  //         setCurrentUser(obj.data);
-  //         localStorage.setItem('token', obj.token);
-  //         navigate('/');
-  //       }
-  //       else {alert('Вы ввели неверный e-mail или пароль')}
-  //       // navigate('/')
-  //       // api.setToken(obj.token)
-  //       // setToken(obj.token)
-  //       // setCurrentUser(obj.data)
-  //       // localStorage.setItem('token', obj.token);
-
-  //     })
-  //   }, []);
-
-    const onSubmit = (data) => {
+    const onSubmit = useCallback((data) => {
       const {email, password} = data
       api.signIn(email, password)
         .then(obj => {
@@ -68,8 +46,8 @@ const Authorization = () => {
           }
           else {alert('Вы ввели неверный e-mail или пароль')}
         })
-        .catch( err => navigate('*'))
-      };
+        .catch( err => {navigate('*'); console.log(err)})
+      }, []);
 
   return (
     <section className={styles.autorization}>
@@ -80,7 +58,8 @@ const Authorization = () => {
             name='email'
             pattern={emailPattern}
             register={register}
-            errors={errors} />
+            errors={errors}
+             />
 
           <FormField
             title ="Пароль"
@@ -88,12 +67,14 @@ const Authorization = () => {
             type='password'
             pattern={passPattern}
             register={register}
-            errors={errors} />
+            errors={errors}
+             />
 
           <Button 
             title="Авторизоваться" 
             className={styles.auth_button} 
-            fn={handleSubmit(onSubmit)} />
+            fn={handleSubmit(onSubmit)}
+             />
         </form>
           <Button title="Выход" route="/" className={styles.button} />
       </section> 

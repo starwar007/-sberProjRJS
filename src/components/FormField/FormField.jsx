@@ -1,6 +1,6 @@
 import styles from './formField.module.css';
 
-const FormField = ({title, name, pattern, register, errors, type, value, isReadonly, isAutoComplete }) => {
+const FormField = ({title, name, pattern, register, errors, type, value, readOnly, autoComplete }) => {
     return (
         <div className={styles.input_wrapper}>
             <label>{title}</label>
@@ -14,8 +14,8 @@ const FormField = ({title, name, pattern, register, errors, type, value, isReado
              placeholder={title}
 
              defaultValue={value}
-             readOnly={isReadonly}
-             autoComplete={isAutoComplete}
+             readOnly={readOnly}
+             autoComplete={autoComplete}
 
              />
              <div className={styles.errorMessage}>
