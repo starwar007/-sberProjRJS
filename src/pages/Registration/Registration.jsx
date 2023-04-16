@@ -66,7 +66,8 @@ const onSubmit = (data) => {
           pattern={emailPattern}
           register={register}
           errors={errors}
-          autoComplete={"new-email"} />
+          autoComplete={"new-email"}
+           />
 
         <FormField
           title="Группа"
@@ -74,7 +75,8 @@ const onSubmit = (data) => {
           register={register}
           errors={errors}
           value="group-10"
-          readOnly={true} />  
+          readOnly={true}
+           />  
 
         <FormField
           title="Пароль"
@@ -83,13 +85,14 @@ const onSubmit = (data) => {
           pattern={passPattern}
           register={register}
           errors={errors}
-          autoComplete={"new-password"} />
+          autoComplete={"new-password"}
+           />
 
         <Button 
           title="Зарегестрироваться" 
           className={styles.reg_button} 
-          fn={handleSubmit(onSubmit)} />
-
+          fn={handleSubmit(onSubmit)}
+           />
         </form>
         <Button title="Выход" route="/" className={styles.button} />
     </section>

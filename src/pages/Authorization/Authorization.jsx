@@ -44,7 +44,7 @@ const Authorization = () => {
             localStorage.setItem('token', obj.token);
             navigate('/');
           }
-          else {alert('Вы ввели неверный e-mail или пароль')}
+          else {alert(obj.message)}
         })
         .catch( err => {navigate('*'); console.log(err)})
       }, []);

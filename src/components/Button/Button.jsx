@@ -9,7 +9,6 @@ const Button = ({title, route, fn, className, disabled }) => {
             <button
                 className={className}
                 onClick={fn}
-
                 disabled={disabled}
             >
             {title}

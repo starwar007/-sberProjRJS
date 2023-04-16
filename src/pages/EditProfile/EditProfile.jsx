@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import api from "../../utils/api";
 import styles from './editprofile.module.css'
 import Button from "../../components/Button/Button";
@@ -13,40 +13,31 @@ const EditProfile = () => {
   const [about,setAbout] = useState('');
   const [avatar,setAvatar] = useState('');
 
-  // const onSubmit = useCallback((data) => {
-  //   const { name, about } = data
-  //   api.editProfile(name, about)
-  //     .then((obj) => {
-  //       if (!obj.err) {
-  //         navigate('/')
-  //       } else {
-  //         console.log(obj.message)
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       navigate('*');
-  //       console.log(err)})
-  // }, []);
-
-  const onSubmit = useCallback(() => {
+  const onSubmit = () => {
     Promise.all([api.editProfile(name, about), api.editAvatar(avatar)])
       .then(([data1, data2]) => {
-        if(!data1.message && !data1.message) 
+        if(!data1.message && !data2.message) 
         {navigate('/')}
-        else{console.log(data1.message); console.log(data2.message)}
+        else{ 
+          if(data1.message && !data2.message) {console.log(data1.message); alert(data1.message)}
+          else if (!data1.message && data2.message) {console.log(data2.message); alert(data2.message)}
+          else if (data1.message && data2.message) {console.log(data1.message + ". " + data2.message); alert(`${data1.message}. ${data2.message}`)}
+          else {}
+        }
       })
       .catch((err) => {
         navigate('*');
-        console.log(err)})
-  }, [name, about, avatar]);
+        console.log(err);
+        alert(err)})
+  };
 
 
   useEffect(() => {
     api.getUserInfo()
       .then(res => {
-        setUserData(res)
-        setAvatar(res.avatar)
-        setName(res.name)
+        setUserData(res);
+        setAvatar(res.avatar);
+        setName(res.name);
         setAbout(res.about)
       })
   }, []);
@@ -57,32 +48,29 @@ const EditProfile = () => {
       <div className={styles.divform}>
 
       <div className={styles.input_wrapper}>
-            <label>Здесь Вы можете обновить свое имя (текст два и более символа)</label>
+            <label>Здесь Вы можете обновить свое имя</label>
             <input className={styles.input}
               defaultValue={userData.name}
               onChange={(e) => {setName(e.target.value)}}
-              placeholder='Здесь Вы можете обновить свое имя. Поле обязательно к заполнению'
-              required={true}
+              placeholder='Здесь Вы можете обновить свое имя'
             />
       </div>
 
       <div className={styles.input_wrapper}>
-            <label>Здесь Вы можете обновить информацию о себе (текст два и более символа)</label>
+            <label>Здесь Вы можете обновить информацию о себе</label>
             <input className={styles.input}
               defaultValue={userData.about}
               onChange={(e) => {setAbout(e.target.value)}}
-              placeholder='Здесь Вы можете обновить информацию о себе. Поле обязательно к заполнению'
-              required
+              placeholder='Здесь Вы можете обновить информацию о себе'
             />
       </div>
 
       <div className={styles.input_wrapper}>
-            <label>Здесь Вы можете обновить свой аватар, вставив адрес URL изображения: https://...</label>
+            <label>Здесь Вы можете обновить свой аватар, вставив адрес URL изображения, к примеру: https://react-learning.ru/image-compressed/default-image.jpg</label>
             <input className={styles.input}
               defaultValue={userData.avatar}
               onChange={(e) => {setAvatar(e.target.value)}}
-              placeholder='Здесь Вы можете обновить свой аватар. Поле обязательно к заполнению'
-              required
+              placeholder='Здесь Вы можете обновить свой аватар'
             />
       </div>
 
@@ -95,7 +83,7 @@ const EditProfile = () => {
           title="Изменить данные пользователя"
           className={styles.reg_button}
           fn={onSubmit}
-          disabled={(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/g.test(avatar) === true && name.length>=2 && about.length>=2) ? false : true}
+          // disabled={(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/g.test(avatar) === true && name.length>=2 && about.length>=2) ? false : true}
           />
       </div>
       <Button title="Выход" route="/" />

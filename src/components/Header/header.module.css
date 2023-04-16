@@ -5,7 +5,7 @@
     font-family: "Source Sans Pro";
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
-    height: 130px;
+    min-height: 130px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -18,13 +18,13 @@
     align-items: center;  
 }
 
-.flex {
+/* .flex {
     font-family: "Source Sans Pro";
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px 40px;
-}
+} */
 
 .username {
     font-size: 28px;
@@ -96,11 +96,18 @@
     align-items: center;
 }
 
-
-
-
-
-
-
-
-
+@media (max-width: 1024px) {
+    .header {
+        flex-direction: column;
+    }
+    .header_user {
+        flex-direction: column;
+    }
+    .logo {
+        justify-content: center;
+    }
+    .login_wrapper {
+        position: relative;
+        right: 0px;
+    }
+}
