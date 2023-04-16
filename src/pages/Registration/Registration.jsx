@@ -46,25 +46,18 @@ const onSubmit = (data) => {
   const { email, group, password } = data
   api.signUp(email, group, password)
       .then((obj) => {
-        console.log(obj)
-           if (!obj.err) {
+           if (!obj.message) {
             navigate('/authorization')
            } else {
             console.log(obj.message);
-            alert('Некорректный e-mail или пароль (пользьзователь с таким e-mail уже существует и др.) ');
+            alert(obj.message);
            }
       })
-
-      //дополнительно еще раз это посмотреть
-       .catch( err => navigate('*'))
-
-      // .catch((obj) => { 
-      //     console.log(obj)
-      // })
+      .catch( err => {navigate('*'); console.log(err)})
 }
 
   return (
-    <section className={styles.autorization}>
+    <section className={styles.registration}>
       <h2 style={{ color: '#23a030' }}><u>МЕНЮ РЕГИСТРАЦИИ</u></h2>
       <form className={styles.form}>
         <FormField
@@ -73,7 +66,8 @@ const onSubmit = (data) => {
           pattern={emailPattern}
           register={register}
           errors={errors}
-          isAutoComplete={"new-email"} />
+          autoComplete={"new-email"}
+           />
 
         <FormField
           title="Группа"
@@ -81,7 +75,8 @@ const onSubmit = (data) => {
           register={register}
           errors={errors}
           value="group-10"
-          isReadonly={true} />  
+          readOnly={true}
+           />  
 
         <FormField
           title="Пароль"
@@ -90,13 +85,14 @@ const onSubmit = (data) => {
           pattern={passPattern}
           register={register}
           errors={errors}
-          isAutoComplete={"new-password"} />
+          autoComplete={"new-password"}
+           />
 
         <Button 
           title="Зарегестрироваться" 
           className={styles.reg_button} 
-          fn={handleSubmit(onSubmit)} />
-
+          fn={handleSubmit(onSubmit)}
+           />
         </form>
         <Button title="Выход" route="/" className={styles.button} />
     </section>

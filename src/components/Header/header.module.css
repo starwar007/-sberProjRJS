@@ -5,7 +5,7 @@
     font-family: "Source Sans Pro";
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
-    height: 130px;
+    min-height: 130px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -18,19 +18,18 @@
     align-items: center;  
 }
 
-.flex {
+/* .flex {
     font-family: "Source Sans Pro";
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px 40px;
-}
+} */
 
 .username {
     font-size: 28px;
     color:  #4B0082;
     font-weight: 700;
-    
     cursor: pointer;
 }
 
@@ -55,50 +54,6 @@
     cursor: pointer;
 }
 
-.currentUser {
-    font-family: "Source Sans Pro";
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: max-content;
-}
-
-.avatarIcon {
-    font-family: "Source Sans Pro";
-    box-sizing: border-box;
-
-    margin: 0;
-    padding: 0;
-    color: rgba(0, 0, 0, 0.85);
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: 'tnum';
-    position: relative;
-    display: inline-block; 
-    
-    overflow: hidden;
-
-    color: #fff;
-    white-space: nowrap;
-    text-align: center;
-    vertical-align: middle;
-    background: #ccc;
-
-    /* width: 32px;
-    height: 32px; */
-
-    width: 50px;
-    height: 50px;
-
-    line-height: 32px;
-
-    border-radius: 50%;
-
-    font-size: 18px; 
-}
-
 .buttonLong {
     margin: auto;
     margin-bottom: 5px;
@@ -112,9 +67,9 @@
     width:200px;
 }
 
-.userdata_wrapper {
+.userdata_wrapper1 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -123,10 +78,36 @@
     right: 100px;
 }
 
+.Avatar {
+    display: flex;
+}
 
+.Avatar img {
+    object-fit: cover;
+    border-radius:50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
 
+.userdata_wrapper2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-
-
-
-
+@media (max-width: 1024px) {
+    .header {
+        flex-direction: column;
+    }
+    .header_user {
+        flex-direction: column;
+    }
+    .logo {
+        justify-content: center;
+    }
+    .login_wrapper {
+        position: relative;
+        right: 0px;
+    }
+}

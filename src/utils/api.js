@@ -39,15 +39,26 @@ class Api {
 
 
     editProfile(name, about) {
-        // return fetch(`${this._baseUrl}posts/users/me`, {
             return fetch(`${this._baseUrl}v2/group-10/users/me`, {    
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
                 // name: 'Василий',
                 // about: 'Программист'
-                name: `${name}`,
-                about: `${about}`
+                // name: `${name}`,
+                // about: `${about}`
+                name: name,
+                about: about
+            })
+        }).then(onResponce)
+    }
+
+    editAvatar(avatar) {
+            return fetch(`${this._baseUrl}v2/group-10/users/me/avatar`, {    
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({
+                avatar: avatar
             })
         }).then(onResponce)
     }

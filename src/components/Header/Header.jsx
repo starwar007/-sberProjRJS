@@ -14,7 +14,7 @@ export function Header({ onSubmit, SearchErase }) {
 
   const navigate = useNavigate();
   const [modalActive, setModalActive] = useState(false);
-  const {currentUser, setCurrentUser } = useContext(UserContext)
+  const {currentUser, setCurrentUser } = useContext(UserContext);
 
     return (
         <header className={cn(styles.header)}>
@@ -32,22 +32,25 @@ export function Header({ onSubmit, SearchErase }) {
                 <>
                   <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>
                   <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
-                  <div className={styles.userdata_wrapper}>
-                    
-                    <div onClick={() => navigate('/editProfile')}>
-                      <span className={styles.username}>{currentUser.name}</span>
+                  <div className={styles.userdata_wrapper1}>
+                    <div onClick={() => navigate('/editProfile')} className={styles.Avatar} >
+                      <img src={currentUser.avatar} alt="БЕЗ АВАТАРА" />
                     </div>
 
-                    <Button title="Выйти" route="/" fn = {()=> {
-                        localStorage.removeItem('token');
-                        setCurrentUser(null);
-                        SearchErase();
-                      } 
-                    } className={styles.buttonLong}/>
+                    <div className={styles.userdata_wrapper2}>
+                      <div onClick={() => navigate('/editProfile')}>
+                       <span className={styles.username}>{currentUser.name}</span>
+                      </div>
+                       <Button title="Выйти" route="/" fn = {()=> {
+                         localStorage.removeItem('token');
+                         setCurrentUser(null);
+                         SearchErase();
+                         } 
+                        } className={styles.buttonLong}/>
 
-                    {/* <Button title="Редактирование профиля" route="/editProfile" className={styles.buttonLong}/> */}
-
-                  </div> 
+                        {/* <Button title="Редактирование профиля" route="/editProfile" className={styles.buttonLong}/> */}
+                      </div> 
+                    </div>
                 </>: 
                   <div className={styles.login_wrapper}> 
                     <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
