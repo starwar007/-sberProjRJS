@@ -56,7 +56,10 @@ export function Header({ onSubmit, SearchErase }) {
                 }
               </div>
               <ModalPost active={modalActive} setActive={setModalActive}>
-                  <PostForm setActive={setModalActive} />
+                  <PostForm 
+                    setActive={setModalActive} 
+                    title='Создать пост'
+                    buttonTitle='Добавить пост' />
               </ModalPost>
         </header>
     )

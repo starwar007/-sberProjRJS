@@ -5,15 +5,29 @@ import { useForm } from "react-hook-form";
 import { CardContext } from "../../context/cardContext";
 import { useNavigate } from 'react-router-dom';
 
-function PostForm({setActive}) {
-    const navigate = useNavigate()
+function PostForm({setActive, post, title, buttonTitle}) {
+
+    const navigate = useNavigate();
+    const [postData, setPostData] = useState()
     const { setCards } = useContext(CardContext);
-    const { register, handleSubmit, formState: { errors}, reset} = useForm({
+    const { register, handleSubmit, formState: { errors}, reset, setValue} = useForm({
             mode: "onChange",
         });
-    const [url,setUrl] = useState('')    
-        // useEffect(()=>{console.log(url)
-        // },[url])
+    const [url,setUrl] = useState('')
+
+    useEffect(() => {
+        if(post) {
+            api.getPost(post.post._id) 
+            .then(res => {
+                console.log(res)
+                setPostData(res)
+                if(postData.image) {
+                    setUrl(postData.image)
+                }
+            })
+        }        
+    }, [post])
+
     const onSubmit = useCallback((data) => {
         const {title, text, image, tags} = data;
         const dataPost = {
@@ -21,24 +35,38 @@ function PostForm({setActive}) {
             text: text,
             image: image,
             tags:  tags.split(',') 
-          } 
-        console.log(dataPost)
-        api.createNewPost(dataPost)
-            .then(api.getPosts()
-                .then(res => {
-                    // console.log(res)
-                    setCards(res)
+        } 
+
+        if (!post) {
+            api.createNewPost(dataPost)
+                .then(api.getPosts()
+                    .then(res => {
+                        // console.log(res)
+                        setCards(res)
+                        .catch(() =>  navigate('*'))
                 }))
-                .catch(() =>  navigate('*'))
+            }
+            else {
+             api.editPost(dataPost, post.post._id)
+             .then(api.getPosts()
+                    .then(res => {
+                        // console.log(res)
+                        setCards(res)
+                        .catch(() =>  navigate('*'))
+                }))
+        }
         setActive(false)
         reset()
         setUrl('')
     }, [setActive, setCards])
+
     return (
         <form>
-            <h3>Создать пост</h3>
+            <h3>{title}</h3>
             <input
-                // name ='image' 
+                defaultValue={(postData) ? postData.image : ''}
+                id = 'image'
+                name ='image' 
                 type="text"
                 placeholder="url картинки поста"
                 {...register('image', {
@@ -51,6 +79,8 @@ function PostForm({setActive}) {
             </div>
 
             <input
+                defaultValue={(postData) ? postData.title : ''}
+                
                 name='title'
                 type="text"
                 placeholder="Заголовок поста"
@@ -58,22 +88,27 @@ function PostForm({setActive}) {
                     required: "Обязательное поле",
                   })}
             />
-
-            <input
+            <textarea
+                defaultValue={(postData) ? postData.text : ''}
                 name='text'
                 type="text"
+                rows={6}
+                cols={50}
                 placeholder="Текст поста"
                 {...register("text", {
                     required: "Обязательное поле",
                   })}
             />
             <input
+                defaultValue={(postData) ? postData.tags.join(',') : ''}
                 name = 'tags'
                 type="text"
                 placeholder="Введите теги через запятую"
                 {...register("tags")}
             />
-            <button type='button' onClick={handleSubmit(onSubmit)}>Создать</button>
+            <button type='button' 
+                    onClick={handleSubmit(onSubmit)}
+            >{buttonTitle}</button>
         </form>
     );
 };
