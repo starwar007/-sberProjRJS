@@ -8,20 +8,21 @@ import { useNavigate } from 'react-router-dom';
 function PostForm({setActive, post, title, buttonTitle}) {
 
     const navigate = useNavigate();
-    const [postData, setPostData] = useState()
+    const [postData, setPostData] = useState(null)
     const { setCards } = useContext(CardContext);
     const { register, handleSubmit, formState: { errors}, reset, setValue} = useForm({
             mode: "onChange",
         });
     const [url,setUrl] = useState('')
 
+    
+
     useEffect(() => {
         if(post) {
             api.getPost(post.post._id) 
             .then(res => {
-                console.log(res)
                 setPostData(res)
-                if(postData.image) {
+                if (postData.image) {
                     setUrl(postData.image)
                 }
             })
@@ -36,25 +37,25 @@ function PostForm({setActive, post, title, buttonTitle}) {
             image: image,
             tags:  tags.split(',') 
         } 
-
-        if (!post) {
-            api.createNewPost(dataPost)
-                .then(api.getPosts()
-                    .then(res => {
-                        // console.log(res)
-                        setCards(res)
-                        .catch(() =>  navigate('*'))
-                }))
-            }
-            else {
-             api.editPost(dataPost, post.post._id)
-             .then(api.getPosts()
-                    .then(res => {
-                        // console.log(res)
-                        setCards(res)
-                        .catch(() =>  navigate('*'))
-                }))
-        }
+     
+          if (!post) {
+              api.createNewPost(dataPost)
+                  .then(api.getPosts()
+                      .then(res => {
+                           console.log(res)
+                          setCards(res)
+                          .catch(() =>  navigate('*'))
+                  }))
+              }
+              else {
+               api.editPost(dataPost, postData._id)
+               .then(api.getPosts()
+                      .then(res => {
+                           console.log(res)
+                          setCards(res)
+                          .catch(() =>  navigate('*'))
+                  }))
+          }
         setActive(false)
         reset()
         setUrl('')

@@ -37,8 +37,7 @@ export const PostPage = () => {
         const _id = post._id;
 		onPostLike({_id, likes});
 	}
-    
-    console.log(post)
+
 
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
