@@ -20,8 +20,8 @@ function PostForm({setActive, post, title, buttonTitle}) {
             api.getPost(post.post._id) 
             .then(res => {
                 setPostData(res)
-                if (postData.image) {
-                    setUrl(postData.image)
+                if (post.post.image) {
+                    setUrl(post.post.image)
                 }
             })
         }        
@@ -46,7 +46,7 @@ function PostForm({setActive, post, title, buttonTitle}) {
                     .catch(() =>  navigate('*'))
               }
               else {
-               api.editPost(dataPost, postData._id)
+               api.editPost(dataPost, post.post._id)
                .then(api.getPosts()
                       .then(res => {
                            console.log(res)
