@@ -2,7 +2,8 @@
 	display: flex;
 	align-items: center;
 	position: relative;
-	flex: 0.5;
+	width: 100%;
+	/* flex: 1; */
 }
 
 .search__input {
@@ -15,7 +16,7 @@
 	font-size: 16px;
 	line-height: 20px;
 	caret-color: #FEBA0C;
-	min-width: 50px;
+	min-width: 100px;
 }
 .search__input:focus {
 	background: #FFFFFF;
@@ -56,9 +57,13 @@
 	fill: #FEBA0C;
 }
 
-@media (max-width: 350px) {
+/* @media (max-width: 350px) {
 	.search__input {
 		max-width: 400px;
 	}
-}
-
+} */
+/* @media (max-width: 1024px) {
+    .search input {
+        margin: 0px 25px 0px 2px;
+    }
+} */

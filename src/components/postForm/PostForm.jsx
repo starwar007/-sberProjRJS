@@ -43,8 +43,8 @@ function PostForm({setActive, post, title, buttonTitle}) {
                     .then(res => {
                         // console.log(res)
                         setCards(res)
-                        .catch(() =>  navigate('*'))
                 }))
+                .catch(() =>  navigate('*'))
             }
             else {
              api.editPost(dataPost, post.post._id)
@@ -52,8 +52,9 @@ function PostForm({setActive, post, title, buttonTitle}) {
                     .then(res => {
                         // console.log(res)
                         setCards(res)
-                        .catch(() =>  navigate('*'))
+                        
                 }))
+             .catch(() =>  navigate('*'))   
         }
         setActive(false)
         reset()
