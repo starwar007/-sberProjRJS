@@ -10,7 +10,7 @@ function PostForm({setActive, post, title, buttonTitle}) {
     const navigate = useNavigate();
     const [postData, setPostData] = useState(null)
     const { setCards } = useContext(CardContext);
-    const { register, handleSubmit, formState: { errors}, reset, setValue} = useForm({
+    const { register, handleSubmit, formState: { errors}, reset} = useForm({
             mode: "onChange",
         });
     const [url,setUrl] = useState('')

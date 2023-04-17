@@ -50,7 +50,7 @@ export const PostPage = () => {
                 setUserIam(userInfo);
 
             })
-    }, [])
+    }, [post])
 
 
     function DeletePost() {
