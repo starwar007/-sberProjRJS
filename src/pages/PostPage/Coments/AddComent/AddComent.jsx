@@ -8,7 +8,6 @@ import { Coment } from '../Coment';
 export function AddComent({token,PostId}) {
 
     const [modalActive, setModalActive] = useState(false);
-    const [NewComment,setNewComment] = useState(null)
     
     const sendComentPost = (e) => {
         e.preventDefault()
@@ -24,10 +23,7 @@ export function AddComent({token,PostId}) {
             api.createComment(PostId, formJson)
                 .then(data => {
                     api.getPostComments(PostId)
-                    .then(coments => {
-                        const showComent = coments[coments.length-1]
-                        setNewComment(showComent)
-                    })
+                
                                         
                 })
 
@@ -52,8 +48,6 @@ export function AddComent({token,PostId}) {
                     <button  className={styles.buttonLong} onClick={() => {setModalActive(false)}}>Отправить комментарий</button>    
                 </form> 
         </ModalPost>
-
-        {!NewComment ? '' : <Coment {...NewComment}/>}
         </>
     )
 }
