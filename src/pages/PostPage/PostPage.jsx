@@ -6,7 +6,8 @@ import api from '../../utils/api'
 import { formatDate } from '../../components/Post/formatDate'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Coment } from './Coments/Coment'
-import { AddComent } from './Coments/AddComent/AddComent'
+import { AddComent } from './Coments/AddComent/AddComent';
+import EditPost from '../../components/EditPost/EditPost'
 
 import Button from "../../components/Button/Button";
 import ModalPost from "../../components/ModalPost/ModalPost"
@@ -36,7 +37,8 @@ export const PostPage = () => {
         const _id = post._id;
 		onPostLike({_id, likes});
 	}
-
+    
+    console.log(post)
 
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
@@ -48,7 +50,7 @@ export const PostPage = () => {
                 setLiked( isLiked(postData.likes, currentUser?._id))
                 setUserIam(userInfo);
             })
-    }, [id.PostId])
+    }, [])
 
 
     function DeletePost() {
@@ -58,7 +60,6 @@ export const PostPage = () => {
     }
 
     if (!post) return
-
     return (
         <>
             <div className={styles.mainContener}>
@@ -70,7 +71,6 @@ export const PostPage = () => {
                                 <img src={post.image} alt="изображение" />
                             </div>
                             <div className={styles.postDescripshion}>
-                                {/* Post descripshion */}
                                 <div className={styles.postAutor}>
                                     <img src={post.author.avatar} alt="аватарка" />
                                     <span><strong>{post.author.name}</strong>
@@ -81,16 +81,14 @@ export const PostPage = () => {
                                 <div className={styles.likeTags}>
                                     <div className={styles.like_contener}>
                                         <button className={liked ? (styles.post_favorite_active) : (styles.post_favorite)} onClick={handleLikeClick}>
-                                            {/* {console.log(conterlike)} */}
                                             <Like />
                                         </button>
                                         <span>&nbsp;</span>
-                                        {/* <span>{(post.likes.length !== 0) && post.likes.length}</span> */}
+                                   
                                     </div>
                                     <div className={styles.post_tags}>
 
                                         {  (post.tags[0] !=='') && post.tags.map((tag, index) => {
-
                                             return <span key={index} className={styles.background_text}>{tag}</span>
                                         })}
                                     </div>
@@ -103,16 +101,17 @@ export const PostPage = () => {
                                 </div>
                                 <div className={styles.coment}>
                                     <hr />
-
-                                    {/* {(userIam === userPost) ? <><ButtonDelete title="Удалить пост" fn={DeletePost} route="*" className={styles.buttonLong} /> <hr /> </>:<></>} */}
-                                    {(userIam._id === post.author._id) ? <><Button title="Удалить пост" fn ={()=>setModalActive(true)} className={styles.buttonLong} /> <hr /> </>:<></>}
+                                    {(userIam._id === post.author._id) ? 
+                                        <>
+                                            <Button title="Удалить пост" fn ={()=>setModalActive(true)} className={styles.buttonLong} />
+                                            <EditPost post={post}/>
+                                            <hr />
+                                        </> : <></> } 
                                     <ModalPost active={modalActive} setActive={setModalActive}>Подтвердите удаление поста
                                     <div style={{display:'flex', justifyContent:'center'}}>
                                         <button style={{color:'red'}} onClick={DeletePost}>Да, удалить!</button>
                                     </div>
                                     </ModalPost>
-
-
 
                                     <AddComent token={localStorage.getItem('token')} PostId={id.PostId} />
                                     {coments.length ?
@@ -121,11 +120,8 @@ export const PostPage = () => {
                                         })
                                         : ''}
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
