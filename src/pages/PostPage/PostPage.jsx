@@ -50,7 +50,7 @@ export const PostPage = () => {
                 setUserIam(userInfo);
 
             })
-    }, [post])
+    }, [post,currentUser?._id,id.PostId])
 
 
     function DeletePost() {

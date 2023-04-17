@@ -3,7 +3,6 @@ import Button from "../../../../components/Button/Button";
 import { useState } from "react";
 import ModalPost from "../../../../components/ModalPost/ModalPost";
 import api from '../../../../utils/api';
-import { Coment } from '../Coment';
 
 export function AddComent({token,PostId}) {
 
@@ -21,12 +20,6 @@ export function AddComent({token,PostId}) {
             setModalActive(false)
             api.setToken(token)
             api.createComment(PostId, formJson)
-                .then(data => {
-                    api.getPostComments(PostId)
-                
-                                        
-                })
-
             e.target.reset();
         } else setModalActive(true)
 
