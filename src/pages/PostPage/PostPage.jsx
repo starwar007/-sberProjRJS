@@ -37,8 +37,7 @@ export const PostPage = () => {
         const _id = post._id;
 		onPostLike({_id, likes});
 	}
-    
-    console.log(post)
+
 
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
@@ -49,14 +48,14 @@ export const PostPage = () => {
                 setComents(coments);
                 setLiked( isLiked(postData.likes, currentUser?._id))
                 setUserIam(userInfo);
+
             })
-    }, [id.PostId])
+    }, [post,currentUser?._id,id.PostId])
 
 
     function DeletePost() {
-        api.deletePost(id.PostId)
-        .then(obj=>{alert(`Ваш пост '${obj.title}' удален`); navigate('*')})
-        .catch(err => {console.log(err)})
+        api.deletePost(id.PostId);
+        navigate('*');
     }
 
     if (!post) return

@@ -1,6 +1,5 @@
-/* font-family: 'Raleway', sans-serif; */
-/* cursor: pointer; */
-/* .buttonIn {
+.buttonIn {
+    /* font-family: 'Raleway', sans-serif; */
     font-family: "Source Sans Pro";
     margin: auto;
     font-size: 15px;
@@ -8,10 +7,12 @@
     background-color: #23a030;
     border: none;
     border-radius: 15px;
+    /* cursor: pointer; */
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 10px;
+    /* padding: '0px 8px 0px 8px';  */
     width:150px;
-  }  */
+  } 
 
     button:hover {
     background-color: #f6980c;
