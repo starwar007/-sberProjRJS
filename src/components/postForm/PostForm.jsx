@@ -15,8 +15,6 @@ function PostForm({setActive, post, title, buttonTitle}) {
         });
     const [url,setUrl] = useState('')
 
-    
-
     useEffect(() => {
         if(post) {
             api.getPost(post.post._id) 
@@ -44,8 +42,8 @@ function PostForm({setActive, post, title, buttonTitle}) {
                       .then(res => {
                            console.log(res)
                           setCards(res)
-                          .catch(() =>  navigate('*'))
-                  }))
+                    }))
+                    .catch(() =>  navigate('*'))
               }
               else {
                api.editPost(dataPost, postData._id)
@@ -53,8 +51,9 @@ function PostForm({setActive, post, title, buttonTitle}) {
                       .then(res => {
                            console.log(res)
                           setCards(res)
-                          .catch(() =>  navigate('*'))
+                          
                   }))
+                .catch(() =>  navigate('*'))
           }
         setActive(false)
         reset()
@@ -81,7 +80,6 @@ function PostForm({setActive, post, title, buttonTitle}) {
 
             <input
                 defaultValue={(postData) ? postData.title : ''}
-                
                 name='title'
                 type="text"
                 placeholder="Заголовок поста"
