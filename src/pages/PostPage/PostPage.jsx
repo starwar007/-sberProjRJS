@@ -47,14 +47,14 @@ export const PostPage = () => {
                 setComents(coments);
                 setLiked( isLiked(postData.likes, currentUser?._id))
                 setUserIam(userInfo);
-
             })
     }, [id.PostId])
 
 
     function DeletePost() {
-        api.deletePost(id.PostId);
-        navigate('*');
+        api.deletePost(id.PostId)
+        .then(obj=>{alert(`Ваш пост '${obj.title}' удален`); navigate('*')})
+        .catch(err => {console.log(err)})
     }
 
     if (!post) return
