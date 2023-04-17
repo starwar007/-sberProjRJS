@@ -43,7 +43,7 @@ export function AddComent({token,PostId}) {
 
         <ModalPost active={modalActive} setActive={setModalActive}>
                 <form className={styles.form} onSubmit={sendComentPost}>
-                    <textarea
+                    <textarea className={styles.indent}
                         name="text"
                         placeholder='Напишите комментарий'
                         rows={4}
