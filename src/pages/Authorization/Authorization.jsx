@@ -76,6 +76,7 @@ const Authorization = () => {
             fn={handleSubmit(onSubmit)}
              />
         </form>
+          <Button title="Забыли пароль?" route="/resetPassword" className={styles.buttonR} />
           <Button title="Выход" route="/" className={styles.button} />
       </section> 
     )
