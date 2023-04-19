@@ -56,7 +56,7 @@ const ResetPassword = () => {
 
 
         <div className={styles.input_wrapper}>
-          <label>E-mail(действующей эл. почты)</label>
+          <label>E-mail(ДЕЙСТВУЮЩАЯ эл. почта)</label>
           <input className={styles.input}
             onChange={(e) => { setEmail(e.target.value) }}
             placeholder='E-mail(действующей эл. почты)'
@@ -74,7 +74,7 @@ const ResetPassword = () => {
 
         <div className={styles.textarea_wrapper}>
           <label>Токен(секретная строка присланная на эл. адрес ДЕЙСТВУЮЩЕЙ почты)</label>
-          <textarea
+          <textarea className={styles.textarea}
             type="text"
             name="textarea"
             placeholder="Токен"

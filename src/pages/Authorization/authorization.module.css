@@ -15,14 +15,14 @@
     align-items: center; 
 }
 
-input {
+/* input {
     width: 100%;
 }
 
 a {
     display: block;
     text-decoration: none;
-}
+} */
 
 .auth_button {
     display: block;

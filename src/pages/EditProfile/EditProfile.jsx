@@ -15,7 +15,7 @@ const EditProfile = () => {
 
   const onSubmit = () => {
     Promise.all([api.editProfile(name, about), api.editAvatar(avatar)])
-      .then(([data1, data2]) => {
+      .then(([data1, data2]) => { console.log(data1)
         if(!data1.message && !data2.message) 
         {navigate('/')}
         else{ 

@@ -39,7 +39,7 @@ class Api {
 
 
     editProfile(name, about) {
-        return fetch(`${this._baseUrl}v2/group-10/users/me`, {
+        return fetch(`${this._baseUrl}users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
@@ -50,7 +50,7 @@ class Api {
     }
 
     editAvatar(avatar) {
-        return fetch(`${this._baseUrl}v2/group-10/users/me/avatar`, {
+        return fetch(`${this._baseUrl}users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({

@@ -34,7 +34,7 @@ function App() {
         api.setToken(tokenFromLS)
         api.getUserInfo()
         .then(res => {
-          setCurrentUser(res)
+          setCurrentUser(res);
         })
         
         setToken(tokenFromLS)
