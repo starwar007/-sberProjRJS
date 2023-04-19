@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./header.module.css";
 import cn from "classnames";
-import api from "../../utils/api";
-import { useState, useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Search from "../Search/Search";
@@ -28,12 +27,14 @@ export function Header({ onSubmit, SearchErase }) {
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
                 <h1 className={styles.title}>Реактивные посты</h1>
               </div>
-              <div className={styles.header_user}>
+              <div className={styles.user}>
                 { (currentUser) ?
                 <>
                   <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>
-                  <Button title="Добавить пост"  fn ={()=>{setModalActive(true)
-                                                            setPost(null)}} 
+                  <Button 
+                  title="Добавить пост"  
+                  fn = {()=>{setModalActive(true)
+                    setPost(null)}} 
                   className={styles.buttonLong}/>
                   <div className={styles.userdata_wrapper}>
                     <div onClick={() => navigate('/editProfile')}>

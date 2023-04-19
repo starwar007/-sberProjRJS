@@ -20,11 +20,7 @@ const passPattern = {
   message: "Пароль должен содержать минимум восемь символов состоящих из букв латинского алфавита(заглавных или маленьких) и цифр"
 };
 
-
-
 const Authorization = () => {
-
- 
   // const { setToken, currentUser, setCurrentUser } = useContext(UserContext);
   const { setToken, setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();

@@ -1,12 +1,16 @@
 import styles from './add.module.css'
 import Button from "../../../../components/Button/Button";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ModalPost from "../../../../components/ModalPost/ModalPost";
 import api from '../../../../utils/api';
+import { CardContext } from '../../../../context/cardContext';
 
 export function AddComent({token,PostId}) {
 
     const [modalActive, setModalActive] = useState(false);
+    const {post, setPost} = useContext(CardContext)
+
+    console.log(post)
     
     const sendComentPost = (e) => {
         e.preventDefault()
@@ -20,6 +24,10 @@ export function AddComent({token,PostId}) {
             setModalActive(false)
             api.setToken(token)
             api.createComment(PostId, formJson)
+                .then(api.getPost(post._id)
+                    .then(responce => {
+                        setPost(responce)
+                    }))
             e.target.reset();
         } else setModalActive(true)
 

@@ -19,7 +19,7 @@ import { CardContext } from "../../context/cardContext";
 export const PostPage = () => {
 
     const [coments, setComents] = useState([]);
-    const [liked,setLiked] = useState(false)
+    const [liked, setLiked] = useState(false)
     const [modalActive, setModalActive] = useState(false);
 
     const id = useParams();
@@ -43,7 +43,7 @@ export const PostPage = () => {
         Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId)])
             .then(([postData, coments, userInfo]) => {
                 setPost(postData);
-                setComents(coments);
+                console.log(postData.comments, coments)
                 setLiked( isLiked(postData.likes, currentUser?._id))
 
             })
@@ -60,7 +60,10 @@ export const PostPage = () => {
         <>
             <div className={styles.mainContener}>
                 <div className={styles.postContener}>
-                    <ButtonMUI onClick={() => navigate(-1)}>Назад</ButtonMUI>
+                    <ButtonMUI onClick={() => {
+                        setPost(null)
+                        navigate(-1)}}>
+                    Назад</ButtonMUI>
                     <div className={styles.postCard}>
                         <div className={styles.postContent}>
                             <div>
@@ -109,8 +112,8 @@ export const PostPage = () => {
                                     </div>
                                     </ModalPost>
                                     <AddComent token={localStorage.getItem('token')} PostId={id.PostId} />
-                                    {coments.length ?
-                                        coments.map((item) => {
+                                    {post.comments.length ?
+                                        post.comments.map((item) => {
                                             return <Coment key={item._id} {...item} />
                                         })
                                         : ''} 

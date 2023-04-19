@@ -26,6 +26,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [cards, setCards] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [editModalActive, setEditModalActive] = useState(false)
   const [modalActive, setModalActive] = useState(false);
   const [post, setPost] = useState(null);
 
@@ -62,30 +63,30 @@ function App() {
         tags:  tags.split(',') 
     } 
         if (!sendPost) {
-            api.createNewPost(dataPost)
-                .then(api.getPosts()
-                    .then(res => {
-                         console.log(res)
-                        setCards(res)
-                  }))
-                  .catch(() =>  navigate('*'))
-            }
-            else {
-             api.editPost(dataPost, sendPost._id)
-             .then(api.getPosts()
-                    .then(res => {
-                        setCards(res)
-                        api.getPost(sendPost._id)
-                        .then(responce => {
-                         setPost(responce)
-                        })
-                }))
-              .catch(() =>  navigate('*'))
+          api.createNewPost(dataPost)
+          .then(api.getPosts()
+            .then(res => {
+              setCards(res)
+          }))
+          .catch(() =>  navigate('*'))
+          setModalActive(false)
+        }
+        else {
+          api.editPost(dataPost, sendPost._id)
+          .then(api.getPosts()
+            .then(res => {
+              setCards(res)
+              api.getPost(sendPost._id)
+              .then(responce => {
+                setPost(responce)
+              })
+          }))
+          .catch(() =>  navigate('*'))
+          setEditModalActive(false)
         }
     fnRes();
     fnResURL();
-    setModalActive(false);
-}, [setModalActive, setCards])
+}, [setModalActive, setEditModalActive, setCards])
 
   const handlePostLike = useCallback((post) => {
        const liked = isLiked(post.likes, currentUser._id)
@@ -111,7 +112,13 @@ function App() {
       setToken
     }}>
 
-    <CardContext.Provider value={{ cards, setCards, modalActive, setModalActive, post, setPost, handleLike: handlePostLike, handleSendPost:onSubmitSendPost }}>
+    <CardContext.Provider 
+      value={{ cards, setCards, 
+              modalActive, setModalActive, 
+              editModalActive, setEditModalActive, 
+              post, setPost, 
+              handleLike: handlePostLike, 
+              handleSendPost:onSubmitSendPost }}>
       <Header 
         SearchErase={handleInputChangeErase} 
         onSubmit={handleFormSubmit}

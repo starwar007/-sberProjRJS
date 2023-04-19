@@ -1,10 +1,10 @@
 .header {
     display: flex;
     font-family: "Source Sans Pro";
-    width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
-    min-height: 130px;
     justify-content: space-between;
+    padding: 20px 50px;
+
 }
 
 .logo {
@@ -12,12 +12,21 @@
     display: flex;
     align-items: center;
     font-size: large;
-    font-weight: 100;
     cursor: pointer;
-    margin-left:15px;
+    margin-right: 50px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .title {
+    margin: 0;
+    width: 400px;
     font-family: "Source Sans Pro";
     color: 	#4B0082;
     font-size: 45px;
@@ -72,7 +81,6 @@
     flex-direction: column;
     align-items: center;
 }
-
 
 .login_wrapper {
     display: flex;

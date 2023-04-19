@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { CardContext } from "../../context/cardContext";
 
 
-function PostForm({ title, buttonTitle}) {
+function PostForm({title, buttonTitle }) {
 
     const [postData, setPostData] = useState(null)
     const { register, handleSubmit, formState: { errors}, reset} = useForm({
