@@ -24,7 +24,7 @@ export function AddComent({token,PostId}) {
     
         if ((valueForm !== '' && valueForm !== null) && (!!valueForm.trim())) {
             setModalActive(false)
-            api.setToken(token)
+            // api.setToken(token)
             api.createComment(PostId, formJson)
                 .then(api.getPost(post._id)
                     .then(responce => {
@@ -32,10 +32,9 @@ export function AddComent({token,PostId}) {
                     }))
             e.target.reset();
         } else setModalActive(true)
-
     }
 
-
+    console.log(post)
     return (
         <>
         <Button title="Добавить комментарий"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
