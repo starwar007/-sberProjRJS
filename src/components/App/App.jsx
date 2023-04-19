@@ -26,8 +26,11 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [cards, setCards] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const navigate = useNavigate();
+  const [modalActive, setModalActive] = useState(false);
+  const [post, setPost] = useState(null);
 
+  const navigate = useNavigate();
+  
    useEffect(() => {
      const tokenFromLS = localStorage.getItem('token');
       if (tokenFromLS) {
@@ -50,6 +53,40 @@ function App() {
     setSearchQuery('');
   }
 
+  const onSubmitSendPost = useCallback((data, sendPost, fnRes, fnResURL) => {
+    const {title, text, image, tags} = data;
+    const dataPost = {
+        title: title,
+        text: text,
+        image: image,
+        tags:  tags.split(',') 
+    } 
+        if (!sendPost) {
+            api.createNewPost(dataPost)
+                .then(api.getPosts()
+                    .then(res => {
+                         console.log(res)
+                        setCards(res)
+                  }))
+                  .catch(() =>  navigate('*'))
+            }
+            else {
+             api.editPost(dataPost, sendPost._id)
+             .then(api.getPosts()
+                    .then(res => {
+                        setCards(res)
+                        api.getPost(sendPost._id)
+                        .then(responce => {
+                         setPost(responce)
+                        })
+                }))
+              .catch(() =>  navigate('*'))
+        }
+    fnRes();
+    fnResURL();
+    setModalActive(false);
+}, [setModalActive, setCards])
+
   const handlePostLike = useCallback((post) => {
        const liked = isLiked(post.likes, currentUser._id)
          return api.changeLikePost(post._id, liked)
@@ -57,18 +94,15 @@ function App() {
             const newPosts = cards.map(cardState => {
               return cardState._id === updatePost._id ? updatePost : cardState
             })
-  if (!liked) {
-    setFavorites(prevState => [...prevState, updatePost])
-  } else {
-    setFavorites(prevState => prevState.filter(card => card._id !== updatePost._id))
-  }
-
-  setCards(newPosts);
-  return updatePost;
-})
+    if (!liked) {
+      setFavorites(prevState => [...prevState, updatePost])
+    } else {
+      setFavorites(prevState => prevState.filter(card => card._id !== updatePost._id))
+    }
+      setCards(newPosts);
+      return updatePost;
+  })
 }, [currentUser, cards])
-
-
 
   return (
     <UserContext.Provider value={{
@@ -77,8 +111,7 @@ function App() {
       setToken
     }}>
 
-    <CardContext.Provider value={{ cards, setCards, handleLike: handlePostLike }}>
-
+    <CardContext.Provider value={{ cards, setCards, modalActive, setModalActive, post, setPost, handleLike: handlePostLike, handleSendPost:onSubmitSendPost }}>
       <Header 
         SearchErase={handleInputChangeErase} 
         onSubmit={handleFormSubmit}

@@ -3,20 +3,25 @@ import Button from '../Button/Button';
 import ModalPost from '../ModalPost/ModalPost';
 import PostForm from '../PostForm/PostForm';
 import api from '../../utils/api';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useContext } from 'react';
+import { CardContext } from '../../context/cardContext';
 
-
-const EditPost = (post) => {
-
-    const [modalActive, setModalActive] = useState(false);
+const EditPost = () => {
+    const {post, setPost, modalActive, setModalActive} = useContext(CardContext);
+    // const [modalActive, setModalActive] = useState(false);
 
     return (
         <>
-        <Button title="Редактировать пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
+        <Button title="Редактировать пост"  fn ={()=> 
+            {setModalActive(true)
+                console.log(post)}
+            
+        } 
+            className={styles.buttonLong}/>
         <ModalPost active={modalActive} setActive={setModalActive}>
               <PostForm
-                setActive={setModalActive} 
-                post={post}
+                // setActive={setModalActive} 
+                // post={post}
                 title='Редактировать пост'
                 buttonTitle='Изменить данные' />
         </ModalPost>

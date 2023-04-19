@@ -1,64 +1,35 @@
 import styles from './postForm.module.css';
 import api from '../../utils/api';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { CardContext } from "../../context/cardContext";
-import { useNavigate } from 'react-router-dom';
 
-function PostForm({setActive, post, title, buttonTitle}) {
 
-    const navigate = useNavigate();
+function PostForm({ title, buttonTitle}) {
+
     const [postData, setPostData] = useState(null)
-    const { setCards } = useContext(CardContext);
     const { register, handleSubmit, formState: { errors}, reset} = useForm({
             mode: "onChange",
         });
     const [url,setUrl] = useState('')
+    const {post, handleSendPost:onSubmitSendPost} = useContext(CardContext);
+    
+    function handlePostSend(data) {
+        onSubmitSendPost(data, post, reset, setUrl);
+    }
 
     useEffect(() => {
         if(post) {
-            api.getPost(post.post._id) 
+            console.log(post)
+            api.getPost(post._id) 
             .then(res => {
                 setPostData(res)
-                if (post.post.image) {
-                    setUrl(post.post.image)
+                if (post.image) {
+                    setUrl(post.image)
                 }
             })
         }        
-    }, [post])
-
-    const onSubmit = useCallback((data) => {
-        const {title, text, image, tags} = data;
-        const dataPost = {
-            title: title,
-            text: text,
-            image: image,
-            tags:  tags.split(',') 
-        } 
-     
-          if (!post) {
-              api.createNewPost(dataPost)
-                  .then(api.getPosts()
-                      .then(res => {
-                           console.log(res)
-                          setCards(res)
-                    }))
-                    .catch(() =>  navigate('*'))
-              }
-              else {
-               api.editPost(dataPost, post.post._id)
-               .then(api.getPosts()
-                      .then(res => {
-                           console.log(res)
-                          setCards(res)
-                          
-                  }))
-                .catch(() =>  navigate('*'))
-          }
-        setActive(false)
-        reset()
-        setUrl('')
-    }, [setActive, setCards])
+    }, [])
 
     return (
         <form>
@@ -106,7 +77,7 @@ function PostForm({setActive, post, title, buttonTitle}) {
                 {...register("tags")}
             />
             <button type='button' 
-                    onClick={handleSubmit(onSubmit)}
+                    onClick={handleSubmit(handlePostSend)}
             >{buttonTitle}</button>
         </form>
     );
