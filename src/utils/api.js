@@ -39,14 +39,10 @@ class Api {
 
 
     editProfile(name, about) {
-            return fetch(`${this._baseUrl}v2/group-10/users/me`, {    
+        return fetch(`${this._baseUrl}users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                // name: 'Василий',
-                // about: 'Программист'
-                // name: `${name}`,
-                // about: `${about}`
                 name: name,
                 about: about
             })
@@ -54,7 +50,7 @@ class Api {
     }
 
     editAvatar(avatar) {
-            return fetch(`${this._baseUrl}v2/group-10/users/me/avatar`, {    
+        return fetch(`${this._baseUrl}users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
@@ -144,6 +140,43 @@ class Api {
             headers: this._headers
         }).then(onResponce)
     }
+
+    resetPassword(email) {
+        return fetch(`${this._baseUrl}forgot-password`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email
+            })
+        }).then(onResponce)
+    }
+
+    editPassword(tokenR, password) { 
+        console.log(tokenR);
+        console.log(password);
+        return fetch(`${this._baseUrl}password-reset/${tokenR}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                password: password
+            })
+        }).then(onResponce)
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
 
 const api = new Api();

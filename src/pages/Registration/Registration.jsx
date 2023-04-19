@@ -26,21 +26,6 @@ const Registration = () => {
     mode: "onChange",
 });
 
-// const onSubmit = useCallback((data) => {
-//   const { email, group, password } = data
-//   api.signUp(email, group, password)
-//       .then((obj) => {
-//         console.log(obj)
-//            if (!obj.err) {
-//             navigate('/authorization')
-//            } else {
-//             console.log(obj.message)
-//            }
-//       })
-//       .catch((obj) => {
-//           console.log(obj)
-//       })
-// }, [])
 
 const onSubmit = (data) => {
   const { email, group, password } = data

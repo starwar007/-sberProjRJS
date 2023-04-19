@@ -15,7 +15,7 @@ const EditProfile = () => {
 
   const onSubmit = () => {
     Promise.all([api.editProfile(name, about), api.editAvatar(avatar)])
-      .then(([data1, data2]) => {
+      .then(([data1, data2]) => { console.log(data1)
         if(!data1.message && !data2.message) 
         {navigate('/')}
         else{ 
@@ -86,6 +86,7 @@ const EditProfile = () => {
           // disabled={(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/g.test(avatar) === true && name.length>=2 && about.length>=2) ? false : true}
           />
       </div>
+      {/* <Button title="Сброс пароля" route="/resetPassword" className={styles.buttonR} /> */}
       <Button title="Выход" route="/" />
     </section>
   )

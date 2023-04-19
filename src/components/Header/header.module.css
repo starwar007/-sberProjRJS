@@ -1,62 +1,43 @@
-
-
 .header {
     display: flex;
     font-family: "Source Sans Pro";
     width: 100%;
     background-image: url('../../assets/img/Fon\ header.jpg');
     min-height: 130px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-.header_user {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;  
-}
-
-/* .flex {
-    font-family: "Source Sans Pro";
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 40px;
-} */
-
-.username {
-    font-size: 28px;
-    color:  #4B0082;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.title {
-    font-family: "Source Sans Pro";
-    margin: 0;
-    color: 	#4B0082;
-    margin-right: 70px;
-    font-size: 50px;
-    font-weight: 700; 
-    min-width: 450px;
+    justify-content: space-between;
 }
 
 .logo {
     font-family: "Source Sans Pro";
     display: flex;
-    min-width: 200px;
-    gap: 10px;
     align-items: center;
     font-size: large;
     font-weight: 100;
     cursor: pointer;
+    margin-left:15px;
+}
+
+.title {
+    font-family: "Source Sans Pro";
+    color: 	#4B0082;
+    font-size: 45px;
+    font-weight: 700; 
+}
+
+.add_post {
+    display: flex;
+    align-items: center;
+}
+
+.userdata_wrapper1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 15px;
 }
 
 .buttonLong {
     margin: auto;
-    margin-bottom: 5px;
     font-size: 15px;
     color: #fff;
     background-color: #23a030;
@@ -67,15 +48,11 @@
     width:200px;
 }
 
-.userdata_wrapper1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.login_wrapper {
-    position: absolute;
-    right: 100px;
+.username {
+    font-size: 28px;
+    color:  #4B0082;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .Avatar {
@@ -96,18 +73,74 @@
     align-items: center;
 }
 
+
+.login_wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-right:30px;
+    align-items: center;
+}
+
+.buttonLong0 {
+    margin-right: 20px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #23a030;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
+    padding: 10px;
+    width:200px;
+}
+
+.search {
+    width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 1024px) {
+
     .header {
         flex-direction: column;
+        justify-content: center;
+        
     }
-    .header_user {
+
+    .login_wrapper {
+        margin:0px;
+        justify-content: space-evenly;
+        margin-right: 15px;
+    }
+
+    .buttonLong0 {
+        margin: 0px 30px 20px 30px;
+    }
+
+    .buttonLong {
+        margin-bottom: 10px;
+    }
+
+    .add_post {
+        justify-content: center;
+        margin: 15px 0px 25px 0px;
+    }
+    
+    .userdata_wrapper1 {
+        justify-content: center;
         flex-direction: column;
+        margin-right: 0px;
     }
+
     .logo {
         justify-content: center;
+        margin-left:0px;
     }
-    .login_wrapper {
-        position: relative;
-        right: 0px;
+
+    .search{
+        width: auto;
+        margin: 0px 50px 0px 50px;
     }
 }

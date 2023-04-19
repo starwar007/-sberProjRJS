@@ -27,11 +27,14 @@ export function Header({ onSubmit, SearchErase }) {
                   src='https://cdn2.iconfinder.com/data/icons/computer-science-butterscotch-vol-2-1/512/Programming-1024.png' />
                 <h1 className={styles.title}>Реактивные посты</h1>
               </div>
-              <div className={styles.header_user}>
                 { (currentUser) ?
                 <>
-                  <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>
-                  <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
+                  <div className={styles.search}>
+                    <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>
+                  </div>
+                  <div className={styles.add_post}>
+                    <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
+                  </div>
                   <div className={styles.userdata_wrapper1}>
                     <div onClick={() => navigate('/editProfile')} className={styles.Avatar} >
                       <img src={currentUser.avatar} alt="БЕЗ АВАТАРА" />
@@ -49,15 +52,14 @@ export function Header({ onSubmit, SearchErase }) {
                         } className={styles.buttonLong}/>
 
                         {/* <Button title="Редактирование профиля" route="/editProfile" className={styles.buttonLong}/> */}
-                      </div> 
-                    </div>
+                    </div> 
+                  </div>
                 </>: 
                   <div className={styles.login_wrapper}> 
-                    <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong}/>
-                    <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong}/> 
+                    <Button title="Авторизоваться" route="/authorization" className={styles.buttonLong0}/>
+                    <Button title="Зарегистрироваться" route="/registration" className={styles.buttonLong0}/> 
                   </div>  
                 }
-              </div>
               <ModalPost active={modalActive} setActive={setModalActive}>
                   <PostForm 
                     setActive={setModalActive} 
