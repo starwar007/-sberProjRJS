@@ -18,10 +18,8 @@ import { CardContext } from "../../context/cardContext";
 
 export const PostPage = () => {
 
-    // const [coments, setComents] = useState([]);
-    // const [liked,setLiked] = useState(false)
-
-    // const [userIam, setUserIam] = useState(null);
+    const [coments, setComents] = useState([]);
+    const [liked,setLiked] = useState(false)
     const [modalActive, setModalActive] = useState(false);
 
     const id = useParams();
@@ -30,24 +28,23 @@ export const PostPage = () => {
     const { currentUser } = useContext(UserContext);
     const {post, setPost, handleLike: onPostLike} = useContext(CardContext);
 
-    // console.log(post)
-    // function handleLikeClick(){
-    //     setLiked(!liked);
-    //     const likes = post.likes;
-    //     const _id = post._id;
-	// 	onPostLike({_id, likes});
-	// }
+    console.log(post)
+     function handleLikeClick(){
+         setLiked(!liked);
+         const likes = post.likes;
+         const _id = post._id;
+	 	onPostLike({_id, likes});
+	 }
 
 
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
         api.setToken(tokenLS)
-        Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId), api.getUserInfo()])
+        Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId)])
             .then(([postData, coments, userInfo]) => {
                 setPost(postData);
-                // setComents(coments);
-                // setLiked( isLiked(postData.likes, currentUser?._id))
-                // setUserIam(userInfo);
+                setComents(coments);
+                setLiked( isLiked(postData.likes, currentUser?._id))
 
             })
     }, [currentUser?._id,id.PostId])
@@ -79,9 +76,9 @@ export const PostPage = () => {
                                 </div>
                                 <div className={styles.likeTags}>
                                     <div className={styles.like_contener}>
-                                        {/* <button className={liked ? (styles.post_favorite_active) : (styles.post_favorite)} onClick={handleLikeClick}>
+                                         <button className={liked ? (styles.post_favorite_active) : (styles.post_favorite)} onClick={handleLikeClick}>
                                             <Like />
-                                        </button> */}
+                                        </button> 
                                         <span>&nbsp;</span>
                                    
                                     </div>
@@ -98,9 +95,9 @@ export const PostPage = () => {
                                 <div className={styles.textContent}>
                                     {post.text}
                                 </div>
-                                {/* <div className={styles.coment}>
+                                 <div className={styles.coment}>
                                     <hr />
-                                    {(userIam._id === post.author._id) ? 
+                                    {(currentUser._id === post.author._id) ? 
                                         <>
                                             <Button title="Удалить пост" fn ={()=>setModalActive(true)} className={styles.buttonLong} />
                                             <EditPost post={post}/>
@@ -117,7 +114,7 @@ export const PostPage = () => {
                                             return <Coment key={item._id} {...item} />
                                         })
                                         : ''} 
-                                </div> */}
+                                </div> 
                             </div>
                         </div>
                     </div>
