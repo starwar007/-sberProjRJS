@@ -3,11 +3,14 @@ import Button from "../../../../components/Button/Button";
 import { useState, useContext } from "react";
 import ModalPost from "../../../../components/ModalPost/ModalPost";
 import api from '../../../../utils/api';
+import { CardContext } from '../../../../context/cardContext';
+import { Coment } from '../Coment';
 
 export function AddComent({token,PostId}) {
 
     const [modalActive, setModalActive] = useState(false);
-    const {post, setPost} = useContext(CardContext)
+    const [NewComment, setNewComment] = useState(null)
+    const {post, setPost} = useContext(CardContext);
 
     console.log(post)
     
