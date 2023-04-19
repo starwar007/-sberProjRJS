@@ -99,7 +99,7 @@ function PostForm({setActive, post, title, buttonTitle}) {
                   })}
             />
             <input
-                defaultValue={(postData) ? postData.tags.join(',') : ''}
+                defaultValue={(postData) ? postData.tags.join(', ') : ''}
                 name = 'tags'
                 type="text"
                 placeholder="Введите теги через запятую"
