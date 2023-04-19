@@ -3,7 +3,6 @@ import Button from "../../../../components/Button/Button";
 import { useState, useContext } from "react";
 import ModalPost from "../../../../components/ModalPost/ModalPost";
 import api from '../../../../utils/api';
-import { CardContext } from '../../../../context/cardContext';
 
 export function AddComent({token,PostId}) {
 
@@ -49,6 +48,8 @@ export function AddComent({token,PostId}) {
                     <button  className={styles.buttonLong} onClick={() => {setModalActive(false)}}>Отправить комментарий</button>    
                 </form> 
         </ModalPost>
+
+        {!NewComment ? '' : <Coment {...NewComment}/>}
         </>
     )
 }
