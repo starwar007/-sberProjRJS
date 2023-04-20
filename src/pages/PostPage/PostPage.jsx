@@ -38,7 +38,7 @@ export const PostPage = () => {
                 setPost(postData);
                 setLiked(isLiked(postData.likes, currentUser?._id))
             })
-    }, [currentUser?._id,id.PostId])
+    }, [currentUser?._id, id.PostId])
 
 
     function DeletePost() {
