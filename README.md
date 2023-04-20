@@ -6,8 +6,11 @@
 Проект реализован на библиотеке React с применением функциональной парадигмы. 
 Используемые технологии: react-router-dom, hooks, hook-form, MUI
 ## разработчики проекта
-frontend разработчик [Чернышев Юрий](https://github.com/chernyshevjuv).\
-frontend разработчик [Васильев Алексей] (https://github.com/starwar007).\
-frontend разработчик [Тумбаев Андрей] (https://github.com/AndreyT-v).\
-team-lead [Лях Михаил] (https://github.com/MikeChe419).\
+[Чернышев Юрий](https://github.com/chernyshevjuv) - front-end разработчик, project-manager
+
+[Васильев Алексей](https://github.com/starwar007) - front-end разработчик
+
+[Тумбаев Андрей](https://github.com/AndreyT-v) - front-end разработчик 
+
+[Лях Михаил](https://github.com/MikeChe419) - team-lead, front-end разработчик
 
