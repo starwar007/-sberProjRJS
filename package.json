@@ -2,7 +2,7 @@
   "name": "react-posts",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://MikeChe419.github.io/reactiv-posts",
+  "homepage": "https://MikeChe419.github.io/SberProjRJS",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
