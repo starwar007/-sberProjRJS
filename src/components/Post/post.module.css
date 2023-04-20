@@ -1,0 +1,118 @@
+.post_card {
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    display: grid;
+    grid-template-rows: minmax(0px, max-content) 10fr minmax(0px, max-content);
+    grid-template-columns: minmax(50px, max-content);
+}
+
+.post_card:hover {
+    box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04), 0 8px 16px rgba(96, 97, 112, 0.16);
+    cursor: pointer;
+}
+
+img {
+	width: 100%; 
+}
+
+.post_header{
+	padding: 24px 24px 10px 24px;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.post_header_autor {
+	display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.post_header_autor img {
+	object-fit: cover;
+    border-radius:50%;
+    width: 35px;
+    height: 35px;
+
+}
+
+.post_body_content {
+	overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+.post_main_descripshion{
+	padding: 0px 24px;
+}
+
+.post_footer {
+	padding: 0px 24px 24px 24px;
+}
+.post_footer_content {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post_favorite, .post_favorite_active{
+    cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+	display: flex;
+    transition: transform .5s ease;	
+}
+
+.post_favorite:hover, .post_favorite_active:hover {
+    transform: scale(1.5, 1.5);
+}
+
+.post_favorite  svg{
+    fill: #FFFFFF;
+	stroke-width: 1px;
+	stroke: #7b8e98;
+}
+
+.post_favorite_active svg {
+	fill: #F44336;
+    border: none;
+    stroke-opacity: 0; 
+    stroke: none;
+    border-width: 0px;
+	
+}
+
+.background_text {
+    background-color:#23a030;
+    color: white;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.like_contener {
+    display: flex;
+}
+
+.post_tags {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post__link {
+	text-decoration: none;
+	color: currentColor;
+}

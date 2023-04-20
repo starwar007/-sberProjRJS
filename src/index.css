@@ -1,0 +1,28 @@
+html {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: "Source Sans Pro";
+}
+
+ul {
+    list-style: none;
+    font-family: "Source Sans Pro";
+}
+
+button {
+    cursor: pointer;
+    font-family: "Source Sans Pro";
+}
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.buttonLong0:hover, .buttonLong:hover {
+    background-color: #f6980c;
+}
