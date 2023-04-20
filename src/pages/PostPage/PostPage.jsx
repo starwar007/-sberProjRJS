@@ -32,12 +32,11 @@ export const PostPage = () => {
 
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
-        api.setToken(tokenLS)
-        Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId)])
-            .then(([postData, coments, userInfo]) => {
+        api.setToken(tokenLS);
+        api.getPost(id.PostId)
+            .then(postData => {
                 setPost(postData);
                 setLiked(isLiked(postData.likes, currentUser?._id))
-
             })
     }, [currentUser?._id,id.PostId])
 
