@@ -36,7 +36,7 @@ export const PostPage = () => {
         Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId)])
             .then(([postData, coments, userInfo]) => {
                 setPost(postData);
-                setLiked( isLiked(postData.likes, currentUser?._id))
+                setLiked(isLiked(postData.likes, currentUser?._id))
 
             })
     }, [currentUser?._id,id.PostId])
@@ -44,6 +44,7 @@ export const PostPage = () => {
 
     function DeletePost() {
         api.deletePost(id.PostId);
+        setPost(null);
         navigate('*');
     }
 
