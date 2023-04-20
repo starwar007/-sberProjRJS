@@ -9,7 +9,7 @@ import { Coment } from './Coments/Coment'
 import { AddComent } from './Coments/AddComent/AddComent';
 import EditPost from '../../components/EditPost/EditPost'
 import Button from "../../components/Button/Button";
-import ModalPost from "../../components/ModalPost/ModalPost"
+import ModalPost from "../../components/modalPost/ModalPost"
 import { isLiked } from "../../utils/post";
 import { UserContext } from "../../context/ContextUser";
 import { CardContext } from "../../context/cardContext";
@@ -42,9 +42,13 @@ export const PostPage = () => {
 
 
     function DeletePost() {
-        api.deletePost(id.PostId);
-        setPost(null);
-        navigate('*');
+        api.deletePost(id.PostId)
+            .then(obj=>{
+                alert(`Ваш пост ${obj.title} удален`);
+                setPost(null); 
+                navigate('*');
+            })
+        .catch(err => {console.log(err)}) 
     }
 
     if (!post) return

@@ -3,7 +3,6 @@ import styles from './app.module.css'
 import { useState, useEffect, useCallback } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import api from '../../utils/api';
-import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Authorization from '../../pages/Authorization/Authorization';
@@ -16,6 +15,7 @@ import {CardContext} from "../../context/cardContext";
 import { NotFound } from '../../pages/NotFound/NotFound';
 import { isLiked } from '../../utils/post';
 import EditProfile from '../../pages/EditProfile/EditProfile';
+import Footer from '../Footer/Footer';
 import ResetPassword from '../../pages/ResetPassword/ResetPassword';
 
 function App() {

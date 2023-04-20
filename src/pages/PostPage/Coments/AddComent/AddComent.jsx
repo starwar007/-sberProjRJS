@@ -1,7 +1,7 @@
 import styles from './add.module.css'
 import Button from "../../../../components/Button/Button";
 import { useState, useContext } from "react";
-import ModalPost from "../../../../components/ModalPost/ModalPost";
+import ModalPost from "../../../../components/modalPost/ModalPost";
 import api from '../../../../utils/api';
 import { CardContext } from '../../../../context/cardContext';
 import { Coment } from '../Coment';

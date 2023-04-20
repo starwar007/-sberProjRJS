@@ -5,8 +5,8 @@ import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Search from "../Search/Search";
-import ModalPost from "../ModalPost/ModalPost"
-import PostForm from "../PostForm/PostForm"
+import ModalPost from "../modalPost/ModalPost"
+import PostForm from "../postForm/PostForm"
 import { UserContext } from "../../context/ContextUser";
 import { CardContext } from "../../context/cardContext";
 
