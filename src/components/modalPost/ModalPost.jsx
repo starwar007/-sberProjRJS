@@ -13,4 +13,5 @@ function ModalPost({ active, setActive, children }) {
     );
 };
 
+
 export default ModalPost;
