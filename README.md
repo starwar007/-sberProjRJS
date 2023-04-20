@@ -8,7 +8,7 @@
 ## Разработчики проекта
 [Чернышев Юрий](https://github.com/chernyshevjuv) - front-end разработчик, project-manager
 
-[Васильев Алексей](https://github.com/starwar007) - front-end разработчик
+[Васильев Алексей](https://github.com/starwar007) - front-end разработчик, devops-engineer
 
 [Тумбаев Андрей](https://github.com/AndreyT-v) - front-end разработчик 
 

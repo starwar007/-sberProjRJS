@@ -83,10 +83,8 @@ const EditProfile = () => {
           title="Изменить данные пользователя"
           className={styles.reg_button}
           fn={onSubmit}
-          // disabled={(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/g.test(avatar) === true && name.length>=2 && about.length>=2) ? false : true}
           />
       </div>
-      {/* <Button title="Сброс пароля" route="/resetPassword" className={styles.buttonR} /> */}
       <Button title="Выход" route="/" />
     </section>
   )

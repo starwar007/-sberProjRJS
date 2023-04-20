@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import Search from "../Search/Search";
 import ModalPost from "../modalPost/ModalPost";
-import PostForm from "../postForm/PostForm"
+import PostForm from "../postForm/PostForm";
 import { UserContext } from "../../context/ContextUser";
 import { CardContext } from "../../context/cardContext";
 
