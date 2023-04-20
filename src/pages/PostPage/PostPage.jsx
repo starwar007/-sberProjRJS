@@ -8,34 +8,27 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Coment } from './Coments/Coment'
 import { AddComent } from './Coments/AddComent/AddComent';
 import EditPost from '../../components/EditPost/EditPost'
-
 import Button from "../../components/Button/Button";
 import ModalPost from "../../components/ModalPost/ModalPost"
-
 import { isLiked } from "../../utils/post";
 import { UserContext } from "../../context/ContextUser";
 import { CardContext } from "../../context/cardContext";
 
 export const PostPage = () => {
 
-    const [coments, setComents] = useState([]);
     const [liked, setLiked] = useState(false)
     const [modalActive, setModalActive] = useState(false);
-
     const id = useParams();
     const navigate = useNavigate();
-
     const { currentUser } = useContext(UserContext);
     const {post, setPost, handleLike: onPostLike} = useContext(CardContext);
 
-    console.log(post)
-     function handleLikeClick(){
-         setLiked(!liked);
-         const likes = post.likes;
-         const _id = post._id;
+    function handleLikeClick(){
+        setLiked(!liked);
+        const likes = post.likes;
+        const _id = post._id;
 	 	onPostLike({_id, likes});
-	 }
-
+	}
 
     useEffect(() => {
         const tokenLS = localStorage.getItem('token')
@@ -43,7 +36,6 @@ export const PostPage = () => {
         Promise.all([api.getPost(id.PostId), api.getPostComments(id.PostId)])
             .then(([postData, coments, userInfo]) => {
                 setPost(postData);
-                console.log(postData.comments, coments)
                 setLiked( isLiked(postData.likes, currentUser?._id))
 
             })

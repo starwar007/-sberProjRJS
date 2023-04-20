@@ -1,32 +1,7 @@
-/* font-family: 'Raleway', sans-serif; */
-/* cursor: pointer; */
-/* .buttonIn {
-    font-family: "Source Sans Pro";
-    margin: auto;
-    font-size: 15px;
-    color: #fff;
-    background-color: #23a030;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
-    padding: 10px;
-    width:150px;
-  }  */
 
-    button:hover {
-    background-color: #f6980c;
-    box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
-    transition: background-color 0.3s ease-in;
- } 
+button:hover {
+  box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
+  transition: background-color 0.3s ease-in;
+} 
 
- /* .buttonLong {
-    margin: auto;
-    font-size: 15px;
-    color: #fff;
-    background-color: #23a030;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
-    padding: 10px;
-    width:200px;
-} */
+ 

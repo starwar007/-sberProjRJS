@@ -12,6 +12,10 @@
     margin-bottom: 10px;
   }
 
+  .buttonLong:hover {
+    background-color: #f6980c;
+}
+
 .form {
     display: flex;
     flex-direction: column;

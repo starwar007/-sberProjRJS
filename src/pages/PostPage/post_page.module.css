@@ -93,6 +93,10 @@
     margin-bottom: 10px;
 }
 
+.buttonLong:hover {
+    background-color: #f6980c;
+}
+
 .post_favorite, .post_favorite_active{
     cursor: pointer;
 	background: none;

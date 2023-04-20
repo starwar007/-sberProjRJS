@@ -15,15 +15,6 @@
     align-items: center; 
 }
 
-/* input {
-    width: 100%;
-}
-
-a {
-    display: block;
-    text-decoration: none;
-} */
-
 .auth_button {
     display: block;
     margin: auto;
@@ -33,7 +24,6 @@ a {
 
 .buttonR {
     display: block;
-    /* border: none; */
     padding: 0px 15px 0px 15px;
     margin-bottom: 40px;
 }

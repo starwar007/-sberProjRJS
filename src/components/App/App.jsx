@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './app.module.css'
-import { useState, useEffect, useContext, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import api from '../../utils/api';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import PostList from '../../pages/PostList/PostList';
 import Authorization from '../../pages/Authorization/Authorization';
 import '@fontsource/source-sans-pro';
 import Registration from '../../pages/Registration/Registration';

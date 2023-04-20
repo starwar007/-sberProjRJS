@@ -4,7 +4,6 @@
     background-image: url('../../assets/img/Fon\ header.jpg');
     justify-content: space-between;
     padding: 20px 50px;
-
 }
 
 .logo {
@@ -12,21 +11,12 @@
     display: flex;
     align-items: center;
     font-size: large;
+    font-weight: 100;
     cursor: pointer;
-    margin-right: 50px;
-}
-
-.user {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    flex-grow: 1;
-    justify-content: space-between;
+    margin-left:15px;
 }
 
 .title {
-    margin: 0;
-    width: 400px;
     font-family: "Source Sans Pro";
     color: 	#4B0082;
     font-size: 45px;
@@ -82,9 +72,10 @@
     align-items: center;
 }
 
+
 .login_wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
     margin-right:30px;
     align-items: center;
@@ -92,6 +83,7 @@
 
 .buttonLong0 {
     margin-right: 20px;
+    margin-top: 20px;
     font-size: 15px;
     color: #fff;
     background-color: #23a030;
@@ -102,6 +94,10 @@
     width:200px;
 }
 
+.buttonLong0:hover, .buttonLong:hover {
+    background-color: #f6980c;
+} 
+
 .search {
     width:30%;
     display: flex;
@@ -109,12 +105,27 @@
     justify-content: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1599px) {
+
+    .buttonLong {
+        width:100px;
+    }
+
+    .search{
+        width: auto;
+    }
+}
+
+@media (max-width: 1365px) {
 
     .header {
         flex-direction: column;
         justify-content: center;
         
+    }
+
+    .buttonLong {
+        width:200px;
     }
 
     .login_wrapper {
@@ -128,6 +139,7 @@
     }
 
     .buttonLong {
+        width:200px;
         margin-bottom: 10px;
     }
 

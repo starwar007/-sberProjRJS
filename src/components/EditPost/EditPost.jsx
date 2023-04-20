@@ -2,7 +2,7 @@ import styles from './editpost.module.css';
 import Button from '../Button/Button';
 import ModalPost from '../ModalPost/ModalPost';
 import PostForm from '../PostForm/PostForm';
-import { useState, useCallback, useEffect, useContext } from 'react';
+import {useContext } from 'react';
 import { CardContext } from '../../context/cardContext';
 
 const EditPost = () => {

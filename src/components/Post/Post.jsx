@@ -27,7 +27,7 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
                 {author.about}
               </div>
            </div> 
-           <div className={styles.post_body}>
+           <div className={styles.post_body} style={{margin: 'auto'}}>
               <Link to={`/post/${_id}`}  className={styles.post__link}>
                 <div className={styles.post_body_content}>
                     <div className="">
@@ -37,14 +37,11 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
                         <p><strong>{title}</strong></p>
                         <p>{text}</p>
                         <div className={styles.post_tags}>
-                            
-                            {tags.map((tag,index) => {
-                                    
+                            {tags.map((tag,index) => {    
                                 return  <span key={index} className={styles.background_text}>{tag}</span>
                             })}   
                         </div>
                     </div>
-                    
                 </div>
               </Link>
            </div>

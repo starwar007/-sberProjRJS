@@ -1,3 +1,8 @@
+html {
+    box-sizing: border-box;
+}
+
+
 body {
     margin: 0;
     font-family: "Source Sans Pro";
@@ -16,4 +21,8 @@ button {
 section {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.buttonLong0:hover, .buttonLong:hover {
+    background-color: #f6980c;
 }

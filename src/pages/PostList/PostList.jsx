@@ -1,5 +1,5 @@
 import {Post} from '../../components/Post/Post';
-import styles from './style.module.css';
+import styles from './postlist.module.css';
 import { useState, useEffect, useContext } from 'react';
 import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';

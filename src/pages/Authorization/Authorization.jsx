@@ -21,7 +21,6 @@ const passPattern = {
 };
 
 const Authorization = () => {
-  // const { setToken, currentUser, setCurrentUser } = useContext(UserContext);
   const { setToken, setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
