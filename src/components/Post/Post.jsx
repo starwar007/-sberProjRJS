@@ -27,7 +27,7 @@ export const Post = ({ image, text, title, created_at, author, tags, likes, _id 
                 {author.about}
               </div>
            </div> 
-           <div className={styles.post_body} style={{margin: 'auto'}}>
+           <div className={styles.post_body}>
               <Link to={`/post/${_id}`}  className={styles.post__link}>
                 <div className={styles.post_body_content}>
                     <div className="">
