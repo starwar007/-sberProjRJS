@@ -82,7 +82,7 @@ function App() {
         }
     fnRes();
     fnResURL();
-}, [setModalActive, setEditModalActive, setCards])
+}, [setModalActive, setEditModalActive, setCards ])
 
   const handlePostLike = useCallback((post) => {
        const liked = isLiked(post.likes, currentUser._id)

@@ -14,6 +14,7 @@ function PostForm({title, buttonTitle }) {
     const [url,setUrl] = useState('')
     const {post, handleSendPost:onSubmitSendPost} = useContext(CardContext);
     
+    
     function handlePostSend(data) {
         onSubmitSendPost(data, post, reset, setUrl);
     }

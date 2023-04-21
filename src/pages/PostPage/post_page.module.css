@@ -102,8 +102,13 @@
 	background: none;
 	border: none;
 	padding: 0;
-	display: flex;	
+	display: flex;
+    transition: transform .5s ease;	
 }
+
+.post_favorite:hover, .post_favorite_active:hover {
+    transform: scale(1.5, 1.5);
+}	
 
 .post_favorite  svg{
     fill: #FFFFFF;
