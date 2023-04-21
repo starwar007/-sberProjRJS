@@ -123,6 +123,7 @@ function App() {
         <SearchInfo searchText={searchQuery} />
         <Routes>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
+          <Route element={ <Main searchQuery={searchQuery}/>} exact path="/on_GitHub"/>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
           <Route exact path='/editProfile' element={<EditProfile/>}></Route>
