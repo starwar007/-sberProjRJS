@@ -63,22 +63,19 @@ function App() {
     } 
         if (!sendPost) {
           api.createNewPost(dataPost)
-          .then(api.getPosts()
-            .then(res => {
-              setCards(res)
+          .then(data => api.getPosts()
+            .then(res => {setCards(res)
           }))
           .catch(() =>  navigate('*'))
           setModalActive(false)
         }
         else {
           api.editPost(dataPost, sendPost._id)
-          .then(api.getPosts()
+          .then(data => api.getPost(sendPost._id)
             .then(res => {
-              setCards(res)
-              api.getPost(sendPost._id)
-              .then(responce => {
-                setPost(responce)
-              })
+              setPost(res)
+              api.getPosts()
+              .then(responce => setCards(responce))
           }))
           .catch(() =>  navigate('*'))
           setEditModalActive(false)

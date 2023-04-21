@@ -23,7 +23,7 @@ export function AddComent({token,PostId}) {
         if ((valueForm !== '' && valueForm !== null) && (!!valueForm.trim())) {
             setModalActive(false)
             api.createComment(PostId, formJson)
-                .then(api.getPost(post._id)
+                .then(data => api.getPost(post._id)
                     .then(responce => {
                         setPost(responce)
                     }))

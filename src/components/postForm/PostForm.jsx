@@ -20,7 +20,6 @@ function PostForm({title, buttonTitle }) {
 
     useEffect(() => {
         if(post) {
-            console.log(post)
             api.getPost(post._id) 
             .then(res => {
                 setPostData(res)
