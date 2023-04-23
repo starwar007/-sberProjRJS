@@ -31,10 +31,10 @@ export function Header({ onSubmit, SearchErase }) {
             { (currentUser) ?
             <>
               <div className={styles.search}>
-                {(location.pathname === '/SberProjRJS' || location.pathname === '/') && <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>}
+                {(location.pathname === '/SberProjRJS/' || location.pathname === '/') && <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>}
               </div>
               <div className={styles.add_post}>
-              {(location.pathname === '/SberProjRJS' || location.pathname === '/') && 
+              {(location.pathname === '/SberProjRJS/' || location.pathname === '/') && 
                 <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/> }
               </div>
               <div className={styles.userdata_wrapper1}>
