@@ -102,7 +102,7 @@
     width:30%;
     display: flex;
     align-items: center;
-    justify-content: stretch;
+    justify-content: center;
 }
 
 @media (max-width: 1599px) {
