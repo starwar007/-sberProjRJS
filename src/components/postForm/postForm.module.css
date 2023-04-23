@@ -1,22 +1,27 @@
 
-form {
+.form {
     font-family: "Source Sans Pro";
     display: 'flex';
     flex-direction: 'column';
-    box-sizing:border-box;
-}
-    
-form input {
-    width: calc(100% - 15px);
-}
-
-input {
-    font-family: "Source Sans Pro";
-    padding: 5px;
-    margin: 5px 0;
-    display: block;
 }
 
 .image {
-    width: 460px;
+    max-width: 320px;
+}
+
+input, textarea {
+    width: calc(100% - 15px);
+    margin-bottom: 10px;
+    font-family: "Source Sans Pro";
+    padding: 5px;
+    display: block;
+}
+
+textarea {
+    height: 60px;
+}
+
+h3 {
+    margin: 0;
+    margin-bottom: 10px;
 }

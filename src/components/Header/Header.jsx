@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./header.module.css";
 import cn from "classnames";
 import { useContext } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../Button/Button";
 import Search from "../Search/Search";
 import ModalPost from "../modalPost/ModalPost";
@@ -13,6 +13,7 @@ import { CardContext } from "../../context/cardContext";
 export function Header({ onSubmit, SearchErase }) {
 
   const navigate = useNavigate();
+  const location = useLocation();
   const {currentUser, setCurrentUser } = useContext(UserContext);
   const {modalActive, setModalActive} = useContext(CardContext);
 
@@ -30,10 +31,11 @@ export function Header({ onSubmit, SearchErase }) {
             { (currentUser) ?
             <>
               <div className={styles.search}>
-                <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>
+                {(location.pathname === '/SberProjRJS' || location.pathname === '/') && <Search  onSubmit={onSubmit} SearchErase={SearchErase}/>}
               </div>
               <div className={styles.add_post}>
-                <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/>
+              {(location.pathname === '/SberProjRJS' || location.pathname === '/') && 
+                <Button title="Добавить пост"  fn ={()=>setModalActive(true)} className={styles.buttonLong}/> }
               </div>
               <div className={styles.userdata_wrapper1}>
                 <div onClick={() => navigate('/editProfile')} className={styles.Avatar} >

@@ -17,16 +17,10 @@ const passPattern = {
   message: "Пароль должен содержать минимум восемь символов состоящих из букв латинского алфавита(заглавных или маленьких) и цифр"
 };
 
-
-
 const ResetPassword = () => {
-
-  
   const [ email, setEmail ] = useState('');
   const [ tokenR, setTokenR ] = useState('');
   const [ password, setPassword ] = useState('');
-
-  console.log(tokenR);
 
   const navigate = useNavigate();
 
@@ -51,7 +45,7 @@ const ResetPassword = () => {
 
   return (
     <section className={styles.resetpassword}>
-      <h2 style={{ color: '#23a030' }}><u>МЕНЮ СБРОСА ПАРОЛЯ</u></h2>
+      <h2 style={{ color: '#23a030' }}>Восстановление пароля</h2>
       <div className={styles.divform}>
 
 
@@ -62,7 +56,7 @@ const ResetPassword = () => {
             placeholder='E-mail(действующей эл. почты)'
             autoComplete="new-email"
           />
-          <span className={styles.attention}>{emailPattern.message}</span>
+          <span className={styles.attention}>{((emailRegExp.test(email) === true) ||(email == '')) ? '' : emailPattern.message}</span>
         </div>
 
         <Button
@@ -93,7 +87,7 @@ const ResetPassword = () => {
             autoComplete="new-password"
             pattern={passPattern}
           />
-          <span className={styles.attention}>{passPattern.message}</span>
+          <span className={styles.attention}>{((passworgRegExp.test(password) === true) || (password == '')) ? '' : passPattern.message}</span>
         </div>
 
         <Button

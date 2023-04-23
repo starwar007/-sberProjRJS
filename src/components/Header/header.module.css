@@ -163,4 +163,10 @@
         width: auto;
         margin: 0px 50px 0px 50px;
     }
+
+    @media (max-width: 540px) { 
+        .title {
+            font-size: 30px;
+        }
+    }
 }

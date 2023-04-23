@@ -1,4 +1,4 @@
-import styles from './postForm.module.css';
+import styles from './postform.module.css';
 import api from '../../utils/api';
 import { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
@@ -32,9 +32,10 @@ function PostForm({title, buttonTitle }) {
     }, [])
 
     return (
-        <form>
-            <h3>{title}</h3>
+        <form className='form'>
+            <h3 className='form-title'>{title}</h3>
             <input
+                className='formInput'
                 defaultValue={(postData) ? postData.image : ''}
                 id = 'image'
                 name ='image' 
@@ -50,6 +51,7 @@ function PostForm({title, buttonTitle }) {
             </div>
 
             <input
+                className='formInput'
                 defaultValue={(postData) ? postData.title : ''}
                 name='title'
                 type="text"
@@ -59,17 +61,17 @@ function PostForm({title, buttonTitle }) {
                   })}
             />
             <textarea
+                className='formInput'
                 defaultValue={(postData) ? postData.text : ''}
                 name='text'
                 type="text"
-                rows={6}
-                cols={50}
                 placeholder="Текст поста"
                 {...register("text", {
                     required: "Обязательное поле",
                   })}
             />
             <input
+                className='formInput'
                 defaultValue={(postData) ? postData.tags.join(', ') : ''}
                 name = 'tags'
                 type="text"
