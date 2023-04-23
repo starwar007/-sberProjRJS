@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './app.module.css'
 import { useState, useEffect, useCallback } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import api from '../../utils/api';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -30,6 +30,7 @@ function App() {
   const [post, setPost] = useState(null);
 
   const navigate = useNavigate();
+  const location = useLocation();
   
    useEffect(() => {
      const tokenFromLS = localStorage.getItem('token');
@@ -39,7 +40,6 @@ function App() {
         .then(res => {
           setCurrentUser(res);
         })
-        
         setToken(tokenFromLS)
 
       }
@@ -82,7 +82,8 @@ function App() {
         }
     fnRes();
     fnResURL();
-}, [setModalActive, setEditModalActive, setCards ])
+    setPost(null);
+}, [setModalActive, setEditModalActive, setCards])
 
   const handlePostLike = useCallback((post) => {
        const liked = isLiked(post.likes, currentUser._id)
@@ -120,7 +121,7 @@ function App() {
         onSubmit={handleFormSubmit}
       />
       <main className={styles.main}>
-        <SearchInfo searchText={searchQuery} />
+      {(location.pathname === '/sberProjRJS' || location.pathname === '/') && <SearchInfo searchText={searchQuery} />}
         <Routes>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/sberProjRJS"/>
