@@ -1,4 +1,4 @@
-import styles from './postform.module.css';
+import styles from './postForm.module.css';
 import api from '../../utils/api';
 import { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
