@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/-sberProjRJS/static/css/main.97b87295.css",
+    "main.js": "/-sberProjRJS/static/js/main.86766ebb.js",
+    "static/media/Fon header.jpg": "/-sberProjRJS/static/media/Fon header.9cb21824adbc34bec8d2.jpg",
+    "static/media/source-sans-pro-all-400-normal.woff": "/-sberProjRJS/static/media/source-sans-pro-all-400-normal.1882629b5eaf2ec74fbf.woff",
+    "static/media/source-sans-pro-latin-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-latin-400-normal.c0d191aa7fb798623030.woff2",
+    "static/media/source-sans-pro-latin-ext-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-latin-ext-400-normal.fbd4fe33a443c83e04f1.woff2",
+    "static/media/source-sans-pro-cyrillic-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-cyrillic-400-normal.d1cfd8b7bb2cbe3fabb0.woff2",
+    "static/media/source-sans-pro-greek-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-greek-400-normal.9c7d72dcc7a044db07b1.woff2",
+    "static/media/source-sans-pro-greek-ext-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-greek-ext-400-normal.1b1cb10170f2616853f0.woff2",
+    "static/media/source-sans-pro-cyrillic-ext-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-cyrillic-ext-400-normal.de95c5209ef26bf69ccf.woff2",
+    "static/media/source-sans-pro-vietnamese-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-vietnamese-400-normal.e84a4369ad213f658ebb.woff2",
+    "static/media/comment.svg": "/-sberProjRJS/static/media/comment.0ba6aeb33f8a0b201da67dfbd9b3c6e4.svg",
+    "static/media/ic-notfound.svg": "/-sberProjRJS/static/media/ic-notfound.2c252d16f18118d22833d1b995ba0234.svg",
+    "static/media/like.svg": "/-sberProjRJS/static/media/like.3915fcbfa5001564c667e23ad1b7201d.svg",
+    "static/media/ic-close-input.svg": "/-sberProjRJS/static/media/ic-close-input.54db44869b83261dae0b721cf5826a4b.svg",
+    "static/media/ic-search.svg": "/-sberProjRJS/static/media/ic-search.9da1e3f9e0d0d0b38f3c1ac2041e5f49.svg",
+    "index.html": "/-sberProjRJS/index.html",
+    "main.97b87295.css.map": "/-sberProjRJS/static/css/main.97b87295.css.map",
+    "main.86766ebb.js.map": "/-sberProjRJS/static/js/main.86766ebb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97b87295.css",
+    "static/js/main.86766ebb.js"
+  ]
+}
