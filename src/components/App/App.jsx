@@ -121,10 +121,10 @@ function App() {
         onSubmit={handleFormSubmit}
       />
       <main className={styles.main}>
-      {(location.pathname === '/sberProjRJS' || location.pathname === '/') && <SearchInfo searchText={searchQuery} />}
+      {(!location.pathname.includes('post')) && <SearchInfo searchText={searchQuery} />}
         <Routes>
           <Route element={ <Main searchQuery={searchQuery}/>} exact path="/"/>
-          <Route element={ <Main searchQuery={searchQuery}/>} exact path="/sberProjRJS"/>
+          <Route element={ <Main searchQuery={searchQuery}/>} exact path="/-sberProjRJS"/>
           <Route exact path='/authorization' element={<Authorization/>}></Route>
           <Route exact path='/registration' element={<Registration/>}></Route>
           <Route exact path='/editProfile' element={<EditProfile/>}></Route>

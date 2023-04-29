@@ -56,7 +56,7 @@ const ResetPassword = () => {
             placeholder='E-mail(действующей эл. почты)'
             autoComplete="new-email"
           />
-          <span className={styles.attention}>{((emailRegExp.test(email) === true) ||(email == '')) ? '' : emailPattern.message}</span>
+          <span className={styles.attention}>{((emailRegExp.test(email) === true) ||(email === '')) ? '' : emailPattern.message}</span>
         </div>
 
         <Button
@@ -87,7 +87,7 @@ const ResetPassword = () => {
             autoComplete="new-password"
             pattern={passPattern}
           />
-          <span className={styles.attention}>{((passworgRegExp.test(password) === true) || (password == '')) ? '' : passPattern.message}</span>
+          <span className={styles.attention}>{((passworgRegExp.test(password) === true) || (password === '')) ? '' : passPattern.message}</span>
         </div>
 
         <Button

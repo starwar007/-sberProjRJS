@@ -116,3 +116,10 @@ img {
 	text-decoration: none;
 	color: currentColor;
 }
+
+.comment {
+    height: 25px;
+    width: 25px;
+    stroke-width: 1px;
+    stroke: #7b8e98;
+}

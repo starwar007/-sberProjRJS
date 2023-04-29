@@ -4,12 +4,10 @@ import { useState, useContext } from "react";
 import ModalPost from "../../../../components/modalPost/ModalPost";
 import api from '../../../../utils/api';
 import { CardContext } from '../../../../context/cardContext';
-import { Coment } from '../Coment';
 
 export function AddComent({token,PostId}) {
 
     const [modalActive, setModalActive] = useState(false);
-    const [NewComment, setNewComment] = useState(null)
     const {post, setPost} = useContext(CardContext);
     
     const sendComentPost = (e) => {
@@ -46,7 +44,6 @@ export function AddComent({token,PostId}) {
                     <button  className={styles.buttonLong} onClick={() => {setModalActive(false)}}>Отправить комментарий</button>    
                 </form> 
         </ModalPost>
-        {!NewComment ? '' : <Coment {...NewComment}/>}
         </>
     )
 }
