@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/-sberProjRJS/static/css/main.97b87295.css",
-    "main.js": "/-sberProjRJS/static/js/main.86766ebb.js",
+    "main.css": "/-sberProjRJS/static/css/main.42c4568b.css",
+    "main.js": "/-sberProjRJS/static/js/main.8347a610.js",
     "static/media/Fon header.jpg": "/-sberProjRJS/static/media/Fon header.9cb21824adbc34bec8d2.jpg",
     "static/media/source-sans-pro-all-400-normal.woff": "/-sberProjRJS/static/media/source-sans-pro-all-400-normal.1882629b5eaf2ec74fbf.woff",
     "static/media/source-sans-pro-latin-400-normal.woff2": "/-sberProjRJS/static/media/source-sans-pro-latin-400-normal.c0d191aa7fb798623030.woff2",
@@ -17,11 +17,11 @@
     "static/media/ic-close-input.svg": "/-sberProjRJS/static/media/ic-close-input.54db44869b83261dae0b721cf5826a4b.svg",
     "static/media/ic-search.svg": "/-sberProjRJS/static/media/ic-search.9da1e3f9e0d0d0b38f3c1ac2041e5f49.svg",
     "index.html": "/-sberProjRJS/index.html",
-    "main.97b87295.css.map": "/-sberProjRJS/static/css/main.97b87295.css.map",
-    "main.86766ebb.js.map": "/-sberProjRJS/static/js/main.86766ebb.js.map"
+    "main.42c4568b.css.map": "/-sberProjRJS/static/css/main.42c4568b.css.map",
+    "main.8347a610.js.map": "/-sberProjRJS/static/js/main.8347a610.js.map"
   },
   "entrypoints": [
-    "static/css/main.97b87295.css",
-    "static/js/main.86766ebb.js"
+    "static/css/main.42c4568b.css",
+    "static/js/main.8347a610.js"
   ]
 }
