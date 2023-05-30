@@ -5,6 +5,8 @@ import api from '../../utils/api';
 import { UserContext } from '../../context/ContextUser';
 import { CardContext } from "../../context/cardContext";
 import { useNavigate } from 'react-router-dom'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 const PostList = ({searchQuery }) => {
 
@@ -13,37 +15,49 @@ const PostList = ({searchQuery }) => {
   const { cards, setCards } = useContext(CardContext);
   const navigate = useNavigate();
 
+  const [page, setPage] = useState(1);
+  const [pages,setPages] = useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   useEffect(() => {
     const tokenLS = localStorage.getItem('token')
     api.setToken(tokenLS)
     setToken(tokenLS)
     if (tokenLS && !searchQuery) {
-      Promise.all([api.getPosts(), api.getUserInfo()])
+      Promise.all([api.getPostPagination(page, 12, searchQuery), api.getUserInfo()])
       .then(([postsData, userData])=> {
         setCurrentUser(userData)
-        setCards(postsData)
+        setCards(postsData.posts)
+        setPages(Math.round(postsData.total/12))  ;
       })
       .catch( err => navigate('*'))
     }  
     else if (searchQuery) {
-      api.search(searchQuery)
+      api.getPostPagination(page, 12, searchQuery)
       .then((searchResult) => {
-        setCards(searchResult);
+        setCards(searchResult.posts);
+        setPage(1);
+        setPages(Math.round(searchResult.total/12))
       })
       .catch( err => navigate('*'))
     }  
-  }, [searchQuery]);
+  }, [searchQuery,page]);
   
 	if (!currentUser)
 	    return <h1 className = {styles.textAttention}>Авторизируйтесь</h1>
 	return (
-		
-		<div className={styles.posts}>
-				{ cards.map((item) => (
-					 <Post key = {item._id} {...item} />
-					 ))}
-						
-		</div>
+    <Stack spacing={2}>
+      <div className={styles.posts}>
+        {cards.map((item) => (
+          <Post key={item._id} {...item} />
+        ))}
+      </div>
+      <div className = {styles.centr}>
+        {(pages !== 1) && <Pagination count={pages} page={page} onChange={handleChange} />}
+      </div>
+    </Stack>
 	);
 };
 

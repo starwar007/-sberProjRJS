@@ -1,10 +1,18 @@
-import { useContext } from "react";
-import { CardContext } from "../../context/cardContext";
+import { useEffect, useState } from "react";
 import styles from './searchinfo.module.css';
+import api from '../../utils/api';
 
 const SeachInfo = ({ searchText }) => {
-	const {cards} = useContext(CardContext);
-	const searchCount = cards.length;
+	
+	const [searchCount,setSearchCount] = useState(0);
+
+	useEffect(() => {
+		api.setToken(localStorage.getItem('token'))
+		api.search(searchText)
+			.then((searchResult) => {
+				setSearchCount(searchResult.length);
+			})
+	}, [searchText])
 	const getIssues = (numb) =>{
 		const tmp = numb % 10;
 		if (tmp === 1 && numb !== 11) return ' пост';

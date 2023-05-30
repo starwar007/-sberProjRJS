@@ -8,7 +8,6 @@
     gap: 10px;
     width: 100%;
     overflow: hidden;
-    /* margin-bottom: 5px; */
 }
 
 .comenAutor img {
@@ -21,4 +20,31 @@
 
 .ComentContent {
     margin-left: 50px;
+    position: relative;
+    overflow-wrap: anywhere;
 }
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: -45px;
+    cursor: pointer;
+    /* Ставим крестик справа */
+    }
+
+    .styled {
+        border: 0;
+        padding: 0 10px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: red;
+    }
+    
+    .styled:hover {
+        background-color: #f6980c;
+        transition: background-color 0.3s ease-in;
+    }
+    

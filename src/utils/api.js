@@ -65,6 +65,11 @@ class Api {
         }).then(onResponce)
     }
 
+    getPostPagination(page, limit, query){
+        return fetch(`${this._baseUrl}v2/group-10/posts/paginate?page=${page}&limit=${limit}&query=${query}`, {
+            headers: this._headers
+        }).then(onResponce)
+    }
 
     getPost(postID) {
         return fetch(`${this._baseUrl}v2/group-10/posts/${postID}`, {
