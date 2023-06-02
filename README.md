@@ -22,7 +22,7 @@
 1. Склонировать проект на ваш компьютер с Gitlab с помощью команды:
 
 ```
-git clone https://github.com/MikeChe419/-sberProjRJS
+git clone https://github.com/starwar007/-sberProjRJS.git
 ```
 
 2. Установить зависимости (на компьютере требуется наличие node.js):
